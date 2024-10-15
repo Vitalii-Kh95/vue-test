@@ -1,0 +1,11 @@
+<script setup>
+import { RouterView } from 'vue-router';
+import TheNavigation from '@/components/TheNavigation.vue';
+</script>
+
+<template>
+  <div class="flex min-h-screen flex-col">
+    <TheNavigation class="navbar sticky top-0 z-10 bg-neutral px-0 text-neutral-content" />
+    <RouterView />
+  </div>
+</template>

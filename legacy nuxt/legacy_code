@@ -1,0 +1,61 @@
+NAVBAR
+
+
+    <!-- Main navigation container -->
+    <nav class="sticky top-0 flex z-50 w-full flex-nowrap items-center justify-between bg-zinc-800 lg:flex-wrap lg:justify-start lg:py-4"
+        data-twe-navbar-ref>
+        <div class="flex w-full flex-wrap items-center justify-between px-3">
+            <!-- Hamburger button for mobile view -->
+            <button
+                class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 lg:hidden"
+                type="button" data-twe-collapse-init data-twe-target="#navbarSupportedContent15"
+                aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Hamburger icon -->
+                <span class="[&>svg]:w-7 [&>svg]:stroke-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </button>
+
+            <!-- Collapsible navbar container -->
+            <div class="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto"
+                id="navbarSupportedContent15" data-twe-collapse-item>
+                <!-- Left links -->
+                <ul class="list-style-none me-auto flex flex-col ps-0 lg:mt-1 lg:flex-row" data-twe-navbar-nav-ref>
+                    <!-- Home link -->
+                    <li class="flex items-center my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2" data-twe-nav-item-ref>
+                        <img class="w-[30px] h-[30px]"
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+                        <img class="w-[30px] h-[30px]"
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Nuxt_logo.svg">
+                        <nuxt-link class="text-white lg:px-5 active" to="/">Home</nuxt-link>
+                        <nuxt-link class="text-white" to="/contacts">Contact me</nuxt-link>
+                    </li>
+                </ul>
+                <div class="w-[500px] lg:pe-2">
+                    <form @submit.prevent="submit" class="relative flex w-full flex-wrap items-stretch">
+                        <input v-model="search" type="search"
+                            class="relative m-0 -me-0.5 block w-[1px] min-w-0 flex-auto rounded-s border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-1 text-base font-normal leading-[1.6] text-gray-300 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white-600 focus:shadow-inset focus:outline-none"
+                            placeholder="Search" aria-label="Search" aria-describedby="button-addon3" />
+
+                        <!--Search button-->
+                        <button
+                            class="relative z-[2] rounded-e border-2 bg-green-700 border-primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-primary-accent-300 hover:bg-green-600 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 motion-reduce:transition-none"
+                            type="submit" id="button-addon3" data-twe-ripple-init>
+                            Search
+                        </button>
+                        <span class="flex gap-4 items-center lg:ps-5" v-if="loggedIn">
+                            <span class="text-white mx-2">{{ data.username }}</span>
+                            <nuxt-link class="text-white " to="/signout">Sign Out</nuxt-link></span>
+                        <span class="flex gap-4 items-center lg:ps-5" v-else>
+                            <nuxt-link class="text-white " to="/signin">Sign In</nuxt-link>
+                            <nuxt-link class="text-white " to="/signup">Sign Up</nuxt-link>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
