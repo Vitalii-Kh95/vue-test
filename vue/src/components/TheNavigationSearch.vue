@@ -19,10 +19,10 @@ function submit() {
       <input
         v-model="search"
         type="text"
-        class="grow text-base-content focus:outline-2 focus:outline-transparent"
+        class="join-item grow text-base-content focus:outline-2 focus:outline-transparent"
         placeholder="Search"
       />
-      <button class="btn btn-info me-0">
+      <button class="btn btn-info join-item me-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

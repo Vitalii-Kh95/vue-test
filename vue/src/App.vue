@@ -5,7 +5,7 @@ import TheNavigation from '@/components/TheNavigation.vue';
 
 <template>
   <div class="flex min-h-screen flex-col">
-    <TheNavigation class="navbar sticky top-0 z-10 bg-neutral px-0 text-neutral-content" />
+    <TheNavigation />
     <RouterView />
   </div>
 </template>

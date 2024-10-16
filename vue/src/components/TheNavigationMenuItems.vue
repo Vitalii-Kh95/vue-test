@@ -1,15 +1,15 @@
 <script setup>
 const menuItems = ['home', 'blog', 'projects', 'contacts'];
+const props = defineProps(['classes']);
 </script>
 
 <template>
-  <div>
-    <router-link
-      v-for="item in menuItems"
-      :to="{ name: item }"
-      :key="item"
-      class="btn btn-ghost text-xl"
-      >{{ item }}</router-link
-    >
-  </div>
+  <router-link
+    v-for="item in menuItems"
+    :key="item"
+    :to="{ name: item }"
+    activeClass="underline"
+    :class="props.classes"
+    >{{ item }}</router-link
+  >
 </template>
