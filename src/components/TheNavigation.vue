@@ -1,7 +1,7 @@
 <script setup>
 import SearchBox from './TheNavigationSearch.vue';
-import MenuItems from './TheNavigationMenuItems.vue';
-import DropdownMenu from './TheNavigationDrowdownMenu.vue';
+import MenuItems from './NavigationMenuItems.vue';
+import DropdownMenu from './TheNavigationDropdownMenu.vue';
 import ProfileMenu from './TheNavigationProfileButton.vue';
 import IconHamburger from './icons/IconHamburger.vue';
 import ThemeSwitcher from './TheThemeSwitcher.vue';
