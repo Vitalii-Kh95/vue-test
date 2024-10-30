@@ -1,9 +1,11 @@
 <template>
-  <router-link class="btn btn-info btn-xs rounded-full" :to="`/tags/${tagName}`"
-    >#{{ tagName }}
+  <router-link
+    class="btn btn-info btn-xs rounded-full"
+    :to="{ name: 'tag-detail', params: { slug: tag.slug } }"
+    >#{{ tag.name }}
   </router-link>
 </template>
 
 <script setup>
-defineProps(['tagName']);
+defineProps(['tag']);
 </script>

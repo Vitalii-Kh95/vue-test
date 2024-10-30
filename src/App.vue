@@ -10,6 +10,11 @@ const xs = breakpoints.smaller('sm');
 <template>
   <div class="flex min-h-screen flex-col">
     <TheNavigation :xs="xs" />
-    <RouterView />
+    <!-- I need to use this Suspense crap to be able to call asyncronous
+    functions writen outside of a component and
+    render it or something like that -->
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </div>
 </template>

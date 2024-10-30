@@ -14,7 +14,7 @@ defineProps(['post']);
       <h5 class="mb-2 text-xl font-bold leading-tight">{{ post.title }}</h5>
       <p v-html="post.description" class="mb-4 h-[100px] overflow-hidden text-ellipsis"></p>
       <span class="mt-5 flex items-end gap-1 overflow-hidden text-black">
-        <TagBadge v-for="tag in post.tags" v-bind:key="tag" :tag-name="tag" />
+        <TagBadge v-for="tag in post.tags" :key="tag" :tag="tag" />
       </span>
     </div>
     <div
