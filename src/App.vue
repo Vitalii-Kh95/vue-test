@@ -13,8 +13,12 @@ const xs = breakpoints.smaller('sm');
     <!-- I need to use this Suspense crap to be able to call asyncronous
     functions writen outside of a component and
     render it or something like that -->
-    <Suspense>
-      <RouterView />
-    </Suspense>
+    <RouterView v-slot="{ Component }">
+      <template v-if="Component">
+        <Suspense>
+          <component :is="Component" />
+        </Suspense>
+      </template>
+    </RouterView>
   </div>
 </template>

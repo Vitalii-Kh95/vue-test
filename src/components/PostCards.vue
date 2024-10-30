@@ -1,6 +1,8 @@
 <script setup>
+import { watch } from 'vue';
 import PostCard from './PostCard.vue';
-defineProps(['posts']);
+const props = defineProps(['posts']);
+// watch(props.posts, () => console.log('posts changed'));
 </script>
 
 <template>

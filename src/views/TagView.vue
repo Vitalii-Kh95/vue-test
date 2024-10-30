@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import TagBadge from '@/components/TagBadge.vue';
 import PostCards from '@/components/PostCards.vue';
@@ -9,7 +9,12 @@ const route = useRoute();
 const posts = ref([]);
 posts.value = await getPostsByTag(route.params.slug);
 const tags = await getTags();
-watch(() => route.params.slug, getPostsByTag, { immediate: true });
+watch(
+  () => route.params.slug,
+  async (slug) => (posts.value = await getPostsByTag(slug)),
+  route.params.slug,
+  { immediate: true }
+);
 
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
 const leaveToClass = ref('opacity-0 transform translate-x-1/2');
