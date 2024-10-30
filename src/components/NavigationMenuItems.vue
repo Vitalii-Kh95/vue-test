@@ -8,7 +8,7 @@ const props = defineProps(['classes']);
     v-for="item in menuItems"
     :key="item"
     :to="{ name: item }"
-    activeClass="underline"
+    activeClass="underline pointer-events-none"
     :class="props.classes"
     >{{ item }}</router-link
   >

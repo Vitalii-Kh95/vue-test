@@ -23,7 +23,9 @@ defineProps(['post']);
       <button
         class="bg-primary-100 text-primary-700 hover:bg-primary-accent-200 focus:bg-primary-accent-200 active:bg-primary-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 motion-reduce:transition-none"
       >
-        <router-link :to="`/posts/${post.slug}`" class="btn-outline-secondary btn btn-sm"
+        <router-link
+          :to="{ name: 'blog-detail', params: { slug: post.slug } }"
+          class="btn-outline-secondary btn btn-sm"
           >Details
         </router-link>
       </button>

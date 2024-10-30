@@ -6,10 +6,8 @@ import ProfileMenu from './TheNavigationProfileButton.vue';
 import IconHamburger from './icons/IconHamburger.vue';
 import ThemeSwitcher from './TheThemeSwitcher.vue';
 import SearchButton from './TheNavigationSearchButton.vue';
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 
-const breakpoints = useBreakpoints(breakpointsTailwind);
-const xs = breakpoints.smaller('sm');
+defineProps(['xs']);
 
 //const emit = defineEmits(['q']);
 // const { status, data } = useAuth();
