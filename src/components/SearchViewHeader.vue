@@ -1,5 +1,7 @@
 <script setup>
 import SearchViewSearch from './SearchViewSearch.vue';
+// defineProps(['query']);
+// const emit = defineEmits(['submit-query']);
 </script>
 <template>
   <div class="hero flex h-[15rem] flex-col justify-center gap-0 bg-base-200">
@@ -10,7 +12,7 @@ import SearchViewSearch from './SearchViewSearch.vue';
     </div>
 
     <div class="hero-content flex-1 text-center">
-      <h1 class="text-5xl font-bold">{{ $route.params.query || 'sdf' }}</h1>
+      <h1 class="text-5xl font-bold">{{ $route.query.search || 'sdf' }}</h1>
     </div>
   </div>
 </template>

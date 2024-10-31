@@ -1,16 +1,9 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-// import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
 import PostCards from '@/components/PostCards.vue';
 import { getPosts } from '@/functions';
 const posts = ref([]);
 onMounted(async () => (posts.value = await getPosts()));
-// const route = useRoute();
-// watch(
-//   () => route.path,
-//   async () => (posts.value = await getPosts()),
-//   { immediate: true }
-// );
 
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
 const leaveToClass = ref('opacity-0 transform translate-x-1/2');
