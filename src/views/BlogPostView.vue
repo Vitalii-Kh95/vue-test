@@ -34,15 +34,16 @@ export default {
   }
 };
 </script>
-
 <template>
-  <div class="flex w-full flex-col items-center">
-    <div v-if="error" class="error">{{ error }}</div>
+  <Suspense>
+    <div class="flex w-full flex-col items-center">
+      <div v-if="error" class="error">{{ error }}</div>
 
-    <!-- <Header :title="post.title" /> -->
-    <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
-      <PostDetail :post="post" />
-      <!-- <Aside :tags="tags" :aside="aside" /> -->
+      <!-- <Header :title="post.title" /> -->
+      <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
+        <PostDetail :post="post" />
+        <!-- <Aside :tags="tags" :aside="aside" /> -->
+      </div>
     </div>
-  </div>
+  </Suspense>
 </template>
