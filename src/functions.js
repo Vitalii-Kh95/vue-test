@@ -13,8 +13,11 @@ export async function getPost(slug) {
   }
 }
 
-export async function getPosts() {
-  const url = 'http://localhost:8000/api/posts/';
+export async function getPosts(searchQuery = undefined) {
+  let url = 'http://localhost:8000/api/posts/';
+  if (searchQuery) {
+    url = 'http://localhost:8000/api/posts/?search=' + searchQuery;
+  }
   try {
     const response = await fetch(url);
     if (!response.ok) {
