@@ -1,7 +1,5 @@
 <template>
-  <router-link
-    class="btn btn-info btn-xs rounded-full"
-    :to="{ name: 'tag-detail', params: { slug: tag.slug } }"
+  <router-link class="badge badge-accent" :to="{ name: 'tag-detail', params: { slug: tag.slug } }"
     >#{{ tag.name }}
   </router-link>
 </template>

@@ -13,10 +13,16 @@ export async function getPost(slug) {
   }
 }
 
-export async function getPosts(searchQuery = undefined) {
+export async function getPosts({ limit = 6, offset = 0, searchQuery = undefined }) {
   let url = 'http://localhost:8000/api/posts/';
+  if (limit) {
+    url += '?limit=' + limit;
+  }
+  if (offset) {
+    url += '&offset=' + offset;
+  }
   if (searchQuery) {
-    url = 'http://localhost:8000/api/posts/?search=' + searchQuery;
+    url = url + '&search=' + searchQuery;
   }
   try {
     const response = await fetch(url);

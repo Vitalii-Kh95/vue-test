@@ -1,9 +1,13 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import PostCards from '@/components/PostCards.vue';
-import { getPosts } from '@/functions';
-const posts = ref([]);
-onMounted(async () => (posts.value = await getPosts()));
+// import { getPosts } from '@/functions';
+import { usePostStore } from '@/stores/PostStore';
+
+const postStore = usePostStore();
+postStore.getPosts({});
+// const posts = ref([]);
+// onMounted(async () => (posts.value = await getPosts()));
 
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
 const leaveToClass = ref('opacity-0 transform translate-x-1/2');
@@ -22,7 +26,7 @@ const leaveToClass = ref('opacity-0 transform translate-x-1/2');
 </script>
 
 <template>
-  <div class="container mx-auto flex flex-col items-center px-20">
+  <div class="container mx-auto flex flex-col items-center px-12">
     <h1 class="mb-2 mt-5 text-center text-4xl font-bold">Recent blog posts</h1>
 
     <transition
@@ -32,7 +36,7 @@ const leaveToClass = ref('opacity-0 transform translate-x-1/2');
       :enter-from-class="enterFromClass"
       :leave-to-class="leaveToClass"
     >
-      <PostCards :posts="posts" />
+      <PostCards :posts="postStore.posts" />
     </transition>
 
     <!-- <Pagination :total="pagesCount" @curent-page="(n) => (curentPage = n)" class="my-5" /> -->
