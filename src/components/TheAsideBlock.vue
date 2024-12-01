@@ -19,7 +19,11 @@ postStore.getPosts({ limit: 4 });
       <div class="card-body">
         <div v-html="post.description" class="h-[100px] overflow-hidden text-ellipsis"></div>
         <div class="card-actions">
-          <nuxt-link :to="`/posts/${post.slug}`" class="link link-primary">Details</nuxt-link>
+          <router-link
+            :to="{ name: 'blog-detail', params: { slug: post.slug } }"
+            class="link link-primary"
+            >Details</router-link
+          >
         </div>
         <div class="divider my-0" v-if="index !== postStore.posts.length - 1"></div>
       </div>

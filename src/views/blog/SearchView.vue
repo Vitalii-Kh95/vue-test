@@ -3,19 +3,21 @@ import { ref, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import SearchViewHeader from '@/components/TheSearchViewHeader.vue';
 import PostCards from '@/components/PostCards.vue';
-import { getPosts } from '@/functions';
-
+import { usePostStore } from '@/stores/PostStore';
 const route = useRoute();
 const router = useRouter();
-const posts = ref([]);
-onMounted(async () => {
-  if (route.query.q != '' && route.query.q != undefined) {
-    posts.value = await getPosts(route.query.q);
-  }
-});
+const postStore = usePostStore();
+postStore.getPosts({ searchQuery: route.query.q });
+
+// const posts = ref([]);
+// onMounted(async () => {
+//   if (route.query.q != '' && route.query.q != undefined) {
+//     posts.value = await getPosts(route.query.q);
+//   }
+// });
 watch(
   () => route.query.q,
-  async (query) => (posts.value = await getPosts(query)),
+  async (query) => postStore.getPosts({ searchQuery: query }),
   { immediate: true }
 );
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
@@ -34,7 +36,7 @@ const leaveToClass = ref('opacity-0 transform translate-x-1/2');
       :enter-from-class="enterFromClass"
       :leave-to-class="leaveToClass"
     >
-      <PostCards :posts="posts" />
+      <PostCards :posts="postStore.posts" />
     </transition>
   </div>
 </template>

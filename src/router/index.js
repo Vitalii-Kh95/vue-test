@@ -17,11 +17,7 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
     },
-    {
-      path: '/search',
-      name: 'search',
-      component: () => import('../views/SearchView.vue')
-    },
+
     {
       path: '/projects',
       name: 'projects',
@@ -29,23 +25,33 @@ const router = createRouter({
     },
     {
       path: '/blog',
-      name: 'blog',
-      component: () => import('../views/BlogView.vue')
-    },
-    {
-      path: '/blog/:slug',
-      name: 'blog-detail',
-      component: () => import('../views/BlogPostView.vue')
+      children: [
+        {
+          path: '',
+          name: 'blog',
+          component: () => import('../views/blog/BlogView.vue')
+        },
+        {
+          path: 'search',
+          name: 'search',
+          component: () => import('../views/blog/SearchView.vue')
+        },
+        {
+          path: ':slug',
+          name: 'blog-detail',
+          component: () => import('../views/blog/BlogDetailsView.vue')
+        },
+        {
+          path: 'tags/:slug',
+          name: 'tag-detail',
+          component: () => import('../views/blog/TagView.vue')
+        }
+      ]
     },
     {
       path: '/tags',
       name: 'tags',
       component: () => import('../views/TagsView.vue')
-    },
-    {
-      path: '/tags/:slug',
-      name: 'tag-detail',
-      component: () => import('../views/TagView.vue')
     }
   ]
 });

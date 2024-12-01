@@ -3,11 +3,21 @@ import SearchBox from './TheNavigationSearch.vue';
 import MenuItems from './NavigationMenuItems.vue';
 import DropdownMenu from './TheNavigationDropdownMenu.vue';
 import ProfileMenu from './TheNavigationProfileButton.vue';
-import IconHamburger from './icons/IconHamburger.vue';
+import IconHamburger from '@/components/icons/IconHamburger.vue';
 import ThemeSwitcher from './TheThemeSwitcher.vue';
 import SearchButton from './TheNavigationSearchButton.vue';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 defineProps(['xs']);
+
+const route = useRoute();
+const displaySearch = computed(() => {
+  return (
+    (route.path.includes('blog') || route.path.includes('projects')) &&
+    !route.path.includes('search')
+  );
+});
 
 //const emit = defineEmits(['q']);
 // const { status, data } = useAuth();
@@ -37,7 +47,10 @@ defineProps(['xs']);
     </div>
 
     <div class="navbar-end flex-grow gap-2">
-      <component v-if="$route.name != 'search'" :is="xs ? SearchButton : SearchBox" />
+      <!-- I need to get into nested routs or routers.
+      So if I get blog or projects at the root
+      I display search component -->
+      <component v-if="displaySearch" :is="xs ? SearchButton : SearchBox" />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
     </div>

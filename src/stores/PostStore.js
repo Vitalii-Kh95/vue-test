@@ -1,35 +1,61 @@
 import { defineStore } from 'pinia';
-import { getPosts, getPost } from '@/functions';
+import { getPosts, getPost, parseUrlParams } from '@/functions';
+// import { usePaginationStore } from './PaginationStore';
+
+// const paginationStore = usePaginationStore();
+
 export const usePostStore = defineStore('postStore', {
   state: () => {
     return {
       count: null,
+      pageSize: null,
+      currentPage: null,
       nextPage: null,
       previousPage: null,
-      posts: {},
-      post: null,
-      pageSize: null
+      posts: [],
+      post: null
     };
   },
 
   getters: {
-    PageCount: (state) => {
+    pageCount: (state) => {
       if (state.count) {
-        return Math.ceil(state.count / this.pageSize);
+        return Math.ceil(state.count / state.pageSize);
       }
     }
   },
 
   actions: {
-    async getPosts({ limit = 6, offset = 0, searchQuery = undefined }) {
+    async getPosts({ limit = 6, offset = 0, searchQuery: search = undefined, tag = undefined }) {
       this.pageSize = limit;
+      this.currentPage = offset / limit + 1;
       ({
         count: this.count,
         next: this.nextPage,
         previous: this.previousPage,
         results: this.posts
-      } = await getPosts({ limit: limit, offset: offset, searchQuery: searchQuery }));
+      } = await getPosts({ limit: limit, offset: offset, search: search, tag: tag }));
     },
+
+    async getPreviousPage() {
+      const { limit, offset, search, tag } = await parseUrlParams(this.previousPage);
+      await this.getPosts({ limit, offset, search, tag });
+    },
+
+    async getNextPage() {
+      const { limit, offset, search, tag } = await parseUrlParams(this.nextPage);
+      await this.getPosts({ limit, offset, search, tag });
+    },
+
+    // async getPostsByTag({ limit = 6, offset = 0, slug = undefined }) {
+    //   this.pageSize = limit;
+    //   ({
+    //     count: this.count,
+    //     next: this.nextPage,
+    //     previous: this.previousPage,
+    //     results: this.posts
+    //   } = await getPosts({ limit: limit, offset: offset, tag: slug }));
+    // },
 
     async getPost(slug) {
       this.post = await getPost(slug);

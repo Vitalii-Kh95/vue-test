@@ -1,7 +1,6 @@
 <script setup>
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import IconSearch from './icons/IconSearch.vue';
+import IconSearch from '@/components/icons/IconSearch.vue';
 // Can we use nested RouterView for that?
 const router = useRouter();
 function submit(form) {

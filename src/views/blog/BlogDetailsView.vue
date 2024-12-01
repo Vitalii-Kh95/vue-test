@@ -1,6 +1,6 @@
 <script setup>
 import PostDetail from '@/components/PostDetail.vue';
-import AsideBlock from '@/components/AsideBlock.vue';
+import AsideBlock from '@/components/TheAsideBlock.vue';
 import { useRoute } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
 

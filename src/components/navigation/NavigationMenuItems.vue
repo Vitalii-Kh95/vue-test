@@ -1,5 +1,5 @@
 <script setup>
-const menuItems = ['home', 'blog', 'projects', 'contacts'];
+const menuItems = ['home', 'contacts', 'blog', 'projects'];
 const props = defineProps(['classes']);
 </script>
 
