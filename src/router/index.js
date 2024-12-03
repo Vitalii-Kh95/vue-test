@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('../views/ProjectsView.vue')
+      component: () => import('../views/projects/ProjectsView.vue')
     },
     {
       path: '/blog',
@@ -47,11 +47,6 @@ const router = createRouter({
           component: () => import('../views/blog/TagView.vue')
         }
       ]
-    },
-    {
-      path: '/tags',
-      name: 'tags',
-      component: () => import('../views/TagsView.vue')
     }
   ]
 });

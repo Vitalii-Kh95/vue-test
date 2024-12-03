@@ -1,23 +1,20 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { usePostStore } from '@/stores/PostStore';
 import SearchViewHeader from '@/components/TheSearchViewHeader.vue';
 import PostCards from '@/components/PostCards.vue';
-import { usePostStore } from '@/stores/PostStore';
-const route = useRoute();
-const router = useRouter();
-const postStore = usePostStore();
-postStore.getPosts({ searchQuery: route.query.q });
+import Pagination from '@/components/pagination/ThePagination.vue';
 
-// const posts = ref([]);
-// onMounted(async () => {
-//   if (route.query.q != '' && route.query.q != undefined) {
-//     posts.value = await getPosts(route.query.q);
-//   }
-// });
+const route = useRoute();
+const postStore = usePostStore();
 watch(
   () => route.query.q,
-  async (query) => postStore.getPosts({ searchQuery: query }),
+  async (query) => {
+    if (query) {
+      postStore.getPosts({ search: query });
+    }
+  },
   { immediate: true }
 );
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
@@ -25,9 +22,10 @@ const leaveToClass = ref('opacity-0 transform translate-x-1/2');
 </script>
 
 <template>
-  <div class="container mx-auto pt-5">
+  <div class="container mx-auto flex flex-col items-center pt-5">
     <SearchViewHeader
-      @submit-query="(query) => router.push({ name: 'search', query: { q: query } })"
+      class="mx-3"
+      @submit-query="(query) => $router.push({ name: 'search', query: { q: query } })"
     />
     <transition
       mode="out-in"
@@ -36,7 +34,8 @@ const leaveToClass = ref('opacity-0 transform translate-x-1/2');
       :enter-from-class="enterFromClass"
       :leave-to-class="leaveToClass"
     >
-      <PostCards :posts="postStore.posts" />
+      <PostCards v-if="route.query.q" :posts="postStore.posts" />
     </transition>
+    <Pagination v-if="route.query.q" class="my-5" />
   </div>
 </template>

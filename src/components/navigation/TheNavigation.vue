@@ -8,7 +8,10 @@ import ThemeSwitcher from './TheThemeSwitcher.vue';
 import SearchButton from './TheNavigationSearchButton.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useWindowSizeStore } from '@/stores/WindowSizeStore';
+// import { storeToRefs } from 'pinia';
 
+const windowSizeStore = useWindowSizeStore();
 defineProps(['xs']);
 
 const route = useRoute();
@@ -38,11 +41,11 @@ const displaySearch = computed(() => {
           role="menu"
           class="menu dropdown-content menu-md z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 text-base-content shadow"
         >
-          <DropdownMenu :classes="'text-lg'" />
+          <DropdownMenu />
         </ul>
       </div>
       <div class="hidden lg:flex">
-        <MenuItems :classes="'btn btn-ghost text-xl'" />
+        <MenuItems />
       </div>
     </div>
 
@@ -50,7 +53,7 @@ const displaySearch = computed(() => {
       <!-- I need to get into nested routs or routers.
       So if I get blog or projects at the root
       I display search component -->
-      <component v-if="displaySearch" :is="xs ? SearchButton : SearchBox" />
+      <component v-if="displaySearch" :is="windowSizeStore.xs ? SearchButton : SearchBox" />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
     </div>

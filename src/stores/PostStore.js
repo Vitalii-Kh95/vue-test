@@ -1,8 +1,5 @@
 import { defineStore } from 'pinia';
 import { getPosts, getPost, parseUrlParams } from '@/functions';
-// import { usePaginationStore } from './PaginationStore';
-
-// const paginationStore = usePaginationStore();
 
 export const usePostStore = defineStore('postStore', {
   state: () => {
@@ -26,7 +23,7 @@ export const usePostStore = defineStore('postStore', {
   },
 
   actions: {
-    async getPosts({ limit = 6, offset = 0, searchQuery: search = undefined, tag = undefined }) {
+    async getPosts({ limit = 6, offset = 0, search = undefined, tag = undefined }) {
       this.pageSize = limit;
       this.currentPage = offset / limit + 1;
       ({

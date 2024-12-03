@@ -1,35 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { usePostStore } from '@/stores/PostStore';
-
 import PostCards from '@/components/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
 const postStore = usePostStore();
 postStore.getPosts({});
-const curentPage = ref(1);
-// const posts = ref([]);
-// onMounted(async () => (posts.value = await getPosts()));
 
 const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
 const leaveToClass = ref('opacity-0 transform translate-x-1/2');
-
-// const curentPage = ref(1);
-
-// watch(curentPage, (newValue, oldValue) => {
-//   if (newValue < oldValue) {
-//     enterFromClass.value = 'opacity-0 transform -translate-x-1/2';
-//     leaveToClass.value = 'opacity-0 transform translate-x-1/2';
-//   } else {
-//     enterFromClass.value = 'opacity-0 transform translate-x-1/2';
-//     leaveToClass.value = 'opacity-0 transform -translate-x-1/2';
-//   }
-// });
-
-function setCurrentPage(page) {
-  curentPage.value = page;
-  postStore.getPosts({ limit: 6, offset: (page - 1) * 6 });
-}
 </script>
 
 <template>
@@ -46,6 +25,6 @@ function setCurrentPage(page) {
     >
       <PostCards :posts="postStore.posts" />
     </transition>
-    <Pagination :current-page="curentPage" @set-current-page="setCurrentPage" class="my-5" />
+    <Pagination class="my-5" />
   </div>
 </template>

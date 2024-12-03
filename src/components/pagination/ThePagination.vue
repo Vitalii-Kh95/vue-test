@@ -1,36 +1,38 @@
 <script setup>
 import PaginationButton from './paginationButton.vue';
 import { usePostStore } from '@/stores/PostStore';
+import { useRoute } from 'vue-router';
+const route = useRoute();
 
 const postStore = usePostStore();
 </script>
 
 <template>
-  <nav aria-label="Paginate me">
+  <nav v-if="postStore.pageCount > 1" aria-label="Paginate me">
     <ul class="flex">
       <PaginationButton
         label="Previous"
         :callback="postStore.getPreviousPage"
         :disabled="!postStore.previousPage"
       />
-      <li
-        v-for="n in postStore.pageCount"
-        :key="n"
-        :class="[
-          'relative block rounded px-3 py-1.5 text-sm transition duration-300',
-          n === postStore.currentPage
-            ? 'bg-base-300 font-medium'
-            : 'hover:bg-base-200 hover:text-base-content focus:bg-neutral-100 focus:outline-none active:bg-neutral-100'
-        ]"
-      >
+      <li v-for="n in postStore.pageCount" :key="n">
         <button
           v-if="n !== postStore.currentPage"
-          class=""
-          @click="postStore.getPosts({ limit: 6, offset: (n - 1) * 6 })"
+          class="relative block rounded px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-info focus:text-info-content focus:outline-none active:bg-info"
+          @click="
+            postStore.getPosts({
+              limit: 6,
+              offset: (n - 1) * 6,
+              search: route.query.q,
+              tag: route.name === 'tag-detail' ? route.params.slug : undefined
+            })
+          "
         >
           {{ n }}
         </button>
-        <span v-else class="">{{ n }}</span>
+        <span v-else class="relative block rounded bg-base-300 px-3 py-1.5 text-sm font-medium">
+          {{ n }}
+        </span>
       </li>
       <PaginationButton
         label="Next"

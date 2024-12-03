@@ -1,6 +1,5 @@
 <script setup>
 const menuItems = ['home', 'contacts', 'blog', 'projects'];
-const props = defineProps(['classes']);
 </script>
 
 <template>
@@ -8,8 +7,9 @@ const props = defineProps(['classes']);
     v-for="item in menuItems"
     :key="item"
     :to="{ name: item }"
-    activeClass="underline pointer-events-none"
-    :class="props.classes"
+    activeClass="underline"
+    class="btn btn-ghost text-xl"
+    :class="{ 'pointer-events-none': $route.name === item }"
     >{{ item }}</router-link
   >
 </template>

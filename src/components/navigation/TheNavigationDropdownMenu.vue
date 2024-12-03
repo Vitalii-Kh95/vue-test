@@ -1,10 +1,14 @@
 <script setup>
 const menuItems = ['home', 'blog', 'projects', 'contacts'];
-const props = defineProps(['classes']);
 </script>
 
 <template>
   <li v-for="item in menuItems" :key="item">
-    <router-link :to="{ name: item }" :class="props.classes">{{ item }}</router-link>
+    <router-link
+      :to="{ name: item }"
+      class="text-lg"
+      :class="[$route.name === item ? 'pointer-events-none underline' : '']"
+      >{{ item }}</router-link
+    >
   </li>
 </template>

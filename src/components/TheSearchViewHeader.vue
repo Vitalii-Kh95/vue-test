@@ -10,7 +10,9 @@ function submit(form) {
 }
 </script>
 <template>
-  <div class="hero flex h-[15rem] flex-col justify-center gap-0 bg-base-200">
+  <div
+    class="hero flex h-[15rem] flex-col justify-center gap-0 bg-gradient-to-r from-base-100 via-base-200 to-base-100"
+  >
     <div class="hero-content w-full flex-grow text-center">
       <form @submit.prevent="(form) => submit(form)" role="search" class="join">
         <label class="input input-lg input-bordered flex w-4/5 items-center gap-2">
