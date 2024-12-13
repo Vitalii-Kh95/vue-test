@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "concurrently \"vite\" \"export POETRY_DOTENV_LOCATION=/home/vitalii/projects/in_progres/portfolio/django/.env && poetry --directory /home/vitalii/projects/in_progres/portfolio/django run python /home/vitalii/projects/in_progres/portfolio/django/src/manage.py runserver\"",
+    "start": "NODE_OPTIONS=--trace-warnings concurrently \"vite --host\" \"export POETRY_DOTENV_LOCATION=/home/vitalii/projects/in_progres/portfolio/django/.env && poetry --directory /home/vitalii/projects/in_progres/portfolio/django run python /home/vitalii/projects/in_progres/portfolio/django/src/manage.py runserver\"",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",

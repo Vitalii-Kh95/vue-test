@@ -18,7 +18,7 @@ const postStore = usePostStore();
       <li v-for="n in postStore.pageCount" :key="n">
         <button
           v-if="n !== postStore.currentPage"
-          class="relative block rounded px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-info focus:text-info-content focus:outline-none active:bg-info"
+          class="relative block rounded px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-accent"
           @click="
             postStore.getPosts({
               limit: 6,

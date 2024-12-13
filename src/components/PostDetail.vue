@@ -21,9 +21,8 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="divider"></div>
 
     <div class="flex justify-between">
-      <div class="lead mr-auto p-2">Author: {{ post.author }}</div>
       <div class="p-2">Published: {{ datePostWasCreated }}</div>
     </div>
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
   </div>
 </template>

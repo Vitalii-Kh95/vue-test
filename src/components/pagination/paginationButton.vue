@@ -10,7 +10,7 @@ defineProps({
   <li>
     <button
       :disabled="disabled"
-      class="relative block rounded bg-transparent px-3 py-1.5 text-sm transition duration-300 focus:bg-info focus:text-info-content focus:outline-none active:bg-info"
+      class="relative block rounded bg-transparent px-3 py-1.5 text-sm transition duration-300 focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-accent"
       :class="disabled ? 'pointer-events-none' : 'hover:bg-base-200 hover:text-base-content'"
       @click="callback"
     >

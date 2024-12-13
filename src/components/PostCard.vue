@@ -25,10 +25,10 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     </div>
     <div class="divider my-0"></div>
     <div class="flex items-center justify-between overflow-hidden px-6 py-3 text-center">
-      <router-link :to="{ name: 'blog-detail', params: { slug: post.slug } }" class="btn"
+      <router-link :to="{ name: 'blog-detail', params: { slug: post.slug } }" class="btn btn-accent"
         >Details
       </router-link>
-      <p class="text-end text-neutral-content">Published: {{ datePostWasCreated }}</p>
+      <p class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>
     </div>
   </div>
 </template>

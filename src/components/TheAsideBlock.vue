@@ -27,7 +27,7 @@ const posts = computed(() => postStore.posts.filter((post) => post.slug !== rout
         <div class="card-actions">
           <router-link
             :to="{ name: 'blog-detail', params: { slug: post.slug } }"
-            class="link link-primary"
+            class="link link-secondary"
             >Details</router-link
           >
         </div>
