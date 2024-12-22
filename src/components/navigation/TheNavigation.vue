@@ -9,7 +9,6 @@ import SearchButton from './TheNavigationSearchButton.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWindowSizeStore } from '@/stores/WindowSizeStore';
-// import { storeToRefs } from 'pinia';
 
 const windowSizeStore = useWindowSizeStore();
 defineProps(['xs']);
@@ -21,13 +20,6 @@ const displaySearch = computed(() => {
     !route.path.includes('search')
   );
 });
-
-//const emit = defineEmits(['q']);
-// const { status, data } = useAuth();
-
-// const loggedIn = computed(() => {
-//   return status.value === 'authenticated';
-// });
 </script>
 <template>
   <div class="navbar sticky top-0 z-10 bg-neutral px-0 text-neutral-content">

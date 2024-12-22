@@ -1,6 +1,5 @@
 import daisyui from 'daisyui';
 import themes from 'daisyui/src/theming/themes';
-// console.log(themes['light']);
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   plugins: [daisyui],

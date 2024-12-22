@@ -7,7 +7,6 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
 
 <template>
   <div>
-    <!--    ЭТО ТЕЛО ПОСТА -->
     <img class="img-fluid rounded" :src="post.image" alt="" />
 
     <div class="divider"></div>
@@ -23,6 +22,5 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="flex justify-between">
       <div class="p-2">Published: {{ datePostWasCreated }}</div>
     </div>
-    <!-- <div class="divider"></div> -->
   </div>
 </template>

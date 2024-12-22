@@ -44,16 +44,6 @@ export const usePostStore = defineStore('postStore', {
       await this.getPosts({ limit, offset, search, tag });
     },
 
-    // async getPostsByTag({ limit = 6, offset = 0, slug = undefined }) {
-    //   this.pageSize = limit;
-    //   ({
-    //     count: this.count,
-    //     next: this.nextPage,
-    //     previous: this.previousPage,
-    //     results: this.posts
-    //   } = await getPosts({ limit: limit, offset: offset, tag: slug }));
-    // },
-
     async getPost(slug) {
       this.post = await getPost(slug);
     }
