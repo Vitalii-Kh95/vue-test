@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { getPosts, getPost, parseUrlParams } from '@/functionsAPIRelated';
 
-export const usePostStore = defineStore('postStore', {
+export const useProjectStore = defineStore('projectStore', {
   state: () => {
     return {
       count: null,
@@ -9,8 +9,8 @@ export const usePostStore = defineStore('postStore', {
       currentPage: null,
       nextPage: null,
       previousPage: null,
-      posts: [],
-      post: null
+      projects: [],
+      project: null
     };
   },
 
@@ -30,8 +30,14 @@ export const usePostStore = defineStore('postStore', {
         count: this.count,
         next: this.nextPage,
         previous: this.previousPage,
-        results: this.posts
-      } = await getPosts({ limit: limit, offset: offset, search: search, tag: tag }));
+        results: this.projects
+      } = await getPosts({
+        limit: limit,
+        offset: offset,
+        search: search,
+        tag: tag,
+        type: 'projects'
+      }));
     },
 
     async getPreviousPage() {
@@ -45,7 +51,7 @@ export const usePostStore = defineStore('postStore', {
     },
 
     async getPost(slug) {
-      this.post = await getPost({ slug: slug });
+      this.project = await getPost({ slug: slug, type: 'projects' });
     }
   }
 });

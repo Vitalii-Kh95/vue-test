@@ -1,30 +1,31 @@
 <script setup>
 import PaginationButton from './paginationButton.vue';
 import { usePostStore } from '@/stores/PostStore';
+import { useProjectStore } from '@/stores/ProjectStore';
 import { useRoute } from 'vue-router';
 const route = useRoute();
-
-const postStore = usePostStore();
+const type = route.path.includes('projects') ? 'projects' : 'blog';
+const store = type === 'projects' ? useProjectStore() : usePostStore();
 </script>
 
 <template>
-  <nav v-if="postStore.pageCount > 1" aria-label="Paginate me">
+  <nav v-if="store.pageCount > 1" aria-label="Paginate me">
     <ul class="flex">
       <PaginationButton
         label="Previous"
-        :callback="postStore.getPreviousPage"
-        :disabled="!postStore.previousPage"
+        :callback="store.getPreviousPage"
+        :disabled="!store.previousPage"
       />
-      <li v-for="n in postStore.pageCount" :key="n">
+      <li v-for="n in store.pageCount" :key="n">
         <button
-          v-if="n !== postStore.currentPage"
+          v-if="n !== store.currentPage"
           class="relative block rounded px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-accent"
           @click="
-            postStore.getPosts({
+            store.getPosts({
               limit: 6,
               offset: (n - 1) * 6,
               search: route.query.q,
-              tag: route.name === 'tag-detail' ? route.params.slug : undefined
+              tag: route.name === `${type}-tag-detail` ? route.params.slug : undefined
             })
           "
         >
@@ -34,11 +35,7 @@ const postStore = usePostStore();
           {{ n }}
         </span>
       </li>
-      <PaginationButton
-        label="Next"
-        :callback="postStore.getNextPage"
-        :disabled="!postStore.nextPage"
-      />
+      <PaginationButton label="Next" :callback="store.getNextPage" :disabled="!store.nextPage" />
     </ul>
   </nav>
 </template>

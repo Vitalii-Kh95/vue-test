@@ -10,18 +10,32 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/contacts',
-      name: 'contacts',
-      component: () => import('../views/ContactsView.vue')
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-    },
-
-    {
       path: '/projects',
-      name: 'projects',
-      component: () => import('../views/projects/ProjectsView.vue')
+      children: [
+        {
+          path: '',
+          name: 'projects',
+          component: () => import('../views/projects/ProjectsView.vue')
+          // route level code-splitting
+          // this generates a separate chunk (About.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+        },
+        {
+          path: 'search',
+          name: 'projects-search',
+          component: () => import('../views/projects/SearchView.vue')
+        },
+        {
+          path: ':slug',
+          name: 'projects-detail',
+          component: () => import('../views/projects/projectsDetailsView.vue')
+        },
+        {
+          path: 'tags/:slug',
+          name: 'projects-tag-detail',
+          component: () => import('../views/projects/TagView.vue')
+        }
+      ]
     },
     {
       path: '/blog',
@@ -43,7 +57,7 @@ const router = createRouter({
         },
         {
           path: 'tags/:slug',
-          name: 'tag-detail',
+          name: 'blog-tag-detail',
           component: () => import('../views/blog/TagView.vue')
         }
       ]

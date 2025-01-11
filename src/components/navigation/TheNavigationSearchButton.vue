@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import { useRoute } from 'vue-router';
+const route = useRoute();
+</script>
 
 <template>
-  <router-link :to="{ name: 'search' }" class="btn btn-circle btn-ghost">
+  <router-link
+    :to="{ name: route.path.includes('projects') ? 'projects-search' : 'blog-search' }"
+    class="btn btn-circle btn-ghost"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-5 w-5"

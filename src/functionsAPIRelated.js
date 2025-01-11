@@ -1,9 +1,27 @@
 import { baseURL } from '@/constants';
 
-///////////////// API related functions ///////////////////////////
+//////////////// CSRF and cookie /////////////////////////
 
-export async function getPost(slug) {
-  const url = new URL('posts/', baseURL);
+export async function getCsrfToken() {
+  const url = new URL('csrf_token/', baseURL);
+  const response = await fetch(url, {
+    credentials: 'include'
+  });
+  const data = await response.json();
+  return data.csrftoken;
+}
+
+export function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) return match[2];
+  return null;
+}
+
+///////////////// blog and project related functions ///////////////////////////
+// These functions utilize similar structure of blog and project API endpoints
+// That's why I decided to take them out of stores
+export async function getPost({ slug = undefined, type = 'blog' }) {
+  const url = type === 'projects' ? new URL('projects/', baseURL) : new URL('posts/', baseURL);
   url.pathname += slug;
   try {
     const response = await fetch(url);
@@ -16,8 +34,14 @@ export async function getPost(slug) {
   }
 }
 
-export async function getPosts({ limit = 6, offset = 0, search = undefined, tag = undefined }) {
-  const url = new URL('posts/', baseURL);
+export async function getPosts({
+  limit = 6,
+  offset = 0,
+  search = undefined,
+  tag = undefined,
+  type = 'blog'
+}) {
+  const url = type === 'projects' ? new URL('projects/', baseURL) : new URL('posts/', baseURL);
   if (limit) {
     url.searchParams.set('limit', limit);
   }
@@ -50,19 +74,4 @@ export async function parseUrlParams(url) {
     tag: params.get('tag') || null
   };
   return result;
-}
-
-export async function getCsrfToken() {
-  const url = new URL('csrf_token/', baseURL);
-  const response = await fetch(url, {
-    credentials: 'include'
-  });
-  const data = await response.json();
-  return data.csrftoken;
-}
-
-export function getCookie(name) {
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  if (match) return match[2];
-  return null;
 }

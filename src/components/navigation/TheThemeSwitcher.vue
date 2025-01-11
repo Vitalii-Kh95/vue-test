@@ -1,12 +1,13 @@
 <script setup>
 import IconSun from '@/components/icons/IconSun.vue';
 import IconMoon from '@/components/icons/IconMoon.vue';
-import { useColorMode } from '@vueuse/core';
+import { useTheme } from '@/composables/useTheme.js';
 
-const mode = useColorMode({
-  attribute: 'data-theme',
-  modes: ['light', 'dark']
-});
+const { colorMode, toggleTheme } = useTheme();
+
+function onCheckboxChange() {
+  toggleTheme();
+}
 </script>
 
 <template>
@@ -16,11 +17,10 @@ const mode = useColorMode({
       type="checkbox"
       name="themeToggle"
       class="theme-controller"
-      v-model="mode"
-      true-value="light"
-      false-value="dark"
+      :checked="colorMode === 'light'"
+      @change="onCheckboxChange"
     />
-    <IconSun />
-    <IconMoon />
+    <IconSun class="swap-off" />
+    <IconMoon class="swap-on" />
   </label>
 </template>

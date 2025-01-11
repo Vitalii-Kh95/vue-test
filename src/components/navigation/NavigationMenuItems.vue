@@ -1,5 +1,5 @@
 <script setup>
-const menuItems = ['home', 'contacts', 'blog', 'projects'];
+const menuItems = ['home', 'blog', 'projects'];
 </script>
 
 <template>

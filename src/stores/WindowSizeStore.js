@@ -7,7 +7,10 @@ export const useWindowSizeStore = defineStore('windowSizeStore', {
   state: () => {
     return {
       xs: breakpoints.smaller('sm'),
-      lg: breakpoints.smaller('xl')
+      sm: breakpoints.between('sm', 'md'),
+      md: breakpoints.between('md', 'lg'),
+      lg: breakpoints.between('lg', 'xl'),
+      xl: breakpoints['xl'] // Screens >= xl
     };
   }
 });
