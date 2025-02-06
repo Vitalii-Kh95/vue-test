@@ -4,7 +4,6 @@ import IconUsername from '@/components/icons/IconUsername.vue';
 import { useUserStore } from '@/stores/UserStore';
 
 const userStore = useUserStore();
-
 async function login(event) {
   const form = event.target.elements;
   const success = await userStore.login(form.username.value, form.password.value);

@@ -21,8 +21,8 @@ export function getCookie(name) {
 // These functions utilize similar structure of blog and project API endpoints
 // That's why I decided to take them out of stores
 export async function getPost({ slug = undefined, type = 'blog' }) {
-  const url = type === 'projects' ? new URL('projects/', baseURL) : new URL('posts/', baseURL);
-  url.pathname += slug;
+  const basePath = type === 'projects' ? 'projects/' : 'posts/';
+  const url = new URL(`${basePath}${slug ? `${slug}/` : ''}`, baseURL);
   try {
     const response = await fetch(url);
     if (!response.ok) {

@@ -8,15 +8,15 @@ userStore.fetchUserState();
 
 async function handleLogout() {
   try {
-    const success = await userStore.logout();
-    if (success) {
-      console.log('Logout successful');
-    } else {
-      console.error('Logout failed:', userStore.errorMessage);
-    }
+    await userStore.logout();
   } catch (error) {
     console.error('Unexpected error during logout:', error.message);
   }
+}
+
+async function showModal(modalId) {
+  userStore.errorMessage = '';
+  document.getElementById(modalId).showModal();
 }
 </script>
 
@@ -30,10 +30,10 @@ async function handleLogout() {
       class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 text-base-content shadow"
     >
       <li v-if="!userStore.loggedIn">
-        <button onclick="sign_in_modal.showModal()">Log In</button>
+        <button @click="showModal('sign_in_modal')">Log In</button>
       </li>
       <li v-if="!userStore.loggedIn">
-        <button onclick="sign_up_modal.showModal()">Sign Up</button>
+        <button @click="showModal('sign_up_modal')">Sign Up</button>
       </li>
       <li v-if="userStore.loggedIn"><button @click="handleLogout">Log Out</button></li>
 

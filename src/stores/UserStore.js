@@ -9,7 +9,7 @@ async function apiCall(endpoint, options = {}) {
 
   options.headers = {
     ...defaultHeaders,
-    'X-CSRFToken': csrftoken,
+    ...(options.noCsrf ? {} : { 'X-CSRFToken': csrftoken }),
     ...(options.headers || {})
   };
 
@@ -19,39 +19,60 @@ async function apiCall(endpoint, options = {}) {
       ...options
     });
 
-    // Handle 204 No Content
-    if (response.status === 204) {
-      return { status: response.status, data: null };
-    }
-
-    // Parse JSON response
-    const data = await response.json();
-
-    // Handle errors
-    if (!response.ok) {
-      const errorMessages = [];
-
-      // DRF error structure
-      if (data.non_field_errors) {
-        errorMessages.push(...data.non_field_errors);
-      }
-      for (const [field, messages] of Object.entries(data)) {
-        if (field !== 'non_field_errors' && Array.isArray(messages)) {
-          errorMessages.push(...messages.map((msg) => `${field}: ${msg}`));
-        }
-      }
-
-      return {
-        status: response.status,
-        error: errorMessages.join('\n') || 'An unknown error occurred.'
-      };
-    }
-
-    return { status: response.status, data };
+    return handleApiResponse(response);
   } catch (error) {
-    // Handle unexpected errors (e.g., network issues)
-    return { status: 500, error: error.message || 'A network error occurred.' };
+    console.error('Network error:', error);
+    return { status: 500, error: 'Network error' };
   }
+}
+
+async function handleApiResponse(response) {
+  let data = null;
+  if (response.status !== 204) {
+    try {
+      data = await response.json(); // Try to parse the response text
+    } catch (error) {
+      console.log('Error parsing response JSON:', error);
+    }
+  }
+
+  return {
+    status: response.status,
+    data,
+    error: response.ok ? null : extractDjangoErrors(data) || `HTTP ${response.status} Error`,
+    ok: response.ok // there was some confusion when I expected returned object to act like object returned by fetch,
+    // so I added this property to consolidate my confusion
+  };
+}
+
+function extractDjangoErrors(data) {
+  // Step 1: Ensure `data` is valid before processing
+  if (!data || typeof data !== 'object') return null;
+
+  // Step 2: Handle DRF's general error messages under the "detail" field
+  if (data.detail) return data.detail;
+
+  // Step 3: Process field-specific validation errors
+  const errors = [];
+
+  // Loop through each key-value pair in `data`
+  for (const [field, message] of Object.entries(data)) {
+    // Skip the "detail" key (already handled above
+    if (field === 'detail') {
+      continue;
+    }
+
+    // Handle array format (multiple messages for the same field)
+    if (Array.isArray(message)) {
+      errors.push(`${field}: ${message.join('; ')}`);
+    } else if (typeof message === 'string') {
+      // Handle single string format (e.g., "This field is required.")
+      errors.push(`${field}: ${message}`);
+    }
+  }
+
+  // Step 4: Return all errors as a single formatted string
+  return errors.length ? errors.join('\n') : null;
 }
 
 export const useUserStore = defineStore('userStore', {
@@ -62,14 +83,24 @@ export const useUserStore = defineStore('userStore', {
   }),
   actions: {
     async fetchUserState() {
-      const result = await apiCall('whoami/');
-      if (result.status === 200) {
+      // const url = new URL('whoami/', baseURL);
+      const result = await apiCall('whoami/', { noCsrf: true });
+      // const result = await fetch(url, {
+      //   credentials: 'include',
+      //   headers: { 'Content-Type': 'application/json' }
+      // });
+      console.log('whoami result:', result);
+      if (result.ok) {
         this.loggedIn = true;
-        this.user = result.data.username;
+        // const data = await result.json();
+        // this.user = data.username;
+        this.user = result.data?.username || null;
+        return true;
       } else {
         this.loggedIn = false;
         this.user = null;
         this.errorMessage = result.error;
+        return false;
       }
     },
 
@@ -85,8 +116,9 @@ export const useUserStore = defineStore('userStore', {
         })
       });
 
-      if (result.status === 201) {
-        await this.fetchUserState(); // Update logged-in state
+      if (result.ok) {
+        console.log('Registration successful');
+        this.loggedIn = await this.login(username, password);
         return true;
       } else {
         this.errorMessage = result.error;
@@ -98,13 +130,31 @@ export const useUserStore = defineStore('userStore', {
       this.errorMessage = '';
       const result = await apiCall('login/', {
         method: 'POST',
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ 'username or email': username, password })
       });
 
-      if (result.status === 200) {
-        await this.fetchUserState(); // Update logged-in state
-        return true;
+      if (result.ok) {
+        // Try to extract username from the login response
+        const username = result.data?.username;
+        if (username) {
+          // Login successful, set the user state
+          this.loggedIn = true;
+          this.user = username;
+          console.log('Login successful');
+          return true;
+        } else {
+          console.warn('Username missing in the login response, attempting to fetch user state...');
+          // Fetch user state if username is not in the response
+          const userStateSuccess = await this.fetchUserState();
+          // If user is still not logged in after fetchUserState, raise an error
+          if (!userStateSuccess) {
+            this.errorMessage = 'Failed to retrieve username';
+            return false;
+          }
+          return true;
+        }
       } else {
+        console.warn('Login failed:', result.error);
         this.errorMessage = result.error;
         return false;
       }
@@ -113,25 +163,15 @@ export const useUserStore = defineStore('userStore', {
     async logout() {
       this.errorMessage = '';
       const result = await apiCall('logout/', { method: 'POST' });
+
       if (result.status === 204) {
         this.loggedIn = false;
         this.user = null;
+        console.log('Logout successful');
         return true;
-      } else if (result.status === 403) {
-        // Handle the case where the user is not authenticated
-        console.warn('Logout attempt by unauthenticated user.');
-        this.loggedIn = false;
-        this.user = null;
-        this.errorMessage = 'You are not logged in.';
-        return false;
-      } else if (result.status === 500) {
-        // Handle unexpected server error
-        console.error('Server error during logout:', result.error);
-        this.errorMessage = 'An unexpected server error occurred. Please try again later.';
-        return false;
       } else {
-        // Handle unexpected errors
         this.errorMessage = result.error;
+        console.error('Logout error:', result.error);
         return false;
       }
     }

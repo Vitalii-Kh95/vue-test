@@ -5,7 +5,6 @@ import IconEmail from '@/components/icons/IconEmail.vue';
 import { useUserStore } from '@/stores/UserStore';
 
 const userStore = useUserStore();
-
 async function register(event) {
   const form = event.target.elements;
   const success = await userStore.register(
