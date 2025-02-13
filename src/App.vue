@@ -20,9 +20,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex h-full flex-col">
     <TheNavigation />
-    <RouterView class="grow" />
+    <RouterView class="h-full grow" />
     <popup ref="popupRef" />
   </div>
 </template>

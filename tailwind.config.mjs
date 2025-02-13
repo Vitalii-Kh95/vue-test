@@ -29,36 +29,22 @@ export default {
           'secondary-content': 'oklch(6.6% 0.05 185.08)'
         },
         'home-light': {
-          primary: 'oklch(70% 0.2 145)',
-          'primary-content': 'oklch(15% 0.03 145)',
-          secondary: 'oklch(80% 0.1 90)',
-          'secondary-content': 'oklch(20% 0.05 90)',
-          accent: 'oklch(70% 0.15 220)',
-          'accent-content': 'oklch(15% 0.03 220)',
-          neutral: 'oklch(90% 0.02 95)',
-          'neutral-content': 'oklch(20% 0.02 95)',
-          error: 'oklch(70% 0.3 25)',
-          'danger-content': 'oklch(15% 0.2 25)',
-          info: 'oklch(80% 0.15 260)',
-          'info-content': 'oklch(20% 0.03 260)',
-          'base-100': 'oklch(100% 0 0)',
-          'base-content': 'oklch(15% 0.03 0)'
+          ...themes['light'], // Retains default DaisyUI "neutral"
+          primary: 'oklch(60% 0.08 250)', // Softer Purplish-Blue
+          'primary-content': 'oklch(100% 0 0)', // White
+          secondary: 'oklch(65% 0.05 185.08)',
+          'secondary-content': 'oklch(100% 0.0144 185.08)'
+          // accent: 'oklch(80% 0.12 40)', // Warm Golden Orange (Soft Contrast)
+          // 'accent-content': 'oklch(10% 0.01 95)' // Near-Black for readability
         },
         'home-dark': {
-          primary: 'oklch(60% 0.25 145)',
-          'primary-content': 'oklch(85% 0.05 145)',
-          secondary: 'oklch(55% 0.2 90)',
-          'secondary-content': 'oklch(85% 0.04 90)',
-          accent: 'oklch(65% 0.2 220)',
-          'accent-content': 'oklch(85% 0.05 220)',
-          neutral: 'oklch(20% 0.02 95)',
-          'neutral-content': 'oklch(85% 0.02 95)',
-          danger: 'oklch(55% 0.35 25)',
-          'danger-content': 'oklch(85% 0.2 25)',
-          info: 'oklch(65% 0.2 260)',
-          'info-content': 'oklch(85% 0.03 260)',
-          'base-100': 'oklch(10% 0 0)',
-          'base-content': 'oklch(85% 0.02 0)'
+          ...themes['dark'], // Retains default DaisyUI "neutral"
+          primary: 'oklch(45% 0.08 250)', // Darker Purplish-Blue
+          'primary-content': 'oklch(90% 0.01 95)', // Light Gray
+          secondary: 'oklch(66% 0.06 185.08)', // Slightly Darker Cyan (Aligned with Blog)
+          'secondary-content': 'oklch(98% 0.01 95)' // Near-White
+          // accent: 'oklch(70% 0.15 40)', // Muted Deep Orange
+          // 'accent-content': 'oklch(95% 0.005 95)' // Soft White
         },
         'projects-light': {
           ...themes['light'],

@@ -35,6 +35,8 @@ export const useHealthStore = defineStore('healthStore', {
           popupInstance.show(); // Show popup if backend recovers
           popupInstance.setMessage('Backend is back online. All systems operational.');
           this.stopRetry(); // Stop retries if backend becomes healthy
+        } else {
+          console.log('Backend responded');
         }
       } catch (error) {
         this.dbStatus = 'Unhealthy';
