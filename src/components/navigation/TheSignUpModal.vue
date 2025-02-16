@@ -65,7 +65,7 @@ async function register(event) {
           </label>
         </div>
         <div class="modal-action flex justify-between">
-          <button type="submit" class="btn btn-accent">Sign Up</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
             <button class="btn">Close</button>

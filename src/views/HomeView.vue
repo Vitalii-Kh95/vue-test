@@ -8,25 +8,23 @@ import Practices from '@/components/resume blocks/ThePractices.vue';
 </script>
 
 <template>
-  <main class="flex h-screen flex-col overflow-hidden bg-base-200 md:flex-row">
+  <main class="flex h-screen flex-col overflow-hidden md:flex-row">
     <!-- <div class="h-[7vw] text-center">Это страница где я представляюсь</div> -->
     <!-- <div class="flex h-full flex-grow overflow-hidden"> -->
     <!-- Left Panel -->
-    <aside
-      class="m-5 flex w-full flex-col gap-4 rounded-lg bg-primary p-6 text-primary-content md:w-1/3"
-    >
-      <About />
-      <Contact />
-      <Languages />
+    <aside class="flex w-full flex-col gap-4 p-6 md:w-1/3">
+      <About position="left" size="full" />
+      <Contact position="left" size="full" />
+      <Languages position="left" size="full" />
     </aside>
 
     <!-- Right Panel -->
     <section
-      class="my-5 flex w-full flex-col gap-4 overflow-auto rounded-l-lg bg-secondary p-6 text-secondary-content md:w-2/3"
+      class="flex w-full flex-col gap-4 overflow-auto bg-muted p-6 text-secondary-content md:w-2/3"
     >
       <!-- <Skills /> -->
-      <TechStack />
-      <Practices />
+      <TechStack position="right" />
+      <Practices position="right" />
     </section>
     <!-- </div> -->
   </main>

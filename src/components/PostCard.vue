@@ -32,7 +32,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
           name: route.path.includes('projects') ? 'projects-detail' : 'blog-detail',
           params: { slug: post.slug }
         }"
-        class="btn btn-accent"
+        class="btn btn-primary"
         >Details
       </router-link>
       <p class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>

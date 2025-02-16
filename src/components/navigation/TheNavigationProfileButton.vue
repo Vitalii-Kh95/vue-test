@@ -22,7 +22,7 @@ async function showModal(modalId) {
 
 <template>
   <div class="dropdown dropdown-end dropdown-hover">
-    <div tabindex="0" role="button" class="btn btn-accent rounded-2xl">
+    <div tabindex="0" role="button" class="btn btn-primary rounded-2xl">
       {{ userStore.loggedIn ? `${userStore.user}` : 'Sign In' }}
     </div>
     <ul
