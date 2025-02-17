@@ -1,9 +1,9 @@
 <script setup>
-import ResumeBlock from './ResumeBlock.vue';
+import FlexibleBlock from './FlexibleBlock.vue';
 </script>
 
 <template>
-  <ResumeBlock title="Skills">
+  <FlexibleBlock title="Skills">
     <slot>
       <h2>farting</h2>
       <h2>burping</h2>
@@ -22,5 +22,5 @@ import ResumeBlock from './ResumeBlock.vue';
       <h2>feeling</h2>
       <h2>smelling</h2>
     </slot>
-  </ResumeBlock>
+  </FlexibleBlock>
 </template>

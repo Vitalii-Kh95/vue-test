@@ -5,6 +5,7 @@ import Skills from '@/components/resume blocks/TheSkills.vue';
 import TechStack from '@/components/resume blocks/TheTechStack.vue';
 import Languages from '@/components/resume blocks/TheLanguages.vue';
 import Practices from '@/components/resume blocks/ThePractices.vue';
+import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
 <template>
@@ -12,17 +13,18 @@ import Practices from '@/components/resume blocks/ThePractices.vue';
     <!-- <div class="h-[7vw] text-center">Это страница где я представляюсь</div> -->
     <!-- <div class="flex h-full flex-grow overflow-hidden"> -->
     <!-- Left Panel -->
-    <aside class="flex w-full flex-col gap-4 p-6 md:w-1/3">
-      <About position="left" size="full" />
-      <Contact position="left" size="full" />
-      <Languages position="left" size="full" />
+    <aside class="flex w-full flex-col gap-4 p-6 md:w-1/4">
+      <Photo class="self-center" />
+      <Contact position="left" size="full" titleStyle="ribbon" />
+      <Languages position="left" size="full" titleStyle="ribbon" />
     </aside>
 
     <!-- Right Panel -->
     <section
-      class="flex w-full flex-col gap-4 overflow-auto bg-muted p-6 text-secondary-content md:w-2/3"
+      class="flex w-full flex-col gap-4 overflow-auto bg-muted p-6 text-secondary-content md:w-3/4"
     >
       <!-- <Skills /> -->
+      <About position="right" size="fit" />
       <TechStack position="right" />
       <Practices position="right" />
     </section>

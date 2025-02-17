@@ -1,6 +1,5 @@
 <script setup>
-import ResumeBlock from './ResumeBlock.vue';
-import RibbonBlock from './RibbonBlock.vue';
+import FlexibleBlock from './FlexibleBlock.vue';
 </script>
 
 <template>
@@ -20,7 +19,7 @@ import RibbonBlock from './RibbonBlock.vue';
     </slot>
   </ResumeBlock> -->
 
-  <RibbonBlock title="About">
+  <FlexibleBlock title="About">
     <p>I am a self-taught backend developer with hands-on experience building web applications.</p>
     <p>
       Coming from a different field, I transitioned into tech to work on meaningful projects and
@@ -30,5 +29,5 @@ import RibbonBlock from './RibbonBlock.vue';
       I focus on writing clean, maintainable code and continuously improving through practice and
       learning.
     </p>
-  </RibbonBlock>
+  </FlexibleBlock>
 </template>

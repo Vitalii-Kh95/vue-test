@@ -1,9 +1,9 @@
 <script setup>
-import ResumeBlock from './ResumeBlock.vue';
+import FlexibleBlock from './FlexibleBlock.vue';
 </script>
 
 <template>
-  <ResumeBlock title="Practices">
+  <FlexibleBlock title="Practices">
     <slot>
       <ul>
         <li>
@@ -53,5 +53,5 @@ import ResumeBlock from './ResumeBlock.vue';
         </li>
       </ul>
     </slot>
-  </ResumeBlock>
+  </FlexibleBlock>
 </template>

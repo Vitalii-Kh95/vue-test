@@ -1,11 +1,16 @@
 <template>
-  <div class="relative">
-    <!-- Ribbon Background -->
-    <div class="absolute left-0 top-1/2 h-1/2 w-full -skew-x-12 bg-secondary"></div>
-
-    <!-- Title Text -->
-    <div class="relative z-10 rounded-l bg-secondary px-4 py-2 font-bold text-info-content shadow">
-      <slot />
-    </div>
+  <div
+    class="absolute -top-3 left-0 z-10 flex w-[calc(100%+10px)] items-center bg-neutral px-4 py-2 text-lg font-bold text-white"
+  >
+    {{ title }}
+    <!-- Fold Effect (Triangle Cut) -->
+    <div
+      class="absolute right-0 top-full h-[10px] w-[8px] bg-neutral [clip-path:polygon(0_0,100%_0,0_100%)]"
+    ></div>
   </div>
 </template>
+<script setup>
+defineProps({
+  title: String
+});
+</script>
