@@ -2,6 +2,7 @@
 import IconPasswordKey from '@/components/icons/IconPasswordKey.vue';
 import IconUsername from '@/components/icons/IconUsername.vue';
 import { useUserStore } from '@/stores/UserStore';
+import { computed } from 'vue';
 
 const userStore = useUserStore();
 async function login(event) {
@@ -11,6 +12,19 @@ async function login(event) {
     document.getElementById('sign_in_modal')?.close();
   }
 }
+// Extract errors from the store
+const errors = computed(() =>
+  typeof userStore.errorMessage === 'object' ? userStore.errorMessage : {}
+);
+
+// Separate general error message (only show if it's a string)
+const generalError = computed(() => errors.value['detail'] || '');
+
+// Extract field-specific errors
+const usernameError = computed(
+  () => errors.value['username'] || errors.value['username or email'] || ''
+);
+const passwordError = computed(() => errors.value['password'] || '');
 </script>
 
 <template>
@@ -18,8 +32,8 @@ async function login(event) {
     <div class="modal-box w-1/6 min-w-max max-w-xl">
       <form @submit.prevent="login" class="flex flex-col gap-4">
         <h3 class="self-center text-lg font-bold">Sign In!</h3>
-        <p v-if="userStore.errorMessage" class="text-red-500">
-          {{ userStore.errorMessage }}
+        <p v-if="generalError" class="text-red-500">
+          {{ generalError }}
         </p>
         <div>
           <div class="label">
@@ -29,6 +43,9 @@ async function login(event) {
             <IconUsername class="shrink-0" />
             <input type="text" name="username" class="grow" />
           </label>
+          <p v-if="usernameError" class="pt-1 text-sm text-red-500">
+            {{ usernameError }}
+          </p>
         </div>
         <div>
           <div class="label">
@@ -38,6 +55,9 @@ async function login(event) {
             <IconPasswordKey class="shrink-0" />
             <input type="password" class="grow" name="password" value="" />
           </label>
+          <p v-if="passwordError" class="pt-1 text-sm text-red-500">
+            {{ passwordError }}
+          </p>
         </div>
         <div class="modal-action flex justify-between">
           <button type="submit" class="btn btn-primary">Sign In</button>

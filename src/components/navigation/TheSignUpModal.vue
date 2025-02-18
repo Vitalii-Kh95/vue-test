@@ -17,6 +17,11 @@ async function register(event) {
     document.getElementById('sign_up_modal')?.close();
   }
 }
+
+// Extract errors from the store
+const errors = computed(() =>
+  typeof userStore.errorMessage === 'object' ? userStore.errorMessage : {}
+);
 </script>
 
 <template>

@@ -39,47 +39,41 @@ async function handleApiResponse(response) {
   return {
     status: response.status,
     data,
-    error: response.ok ? null : extractDjangoErrors(data) || `HTTP ${response.status} Error`,
+    error: response.ok
+      ? null
+      : extractDjangoErrors(data) || { detail: `HTTP ${response.status} Error` },
     ok: response.ok // there was some confusion when I expected returned object to act like object returned by fetch,
     // so I added this property to consolidate my confusion
   };
 }
 
 function extractDjangoErrors(data) {
-  // Step 1: Ensure `data` is valid before processing
+  // Step 1: Ensure `data` is an object
   if (!data || typeof data !== 'object') return null;
 
   // Step 2: Handle DRF's general error messages under the "detail" field
-  if (data.detail) return data.detail;
+  if (data.detail) return { detail: data.detail };
 
   // Step 3: Process field-specific validation errors
-  const errors = [];
+  const errors = {};
 
-  // Loop through each key-value pair in `data`
   for (const [field, message] of Object.entries(data)) {
-    // Skip the "detail" key (already handled above
-    if (field === 'detail') {
-      continue;
-    }
-
     // Handle array format (multiple messages for the same field)
     if (Array.isArray(message)) {
-      errors.push(`${field}: ${message.join('; ')}`);
+      errors[field] = message.join('; ');
     } else if (typeof message === 'string') {
-      // Handle single string format (e.g., "This field is required.")
-      errors.push(`${field}: ${message}`);
+      errors[field] = message;
     }
   }
 
-  // Step 4: Return all errors as a single formatted string
-  return errors.length ? errors.join('\n') : null;
+  return Object.keys(errors).length ? errors : null;
 }
 
 export const useUserStore = defineStore('userStore', {
   state: () => ({
     loggedIn: false,
     user: null,
-    errorMessage: ''
+    errorMessage: {}
   }),
   actions: {
     async fetchUserState() {
@@ -99,13 +93,13 @@ export const useUserStore = defineStore('userStore', {
       } else {
         this.loggedIn = false;
         this.user = null;
-        this.errorMessage = result.error;
+        this.errorMessage = result.error || {};
         return false;
       }
     },
 
     async register(username, email, password, passwordConfirm) {
-      this.errorMessage = '';
+      this.errorMessage = {};
       const result = await apiCall('register/', {
         method: 'POST',
         body: JSON.stringify({
@@ -121,13 +115,13 @@ export const useUserStore = defineStore('userStore', {
         this.loggedIn = await this.login(username, password);
         return true;
       } else {
-        this.errorMessage = result.error;
+        this.errorMessage = result.error || {};
         return false;
       }
     },
 
     async login(username, password) {
-      this.errorMessage = '';
+      this.errorMessage = {};
       const result = await apiCall('login/', {
         method: 'POST',
         body: JSON.stringify({ 'username or email': username, password })
@@ -148,20 +142,20 @@ export const useUserStore = defineStore('userStore', {
           const userStateSuccess = await this.fetchUserState();
           // If user is still not logged in after fetchUserState, raise an error
           if (!userStateSuccess) {
-            this.errorMessage = 'Failed to retrieve username';
+            this.errorMessage = { detail: 'Failed to retrieve username' };
             return false;
           }
           return true;
         }
       } else {
         console.warn('Login failed:', result.error);
-        this.errorMessage = result.error;
+        this.errorMessage = result.error || {};
         return false;
       }
     },
 
     async logout() {
-      this.errorMessage = '';
+      this.errorMessage = {};
       const result = await apiCall('logout/', { method: 'POST' });
 
       if (result.status === 204) {
@@ -170,7 +164,7 @@ export const useUserStore = defineStore('userStore', {
         console.log('Logout successful');
         return true;
       } else {
-        this.errorMessage = result.error;
+        this.errorMessage = result.error || {};
         console.error('Logout error:', result.error);
         return false;
       }
