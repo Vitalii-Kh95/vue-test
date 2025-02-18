@@ -1,10 +1,14 @@
 <script setup>
+import { ref } from 'vue';
 import SignInModal from '@/components/navigation/TheSignInModal.vue';
 import SignUpModal from '@/components/navigation/TheSignUpModal.vue';
 import { useUserStore } from '@/stores/UserStore';
 
 const userStore = useUserStore();
 userStore.fetchUserState();
+
+const signInModal = ref(null);
+const signUpModal = ref(null);
 
 async function handleLogout() {
   try {
@@ -14,9 +18,18 @@ async function handleLogout() {
   }
 }
 
-async function showModal(modalId) {
+// async function showModal(modalId) {
+//   userStore.errorMessage = '';
+//   document.getElementById(modalId).showModal();
+// }
+
+function showModal(modalRef) {
   userStore.errorMessage = '';
-  document.getElementById(modalId).showModal();
+  modalRef?.showModal();
+}
+
+function closeModal(modalRef) {
+  modalRef?.close();
 }
 </script>
 
@@ -30,15 +43,15 @@ async function showModal(modalId) {
       class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 text-base-content shadow"
     >
       <li v-if="!userStore.loggedIn">
-        <button @click="showModal('sign_in_modal')">Log In</button>
+        <button @click="showModal(signInModal)">Log In</button>
       </li>
       <li v-if="!userStore.loggedIn">
-        <button @click="showModal('sign_up_modal')">Sign Up</button>
+        <button @click="showModal(signUpModal)">Sign Up</button>
       </li>
       <li v-if="userStore.loggedIn"><button @click="handleLogout">Log Out</button></li>
 
-      <SignInModal />
-      <SignUpModal />
+      <SignInModal ref="signInModal" />
+      <SignUpModal ref="signUpModal" />
     </ul>
   </div>
 </template>

@@ -3,8 +3,11 @@ import IconPasswordKey from '@/components/icons/IconPasswordKey.vue';
 import IconUsername from '@/components/icons/IconUsername.vue';
 import IconEmail from '@/components/icons/IconEmail.vue';
 import { useUserStore } from '@/stores/UserStore';
+import { ref, computed } from 'vue';
 
 const userStore = useUserStore();
+const modal = ref(null);
+
 async function register(event) {
   const form = event.target.elements;
   const success = await userStore.register(
@@ -13,25 +16,39 @@ async function register(event) {
     form.password.value,
     form.password_confirm.value
   );
-  if (success) {
-    document.getElementById('sign_up_modal')?.close();
-  }
+  if (success) close();
 }
 
 // Extract errors from the store
 const errors = computed(() =>
   typeof userStore.errorMessage === 'object' ? userStore.errorMessage : {}
 );
+
+// Separate general error message (only show if it's a string)
+const generalError = computed(
+  () => errors.value['detail'] || errors.value['non_field_errors'] || ''
+);
+
+// Extract field-specific errors
+const usernameError = computed(() => errors.value['username'] || '');
+const emailError = computed(() => errors.value['email'] || '');
+const passwordConfirmError = computed(() => errors.value['password_confirm'] || '');
+const passwordError = computed(() => errors.value['password'] || '');
+
+const showModal = () => modal.value?.showModal();
+const close = () => modal.value?.close();
+
+defineExpose({ showModal, close });
 </script>
 
 <template>
-  <dialog id="sign_up_modal" class="modal">
+  <dialog ref="modal" class="modal">
     <div class="modal-box w-1/6 min-w-max max-w-xl">
       <form action="" class="flex flex-col gap-4" @submit.prevent="register">
         <h3 class="self-center text-lg font-bold">Sign Up!</h3>
 
-        <p v-if="userStore.errorMessage" class="whitespace-pre-wrap text-red-500">
-          {{ userStore.errorMessage }}
+        <p v-if="generalError" class="text-red-500">
+          {{ generalError }}
         </p>
         <div>
           <div class="label">
@@ -41,6 +58,9 @@ const errors = computed(() =>
             <IconUsername class="shrink-0" />
             <input type="text" name="username" class="grow" />
           </label>
+          <p v-if="usernameError" class="pt-1 text-sm text-red-500">
+            {{ usernameError }}
+          </p>
         </div>
         <div>
           <div class="label">
@@ -50,6 +70,9 @@ const errors = computed(() =>
             <IconEmail class="shrink-0" />
             <input type="text" name="email" class="grow" />
           </label>
+          <p v-if="emailError" class="pt-1 text-sm text-red-500">
+            {{ emailError }}
+          </p>
         </div>
         <div>
           <div class="label">
@@ -59,6 +82,9 @@ const errors = computed(() =>
             <IconPasswordKey class="shrink-0" />
             <input type="password" name="password" class="grow" value="" />
           </label>
+          <p v-if="passwordError" class="pt-1 text-sm text-red-500">
+            {{ passwordError }}
+          </p>
         </div>
         <div>
           <div class="label">
@@ -68,12 +94,15 @@ const errors = computed(() =>
             <IconPasswordKey class="shrink-0" />
             <input type="password" name="password_confirm" class="grow" value="" />
           </label>
+          <p v-if="passwordConfirmError" class="pt-1 text-sm text-red-500">
+            {{ passwordConfirmError }}
+          </p>
         </div>
         <div class="modal-action flex justify-between">
           <button type="submit" class="btn btn-primary">Sign Up</button>
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
+            <button class="btn" @click="close">Close</button>
           </form>
         </div>
       </form>

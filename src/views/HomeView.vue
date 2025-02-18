@@ -10,8 +10,6 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 
 <template>
   <main class="flex h-screen flex-col overflow-hidden md:flex-row">
-    <!-- <div class="h-[7vw] text-center">Это страница где я представляюсь</div> -->
-    <!-- <div class="flex h-full flex-grow overflow-hidden"> -->
     <!-- Left Panel -->
     <aside class="flex w-full flex-col gap-4 p-6 md:w-1/4">
       <Photo class="self-center" />

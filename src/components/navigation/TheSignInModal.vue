@@ -2,15 +2,15 @@
 import IconPasswordKey from '@/components/icons/IconPasswordKey.vue';
 import IconUsername from '@/components/icons/IconUsername.vue';
 import { useUserStore } from '@/stores/UserStore';
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const userStore = useUserStore();
+const modal = ref(null);
+
 async function login(event) {
   const form = event.target.elements;
   const success = await userStore.login(form.username.value, form.password.value);
-  if (success) {
-    document.getElementById('sign_in_modal')?.close();
-  }
+  if (success) close();
 }
 // Extract errors from the store
 const errors = computed(() =>
@@ -18,17 +18,24 @@ const errors = computed(() =>
 );
 
 // Separate general error message (only show if it's a string)
-const generalError = computed(() => errors.value['detail'] || '');
+const generalError = computed(
+  () => errors.value['detail'] || errors.value['non_field_errors'] || ''
+);
 
 // Extract field-specific errors
 const usernameError = computed(
   () => errors.value['username'] || errors.value['username or email'] || ''
 );
 const passwordError = computed(() => errors.value['password'] || '');
+
+const showModal = () => modal.value?.showModal();
+const close = () => modal.value?.close();
+
+defineExpose({ showModal, close });
 </script>
 
 <template>
-  <dialog id="sign_in_modal" class="modal">
+  <dialog ref="modal" class="modal">
     <div class="modal-box w-1/6 min-w-max max-w-xl">
       <form @submit.prevent="login" class="flex flex-col gap-4">
         <h3 class="self-center text-lg font-bold">Sign In!</h3>
@@ -63,7 +70,7 @@ const passwordError = computed(() => errors.value['password'] || '');
           <button type="submit" class="btn btn-primary">Sign In</button>
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
+            <button class="btn" @click="close">Close</button>
           </form>
         </div>
       </form>

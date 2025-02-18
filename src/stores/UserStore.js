@@ -115,6 +115,7 @@ export const useUserStore = defineStore('userStore', {
         this.loggedIn = await this.login(username, password);
         return true;
       } else {
+        console.warn('Login failed:', result.error);
         this.errorMessage = result.error || {};
         return false;
       }
