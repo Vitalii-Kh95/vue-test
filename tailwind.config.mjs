@@ -34,6 +34,8 @@ export default {
         },
         'blog-dark': {
           ...themes['dark'],
+          primary: 'oklch(74.51% 0.167 183.61)',
+          accent: 'oklch(65.69% 0.196 275.75)',
           secondary: 'oklch(66.82% 0.0544 185.08)',
           'secondary-content': 'oklch(6.6% 0.05 185.08)',
           '--muted': '98.3% 0.0123 317.74'
@@ -55,7 +57,7 @@ export default {
         },
         'home-dark': {
           ...themes['dark'], // Retains default DaisyUI "neutral"
-          // primary: 'oklch(65.69% 0.196 275.75)',
+          primary: 'oklch(74.51% 0.167 183.61)',
           accent: 'oklch(65.69% 0.196 275.75)',
           wasprimary: 'oklch(45% 0.08 250)', // Darker Purplish-Blue
           'primary-content': 'oklch(90% 0.01 95)', // Light Gray

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="relative flex flex-col rounded-lg bg-base-100 p-4 text-base-content shadow-md"
-    :class="[sizeClass, { 'mt-6': titleStyle === 'ribbon' }]"
+    class="relative flex flex-col rounded-lg p-4 text-base-content"
+    :class="[wrapperClass, { 'mt-6': titleStyle === 'ribbon' }]"
   >
     <!-- Title Section -->
     <RibbonHeader v-if="titleStyle === 'ribbon'" :title="title" />
@@ -31,12 +31,22 @@ import RibbonHeader from './RibbonHeader.vue';
 const attrs = useAttrs();
 
 // Compute title background color based on position
-const titleBgClass = computed(() => (attrs.position === 'left' ? ['bg-secondary'] : ['bg-accent']));
-
-// Compute width class based on size prop
-const sizeClass = computed(() => {
-  if (attrs.size === 'full') return 'w-full'; // Full width
-  return 'w-fit lg:max-w-[50%]'; // Fit content, but not wider than 50%
+const titleBgClass = computed(() =>
+  attrs.position === 'left' ? ['bg-secondary'] : ['bg-neutral', 'text-neutral-content']
+);
+const wrapperClass = computed(() => {
+  let classes = [];
+  if (attrs.size === 'full') {
+    classes.push('w-full');
+  } else {
+    classes.push('w-fit lg:max-w-[50%]'); // Fit content, but not wider than 50%
+  }
+  if (attrs.position === 'left') {
+    classes = classes.concat(['bg-base-100', 'shadow-md']);
+  } else {
+    classes = classes.concat(['bg-muted']);
+  }
+  return classes;
 });
 defineProps({
   title: String,
