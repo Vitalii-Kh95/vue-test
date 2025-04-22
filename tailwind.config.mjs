@@ -1,5 +1,6 @@
 import daisyui from 'daisyui';
 import themes from 'daisyui/src/theming/themes';
+import typography from '@tailwindcss/typography';
 console.log(themes.light);
 console.log(themes.dark);
 export default {
@@ -16,10 +17,13 @@ export default {
       colors: {
         muted: 'oklch(var(--muted) / <alpha-value>)',
         background: 'oklch(var(--background) / <alpha-value>)'
+      },
+      fontFamily: {
+        cursive: ['"Pacifico"', 'cursive']
       }
     }
   },
-  plugins: [daisyui],
+  plugins: [daisyui, typography],
   daisyui: {
     themes: [
       {

@@ -17,7 +17,9 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="card-body justify-between px-6 pb-1 pt-6 text-base-content">
       <h5 class="card-title">{{ post.title }}</h5>
       <div class="flex-grow">
-        <p v-html="post.description" class="h-[100px] overflow-hidden text-ellipsis"></p>
+        <div class="h-[100px] text-ellipsis">
+          <p class="line-clamp-4 font-sans leading-relaxed">{{ post.description }}</p>
+        </div>
       </div>
       <span
         class="mt-5 flex flex-wrap-reverse items-end justify-end gap-x-1 gap-y-2.5 overflow-hidden"

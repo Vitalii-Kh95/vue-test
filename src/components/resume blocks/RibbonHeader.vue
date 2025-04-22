@@ -11,6 +11,7 @@
 </template>
 <script setup>
 defineProps({
-  title: String
+  title: String,
+  classes: Array
 });
 </script>
