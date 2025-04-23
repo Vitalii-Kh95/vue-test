@@ -1,5 +1,4 @@
 <script setup>
-import Cell from './TechStackCell.vue';
 import IconPython from '@/components/icons/IconPython.vue';
 import IconJavaScript from '@/components/icons/IconJavaScript.vue';
 import IconTypeScript from '@/components/icons/IconTypeScript.vue';
@@ -8,33 +7,84 @@ import IconTailwind from '@/components/icons/IconTailwind.vue';
 import IconDjango from '@/components/icons/IconDjango.vue';
 import IconSQLite from '@/components/icons/IconSQLite.vue';
 import IconPostgreSQL from '@/components/icons/IconPostgreSQL.vue';
+import TechStackGrid from './TechStackGrid.vue';
+import FrontEndSkills from './FrontEndSkills.vue';
+import BackEndSkills from './BackEndSkills.vue';
+const backendItems = [
+  {
+    title: 'Python',
+    icon: IconPython
+  },
+  {
+    title: 'Django',
+    icon: IconDjango
+  },
+  {
+    title: 'SQLite',
+    icon: IconSQLite
+  },
+  {
+    title: 'PostgreSQL',
+    icon: IconPostgreSQL
+  },
+  {
+    title: 'SQLite',
+    icon: IconSQLite
+  },
+  {
+    title: 'PostgreSQL',
+    icon: IconPostgreSQL
+  }
+];
+const frontendItems = [
+  {
+    title: 'JavaScript',
+    icon: IconJavaScript
+  },
+  {
+    title: 'TypeScript',
+    icon: IconTypeScript
+  },
+  {
+    title: 'Vue',
+    icon: IconVue
+  },
+  {
+    title: 'TailwindCSS',
+    icon: IconTailwind
+  },
+  {
+    title: 'Vue',
+    icon: IconVue
+  },
+  {
+    title: 'TailwindCSS',
+    icon: IconTailwind
+  }
+];
 </script>
 
 <template>
-  <div class="flex w-full flex-col gap-y-3">
-    <h2 class="mx-auto text-4xl font-bold">TechStack</h2>
-    <div class="flex gap-x-8">
-      <div class="flex w-1/2 flex-col gap-3 rounded-lg border-2 border-dashed p-5 pt-4 shadow-sm">
-        <h3 class="font-serif text-2xl font-bold">Back-end:</h3>
-        <div class="grid gap-6 md:grid-cols-2">
-          <Cell title="Python" :icon="IconPython" />
-          <Cell title="Django" :icon="IconDjango" />
-          <Cell title="SQL" :icon="IconSQLite" />
-          <Cell title="PostgreSQL" :icon="IconPostgreSQL" />
-          <Cell title="SQL" :icon="IconSQLite" />
-          <Cell title="PostgreSQL" :icon="IconPostgreSQL" />
+  <h2 class="mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col px-5">
+      <h3 class="font-serif text-3xl font-bold">Front-end</h3>
+      <div class="flex gap-x-8">
+        <FrontEndSkills />
+        <div class="w-1/2">
+          <TechStackGrid :items="frontendItems" />
         </div>
       </div>
-      <div class="flex w-1/2 flex-col rounded-2xl border-2 border-dashed p-5 pt-4">
-        <h3 class="text-2xl font-bold">Front-end:</h3>
-        <div class="grid gap-4 md:grid-cols-2">
-          <Cell title="JavaScript" :icon="IconJavaScript" />
-          <Cell title="TypeScript" :icon="IconTypeScript" />
-          <Cell title="Vue" :icon="IconVue" />
-          <Cell title="TailwindCSS" :icon="IconTailwind" />
-          <Cell title="SQL" :icon="IconSQLite" />
-          <Cell title="PostgreSQL" :icon="IconPostgreSQL" />
+    </div>
+    <div class="flex flex-col px-5">
+      <div class="text-right">
+        <h3 class="right font-serif text-3xl font-bold">Back-end</h3>
+      </div>
+      <div class="flex gap-x-8">
+        <div class="w-1/2">
+          <TechStackGrid :items="backendItems" />
         </div>
+        <BackEndSkills />
       </div>
     </div>
   </div>

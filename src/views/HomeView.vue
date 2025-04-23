@@ -22,12 +22,21 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
     </aside>
 
     <!-- Right Panel -->
-    <section class="flex flex-col items-center gap-8 bg-muted p-6 px-32 md:w-3/4 md:overflow-auto">
-      <h1 class="mx-auto font-sans text-8xl font-bold">Hi, I am developer!</h1>
+    <section
+      class="flex flex-col items-center gap-6 bg-muted p-6 px-32 pt-10 md:w-3/4 md:overflow-auto"
+    >
+      <h1 class="mx-auto font-serif text-8xl font-bold">Hi, I am developer!</h1>
+      <div class="prose mx-auto mb-10 text-center font-serif text-3xl font-bold">
+        <article class="">
+          I am the backend developer from your dreams, with hands-on experience on building web
+          applications. Coming from a different field, I transitioned into tech to work on
+          meaningful projects and expand my skills.
+        </article>
+      </div>
       <TechStack />
       <h1 class="text-2xl font-thin italic">
-        I write with cursive to make it look more complex! Follow your dreams and never give up! You
-        can fly!
+        I write with cursive to make it look more sophisticated! Follow your dreams and never give
+        up! You can fly!
       </h1>
     </section>
     <!-- </div> -->
