@@ -12,10 +12,19 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex h-fit w-full items-center rounded-sm bg-base-300/70 px-3 py-3 pt-3.5 shadow-lg">
-    <div class="w-1/4">
-      <component :is="icon" v-if="icon" class="h-7 w-7"></component>
+  <div class="flex h-[3.5rem] w-full bg-base-300/70 shadow-lg">
+    <!-- Left spacer -->
+    <div class="max-w-3 flex-shrink grow basis-0" />
+
+    <!-- Content -->
+    <div class="flex gap-2 overflow-hidden rounded pt-4">
+      <component :is="icon" v-if="icon" class="h-7 w-7 shrink-0" />
+      <div class="overflow-hidden text-ellipsis whitespace-nowrap font-mono text-xl font-medium">
+        {{ title }}
+      </div>
     </div>
-    <div class="font-mono text-xl font-medium">{{ title }}</div>
+
+    <!-- Right spacer -->
+    <div class="flex-shrink grow basis-0" />
   </div>
 </template>

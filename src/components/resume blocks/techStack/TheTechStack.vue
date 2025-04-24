@@ -57,7 +57,7 @@ const frontendItems = [
     <div class="flex flex-col gap-6">
       <div class="flex flex-col px-5">
         <h3 class="font-serif text-3xl font-bold">Front-end</h3>
-        <div class="flex gap-x-8 p-4">
+        <div class="flex gap-x-8 p-3">
           <FrontEndSkills class="" />
           <div class="w-1/2">
             <TechStackGrid :items="frontendItems" />
@@ -68,7 +68,7 @@ const frontendItems = [
         <div class="text-right">
           <h3 class="right font-serif text-3xl font-bold">Back-end</h3>
         </div>
-        <div class="flex gap-x-8 p-4">
+        <div class="flex gap-x-8 p-3">
           <div class="w-1/2">
             <TechStackGrid :items="backendItems" />
           </div>
