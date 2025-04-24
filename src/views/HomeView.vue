@@ -6,6 +6,7 @@ import TechStack from '@/components/resume blocks/techStack/TheTechStack.vue';
 import Languages from '@/components/resume blocks/TheLanguages.vue';
 // import Practices from '@/components/resume blocks/ThePractices.vue';
 import Photo from '@/components/resume blocks/ThePhoto.vue';
+import bgImage from '@/assets/Blue Electronic Circuit.png';
 </script>
 
 <template>
@@ -23,21 +24,23 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 
     <!-- Right Panel -->
     <section
-      class="flex flex-col items-center gap-6 bg-muted p-6 px-32 pt-10 md:w-3/4 md:overflow-auto"
+      class="relative flex min-h-screen flex-col items-center gap-6 p-6 px-32 pt-10 md:w-3/4 md:overflow-auto"
     >
-      <h1 class="mx-auto font-serif text-8xl font-bold">Hi, I am developer!</h1>
-      <div class="prose mx-auto mb-10 text-center font-serif text-3xl font-bold">
+      <div class="absolute inset-0 -z-20 bg-primary/10"></div>
+
+      <img
+        src="@/assets/cb01.svg"
+        alt="Background"
+        class="absolute inset-0 -z-10 h-full w-full object-cover opacity-20 mix-blend-difference"
+      />
+      <h1 class="mx-auto font-serif text-8xl font-bold">Hi, I am a developer!</h1>
+      <div class="mx-auto mb-10 text-center font-serif text-3xl font-bold text-base-content/70">
         <article class="">
-          I am the backend developer from your dreams, with hands-on experience on building web
-          applications. Coming from a different field, I transitioned into tech to work on
-          meaningful projects and expand my skills.
+          I design scalable web applications and APIs with modern tools, blending clean design with
+          reliable performance.
         </article>
       </div>
       <TechStack />
-      <h1 class="text-2xl font-thin italic">
-        I write with cursive to make it look more sophisticated! Follow your dreams and never give
-        up! You can fly!
-      </h1>
     </section>
     <!-- </div> -->
   </main>

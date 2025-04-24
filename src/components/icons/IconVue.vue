@@ -1,8 +1,16 @@
 <template>
-  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <title>Vue.js</title>
-    <path
-      d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z"
-    />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    x="0px"
+    y="0px"
+    width="100"
+    height="100"
+    viewBox="0 0 48 48"
+  >
+    <polygon fill="#81c784" points="23.987,17 18.734,8 2.974,8 23.987,44 45,8 29.24,8"></polygon>
+    <polygon
+      fill="#455a64"
+      points="29.24,8 23.987,17 18.734,8 11.146,8 23.987,30 36.828,8"
+    ></polygon>
   </svg>
 </template>

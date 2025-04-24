@@ -5,8 +5,8 @@ import IconTypeScript from '@/components/icons/IconTypeScript.vue';
 import IconVue from '@/components/icons/IconVue.vue';
 import IconTailwind from '@/components/icons/IconTailwind.vue';
 import IconDjango from '@/components/icons/IconDjango.vue';
-import IconSQLite from '@/components/icons/IconSQLite.vue';
-import IconPostgreSQL from '@/components/icons/IconPostgreSQL.vue';
+import IconSQL from '@/components/icons/IconSQL.vue';
+import IconAPI from '@/components/icons/IconAPI.vue';
 import TechStackGrid from './TechStackGrid.vue';
 import FrontEndSkills from './FrontEndSkills.vue';
 import BackEndSkills from './BackEndSkills.vue';
@@ -20,20 +20,12 @@ const backendItems = [
     icon: IconDjango
   },
   {
-    title: 'SQLite',
-    icon: IconSQLite
+    title: 'SQL',
+    icon: IconSQL
   },
   {
-    title: 'PostgreSQL',
-    icon: IconPostgreSQL
-  },
-  {
-    title: 'SQLite',
-    icon: IconSQLite
-  },
-  {
-    title: 'PostgreSQL',
-    icon: IconPostgreSQL
+    title: 'RESTful API',
+    icon: IconAPI
   }
 ];
 const frontendItems = [
@@ -44,14 +36,6 @@ const frontendItems = [
   {
     title: 'TypeScript',
     icon: IconTypeScript
-  },
-  {
-    title: 'Vue',
-    icon: IconVue
-  },
-  {
-    title: 'TailwindCSS',
-    icon: IconTailwind
   },
   {
     title: 'Vue',

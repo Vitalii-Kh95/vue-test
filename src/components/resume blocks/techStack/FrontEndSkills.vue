@@ -4,24 +4,16 @@
   <div class="font-serif text-lg">
     <ul>
       <li>
-        <strong class="font-sans">Frontend State Management</strong> – Using Pinia to handle
-        application state in Vue.
+        <strong class="font-sans">TypeScript</strong> – Build dynamic, scalable interfaces with
+        clean, type-safe code that’s easy to maintain and extend.
       </li>
       <li>
-        <strong class="font-sans">Component-Based UI</strong> – Structuring Vue components for
-        reusability and clarity.
+        <strong class="font-sans">Vue</strong> – Craft reactive, component-based UIs with Vue that
+        feel smooth, fast, and user-friendly.
       </li>
       <li>
-        <strong class="font-sans">Styling & UI Frameworks</strong> – Using Tailwind CSS and DaisyUI
-        for efficient and responsive styling.
-      </li>
-      <li>
-        <strong class="font-sans">Reverse Proxy & Static Hosting</strong> – Configuring Nginx to
-        serve Vue frontend and Django backend efficiently.
-      </li>
-      <li>
-        <strong class="font-sans">Deployment & Environment Management</strong> – Preparing for
-        production with environment-specific configurations.
+        <strong class="font-sans">Tailwind CSS</strong> – Use Tailwind CSS for efficient and
+        responsive styling.
       </li>
     </ul>
   </div>

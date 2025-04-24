@@ -2,30 +2,18 @@
 
 <template>
   <div class="font-serif text-lg">
-    <ul>
+    <ul class="">
       <li>
-        <strong class="font-sans">RESTful API Design</strong> – Structuring APIs for maintainability
-        and scalability.
+        <strong class="font-sans">Django</strong> - Develop robust web apps with Django’s powerful
+        features like ORM, authentication, and admin panel—all with minimal boilerplate.
       </li>
       <li>
-        <strong class="font-sans">Database Modeling & ORM Usage</strong> – Designing relational data
-        structures and interacting with databases through Django ORM.
+        <strong class="font-sans">SQL</strong> - Structure and query relational databases
+        efficiently, with a focus on performance, normalization, and real-world use cases.
       </li>
       <li>
-        <strong class="font-sans">CSRF Protection</strong> – Managing security in session-based
-        authentication.
-      </li>
-      <li>
-        <strong class="font-sans">Secure Authentication</strong> – Handling user authentication with
-        session-based and token-based approaches.
-      </li>
-      <li>
-        <strong class="font-sans">Code Maintainability</strong> – Writing structured, readable, and
-        reusable code.
-      </li>
-      <li>
-        <strong class="font-sans">Version Control Workflows</strong> – Using Git and GitHub for
-        tracking changes and interacting with repositories.
+        <strong class="font-sans">RESTful API</strong> - Design clean, secure, and well-documented
+        APIs that integrate seamlessly with frontend clients and external services.
       </li>
     </ul>
   </div>
