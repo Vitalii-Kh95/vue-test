@@ -31,7 +31,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
         class="absolute inset-0 -z-10 h-full w-full bg-secondary object-cover opacity-10 bg-blend-exclusion"
       />
       <h1 class="mx-auto font-serif text-8xl font-bold">Hi, I am a developer!</h1>
-      <div class="mx-auto mb-5 text-center font-serif text-3xl font-bold text-base-content/60">
+      <div class="mx-auto mb-5 text-center font-mono text-3xl font-bold text-base-content/60">
         <article class="">
           I design scalable web applications and APIs with modern tools, blending clean design with
           reliable performance.

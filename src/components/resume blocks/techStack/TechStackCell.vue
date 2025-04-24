@@ -16,6 +16,6 @@ defineProps({
     <div class="w-1/4">
       <component :is="icon" v-if="icon" class="h-7 w-7"></component>
     </div>
-    <div class="font-serif text-xl font-medium">{{ title }}</div>
+    <div class="font-mono text-xl font-medium">{{ title }}</div>
   </div>
 </template>

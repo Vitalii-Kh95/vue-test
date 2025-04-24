@@ -51,6 +51,9 @@ const frontendItems = [
 <template>
   <div class="flex flex-col items-center">
     <h2 class="mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+    <div
+      class="h-1 w-full rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
+    ></div>
     <div class="flex flex-col gap-6">
       <div class="flex flex-col px-5">
         <h3 class="font-serif text-3xl font-bold">Front-end</h3>

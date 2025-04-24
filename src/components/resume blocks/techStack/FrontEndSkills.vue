@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="bg-radial rounded-md from-base-200 from-30% to-transparent font-serif text-lg">
+  <div class="bg-radial rounded-md from-base-200 from-30% to-transparent font-serif text-xl">
     <ul>
       <li>
         <strong class="font-sans">TypeScript</strong> – Build dynamic, scalable interfaces with
