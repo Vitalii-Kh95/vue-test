@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="font-serif text-lg">
+  <div class="bg-radial rounded-md from-base-200 to-transparent pb-0 font-serif text-lg">
     <ul class="">
       <li>
         <strong class="font-sans">Django</strong> - Develop robust web apps with Django’s powerful

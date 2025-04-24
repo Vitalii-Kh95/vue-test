@@ -12,9 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="flex h-fit w-full items-center rounded-sm border bg-base-300 px-3 py-3 pt-3.5 shadow-lg"
-  >
+  <div class="flex h-fit w-full items-center rounded-sm bg-base-300/70 px-3 py-3 pt-3.5 shadow-lg">
     <div class="w-1/4">
       <component :is="icon" v-if="icon" class="h-7 w-7"></component>
     </div>

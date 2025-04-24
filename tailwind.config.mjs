@@ -20,6 +20,9 @@ export default {
       },
       fontFamily: {
         cursive: ['"Pacifico"', 'cursive']
+      },
+      backgroundImage: {
+        radial: 'radial-gradient(var(--tw-gradient-stops))'
       }
     }
   },

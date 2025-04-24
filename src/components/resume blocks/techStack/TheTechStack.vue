@@ -49,26 +49,28 @@ const frontendItems = [
 </script>
 
 <template>
-  <h2 class="mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
-  <div class="flex flex-col gap-6">
-    <div class="flex flex-col px-5">
-      <h3 class="font-serif text-3xl font-bold">Front-end</h3>
-      <div class="flex gap-x-8">
-        <FrontEndSkills />
-        <div class="w-1/2">
-          <TechStackGrid :items="frontendItems" />
+  <div class="flex flex-col items-center">
+    <h2 class="mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+    <div class="flex flex-col gap-6">
+      <div class="flex flex-col px-5">
+        <h3 class="font-serif text-3xl font-bold">Front-end</h3>
+        <div class="flex gap-x-8 p-4">
+          <FrontEndSkills class="" />
+          <div class="w-1/2">
+            <TechStackGrid :items="frontendItems" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="flex flex-col px-5">
-      <div class="text-right">
-        <h3 class="right font-serif text-3xl font-bold">Back-end</h3>
-      </div>
-      <div class="flex gap-x-8">
-        <div class="w-1/2">
-          <TechStackGrid :items="backendItems" />
+      <div class="flex flex-col px-5">
+        <div class="text-right">
+          <h3 class="right font-serif text-3xl font-bold">Back-end</h3>
         </div>
-        <BackEndSkills />
+        <div class="flex gap-x-8 p-4">
+          <div class="w-1/2">
+            <TechStackGrid :items="backendItems" />
+          </div>
+          <BackEndSkills class="" />
+        </div>
       </div>
     </div>
   </div>
