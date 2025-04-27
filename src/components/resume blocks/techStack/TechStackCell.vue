@@ -14,7 +14,7 @@ defineProps({
 <template>
   <div class="flex h-[3.5rem] w-full bg-base-300/70 shadow-lg">
     <!-- Left spacer -->
-    <div class="max-w-3 flex-shrink grow basis-0" />
+    <div class="flex-shrink grow basis-0" />
 
     <!-- Content -->
     <div class="flex gap-2 overflow-hidden rounded pt-4">

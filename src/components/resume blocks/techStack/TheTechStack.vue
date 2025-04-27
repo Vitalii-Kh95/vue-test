@@ -10,6 +10,15 @@ import IconAPI from '@/components/icons/IconAPI.vue';
 import TechStackGrid from './TechStackGrid.vue';
 import FrontEndSkills from './FrontEndSkills.vue';
 import BackEndSkills from './BackEndSkills.vue';
+import Cell from './TechStackCell.vue';
+// import { ref, nextTick } from 'vue';
+// import { gsap } from 'gsap';
+// import { Flip } from 'gsap/Flip';
+// gsap.registerPlugin(Flip);
+
+// const gridContainer = ref(null);
+// const isTwoCols = ref(true);
+
 const backendItems = [
   {
     title: 'Python',
@@ -46,36 +55,62 @@ const frontendItems = [
     icon: IconTailwind
   }
 ];
+// :class="[isTwoCols ? 'grid-cols-2' : 'grid-cols-1']"
+// ref="gridContainer"
+// const toggleColumns = async () => {
+//   const state = Flip.getState(gridContainer.value.children);
+
+//   isTwoCols.value = !isTwoCols.value;
+//   await nextTick();
+
+//   Flip.from(state, {
+//     duration: 0.6,
+//     ease: 'power2.inOut',
+//     absolute: true,
+//     nested: true,
+//     stagger: 0.05
+//   });
+// };
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
-    <h2 class="mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
-    <div
+  <div class="">
+    <h2 class="col-span-10 row-span-1 mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+    <!-- <div
       class="h-1 w-full rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
-    ></div>
-    <div class="flex flex-col gap-6">
-      <div class="flex flex-col px-5">
-        <h3 class="font-serif text-3xl font-bold">Front-end</h3>
-        <div class="flex gap-x-8 p-3">
-          <FrontEndSkills class="" />
-          <div class="w-1/2">
+    ></div> -->
+    <div class="col-span-10 row-span-4 grid grid-cols-subgrid grid-rows-subgrid gap-6">
+      <div
+        class="col-span-10 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5 text-start"
+      >
+        <h3 class="col-span-10 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
+        <div class="col-span-10 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
+          <FrontEndSkills class="col-span-5" />
+          <div class="col-span-5">
             <TechStackGrid :items="frontendItems" />
           </div>
         </div>
       </div>
-      <div class="flex flex-col px-5">
-        <div class="text-right">
-          <h3 class="right font-serif text-3xl font-bold">Back-end</h3>
+      <div class="col-span-10 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
+        <div class="col-span-10 row-span-1 px-4 text-end">
+          <h3 class="font-serif text-3xl font-bold">Back-end</h3>
         </div>
-        <div class="flex gap-x-8 p-3">
-          <div class="w-1/2">
-            <TechStackGrid :items="backendItems" />
+        <div class="col-span-10 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
+          <div class="col-span-5">
+            <div class="grid grid-cols-2 gap-x-3 gap-y-6">
+              <Cell
+                v-for="item in backendItems"
+                :key="item.title"
+                :title="item.title"
+                :icon="item.icon"
+              />
+            </div>
           </div>
-          <BackEndSkills class="" />
+          <BackEndSkills class="col-span-5 text-start" />
         </div>
       </div>
     </div>
+    <!-- <button @click="toggleColumns" class="btn btn-primary mb-4">Toggle Grid</button> -->
   </div>
 </template>
 <!-- <script setup>
