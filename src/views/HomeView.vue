@@ -9,9 +9,9 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
 <template>
-  <main class="flex flex-col overflow-auto md:flex-row md:overflow-hidden">
+  <main class="flex flex-col overflow-auto xl:flex-row xl:overflow-hidden">
     <!-- Left Panel -->
-    <aside class="flex flex-col gap-4 overflow-hidden p-6 md:w-1/4">
+    <aside class="flex min-w-[350px] flex-col gap-4 p-6 lg:flex-row xl:w-1/4 xl:flex-col">
       <!--Resume blocks support next attributes: -->
       <!-- titleStyle?: ribbon | default -->
       <!-- size: full | everything else? -->
@@ -23,7 +23,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->
 
-    <section class="flex-1 overflow-auto">
+    <section class="flex-1 xl:overflow-auto">
       <div
         class="min-h-full bg-base-100/90 bg-[url('@/assets/cb02.svg')] bg-cover bg-center bg-no-repeat bg-blend-overlay dark:bg-base-300/95 dark:bg-blend-hue"
       >
