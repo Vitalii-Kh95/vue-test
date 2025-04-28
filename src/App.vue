@@ -22,7 +22,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="flex h-full flex-col">
     <TheNavigation />
-    <RouterView class="h-full grow" />
+    <RouterView class="flex-1" />
     <popup ref="popupRef" />
   </div>
 </template>

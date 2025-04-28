@@ -75,28 +75,28 @@ const frontendItems = [
 
 <template>
   <div class="">
-    <h2 class="col-span-10 row-span-1 mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+    <h2 class="col-span-18 row-span-1 mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
     <!-- <div
       class="h-1 w-full rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
     ></div> -->
-    <div class="col-span-10 row-span-4 grid grid-cols-subgrid grid-rows-subgrid gap-6">
+    <div class="col-span-18 row-span-4 grid grid-cols-subgrid grid-rows-subgrid gap-6">
       <div
-        class="col-span-10 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5 text-start"
+        class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5 text-start"
       >
-        <h3 class="col-span-10 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
-        <div class="col-span-10 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
-          <FrontEndSkills class="col-span-5" />
-          <div class="col-span-5">
+        <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
+        <div class="col-span-18 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
+          <FrontEndSkills class="col-span-9" />
+          <div class="col-span-9 col-start-10">
             <TechStackGrid :items="frontendItems" />
           </div>
         </div>
       </div>
-      <div class="col-span-10 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
-        <div class="col-span-10 row-span-1 px-4 text-end">
+      <div class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
+        <div class="col-span-18 row-span-1 px-4 text-end">
           <h3 class="font-serif text-3xl font-bold">Back-end</h3>
         </div>
-        <div class="col-span-10 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
-          <div class="col-span-5">
+        <div class="col-span-18 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
+          <div class="col-span-9">
             <div class="grid grid-cols-2 gap-x-3 gap-y-6">
               <Cell
                 v-for="item in backendItems"
@@ -106,7 +106,7 @@ const frontendItems = [
               />
             </div>
           </div>
-          <BackEndSkills class="col-span-5 text-start" />
+          <BackEndSkills class="col-span-9 text-start" />
         </div>
       </div>
     </div>

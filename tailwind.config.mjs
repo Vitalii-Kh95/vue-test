@@ -23,6 +23,9 @@ export default {
       },
       backgroundImage: {
         radial: 'radial-gradient(var(--tw-gradient-stops))'
+      },
+      gridColumn: {
+        'span-18': 'span 18 / span 18'
       }
     }
   },
