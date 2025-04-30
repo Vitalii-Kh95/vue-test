@@ -9,7 +9,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
 <template>
-  <main class="flex flex-col overflow-auto xl:flex-row xl:overflow-hidden">
+  <main class="flex flex-col overflow-auto lg:bg-secondary xl:flex-row xl:overflow-hidden">
     <!-- Left Panel -->
     <aside class="flex min-w-[350px] flex-col gap-4 p-6 lg:flex-row xl:w-1/4 xl:flex-col">
       <!--Resume blocks support next attributes: -->
@@ -17,8 +17,8 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
       <!-- size: full | everything else? -->
       <!-- position: everything else? | left -->
       <Photo class="self-center" />
-      <Contact position="left" size="full" titleStyle="ribbon" />
-      <Languages position="left" size="full" titleStyle="ribbon" />
+      <Contact />
+      <Languages />
     </aside>
 
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->

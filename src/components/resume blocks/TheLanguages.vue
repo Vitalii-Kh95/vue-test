@@ -1,12 +1,12 @@
 <script setup>
-import FlexibleBlock from './FlexibleBlock.vue';
+import ResumeBlock from './ResumeBlock.vue';
 </script>
 
 <template>
-  <FlexibleBlock title="Languages">
+  <ResumeBlock title="Languages">
     <slot>
       <h2>English</h2>
       <h2>Russian (native)</h2>
     </slot>
-  </FlexibleBlock>
+  </ResumeBlock>
 </template>

@@ -16,14 +16,6 @@
       :classes="titleStyle === 'ribbon' ? '' : titleBgClass"
     ></component>
 
-    <!-- Content Block -->
-    <!-- <div v-if="titleStyle === 'ribbon'" class="relative z-0 mt-6 w-full">
-      <slot />
-    </div>
-    <div v-else class="w-full">
-      <slot />
-    </div> -->
-
     <!-- Content Block with Fixed Spacing -->
     <div class="w-full" :class="[titleStyle === 'ribbon' ? 'pt-10' : 'px-20 pt-5']">
       <slot />
