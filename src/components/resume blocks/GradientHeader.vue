@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['title', 'classes']);
+defineProps(['title']);
 </script>
 
 <template>

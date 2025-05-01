@@ -1,7 +1,7 @@
 <template>
   <div class="relative m-1 flex w-full flex-col text-base-content">
-    <GradientHeader :title="title" />
-    <div class="ml-[1px] p-4">
+    <RibbonHeader :title="title" />
+    <div class="ml-[1px] mt-11 rounded-b-lg bg-base-100 p-4 shadow-md">
       <div class="w-full">
         <slot />
       </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import GradientHeader from './GradientHeader.vue';
+import RibbonHeader from './RibbonHeader.vue';
 defineProps({
   title: String
 });

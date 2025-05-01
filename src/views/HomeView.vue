@@ -9,11 +9,14 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
 <template>
-  <main class="flex flex-col overflow-auto bg-base-200 lg:flex-row lg:overflow-hidden">
+  <main
+    class="flex flex-col overflow-auto bg-base-200 md:bg-base-300 lg:flex-row lg:overflow-hidden"
+  >
     <!-- Left Panel -->
-    <aside class="scr flex min-w-[350px] flex-col gap-4 p-6 xl:w-1/4">
-      <Photo class="self-center" />
+    <aside class="flex min-w-[350px] flex-col gap-4 p-6 md:flex-row lg:flex-col xl:w-1/4">
       <Contact />
+      <Photo class="self-center" />
+
       <Languages />
     </aside>
 
@@ -21,7 +24,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 
     <section class="flex-1 lg:overflow-auto">
       <div
-        class="min-h-full bg-base-300 bg-[url('@/assets/cb14.png')] bg-cover bg-center bg-no-repeat bg-blend-screen dark:bg-base-300/90 dark:bg-blend-color-dodge"
+        class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb15.png')]"
       >
         <!-- <img
           src="@/assets/cb01.svg"
