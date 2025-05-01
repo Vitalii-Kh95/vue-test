@@ -10,7 +10,6 @@ import IconAPI from '@/components/icons/IconAPI.vue';
 import TechStackGrid from './TechStackGrid.vue';
 import FrontEndSkills from './FrontEndSkills.vue';
 import BackEndSkills from './BackEndSkills.vue';
-import Cell from './TechStackCell.vue';
 // import { ref, nextTick } from 'vue';
 // import { gsap } from 'gsap';
 // import { Flip } from 'gsap/Flip';
@@ -75,7 +74,9 @@ const frontendItems = [
 
 <template>
   <div class="">
-    <h2 class="col-span-18 row-span-1 mx-auto text-[2.6rem] font-bold">Tech Stack</h2>
+    <h2 class="col-span-18 row-span-1 mx-auto text-[2.2rem] font-bold 2xl:text-[2.6rem]">
+      Tech Stack
+    </h2>
     <!-- <div
       class="h-1 w-full rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
     ></div> -->
@@ -85,8 +86,8 @@ const frontendItems = [
       >
         <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
         <div class="col-span-18 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
-          <FrontEndSkills class="col-span-9" />
-          <div class="col-span-8 col-start-11">
+          <FrontEndSkills class="col-span-12 xl:col-span-9" />
+          <div class="col-span-5 col-start-[14] xl:col-span-8 xl:col-start-11">
             <TechStackGrid :items="frontendItems" />
           </div>
         </div>
@@ -96,17 +97,10 @@ const frontendItems = [
           <h3 class="font-serif text-3xl font-bold">Back-end</h3>
         </div>
         <div class="col-span-18 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
-          <div class="col-span-8">
-            <div class="grid grid-cols-2 gap-x-3 gap-y-6">
-              <Cell
-                v-for="item in backendItems"
-                :key="item.title"
-                :title="item.title"
-                :icon="item.icon"
-              />
-            </div>
+          <div class="col-span-5 xl:col-span-8">
+            <TechStackGrid :items="backendItems" />
           </div>
-          <BackEndSkills class="col-span-9 col-start-10 text-start" />
+          <BackEndSkills class="col-span-12 col-start-7 text-start xl:col-span-9 xl:col-start-10" />
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 <script setup></script>
 
 <template>
-  <div>
+  <div class="h-56 w-56 flex-shrink-0 overflow-hidden rounded-full">
     <img
       src="@/assets/photo_portfolio.jpg"
       alt="My Resume Photo"
-      class="h-56 w-56 rounded-full object-cover object-[center_20%]"
+      class="h-full w-full object-cover object-[center_20%]"
     />
   </div>
 </template>

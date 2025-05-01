@@ -1,8 +1,10 @@
 <template>
-  <div class="relative flex w-full flex-col rounded-lg bg-base-100 p-4 text-base-content shadow-md">
+  <div class="relative m-1 flex w-full flex-col text-base-content">
     <RibbonHeader :title="title" />
-    <div class="w-full pt-10">
-      <slot />
+    <div class="ml-[1px] mt-11 rounded-b-lg bg-base-100 p-4 shadow-md">
+      <div class="w-full">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
