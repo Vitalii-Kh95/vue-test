@@ -8,9 +8,9 @@ import ThemeSwitcher from './TheThemeSwitcher.vue';
 import SearchButton from './TheNavigationSearchButton.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useWindowSizeStore } from '@/stores/WindowSizeStore';
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 
-const windowSizeStore = useWindowSizeStore();
+const breakpoints = useBreakpoints(breakpointsTailwind);
 
 const route = useRoute();
 const displaySearch = computed(() => {
@@ -44,7 +44,10 @@ const displaySearch = computed(() => {
       <!-- I need to get into nested routs or routers.
       So if I get blog or projects at the root
       I display search component -->
-      <component v-if="displaySearch" :is="windowSizeStore.lte_md ? SearchButton : SearchBox" />
+      <component
+        v-if="displaySearch"
+        :is="breakpoints.smallerOrEqual('md').value ? SearchButton : SearchBox"
+      />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
     </div>
