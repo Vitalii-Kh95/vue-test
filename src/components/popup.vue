@@ -2,7 +2,7 @@
   <div
     v-if="visible"
     :class="[
-      'duration-5000 fixed left-1/2 top-4 z-50 -translate-x-1/2 transform transition-opacity ease-in',
+      'fixed left-1/2 top-4 z-50 -translate-x-1/2 transform transition-opacity duration-5000 ease-in',
       fading ? 'opacity-0' : 'opacity-100'
     ]"
     @transitionend="handleFadeEnd"
@@ -74,7 +74,10 @@ function close() {
 }
 
 function adjustPopupWidth() {
-  if (windowSizeStore.xl) {
+  if (windowSizeStore['2xl']) {
+    popupMaxWidth.value = 800;
+    messageFits.value = true;
+  } else if (windowSizeStore.xl) {
     popupMaxWidth.value = 700;
     messageFits.value = true; // Plenty of space for one line
   } else if (windowSizeStore.lg) {

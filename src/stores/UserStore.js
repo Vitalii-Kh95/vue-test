@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { baseURL } from '@/constants';
-import { getCookie, getCsrfToken } from '@/functionsAPIRelated';
+import { getCookie, getCsrfToken } from '@/utils/functionsAPIRelated';
 
 async function apiCall(endpoint, options = {}) {
   const url = new URL(endpoint, baseURL);

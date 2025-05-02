@@ -17,9 +17,9 @@ const windowSizeStore = useWindowSizeStore();
     <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
       <PostDetail
         :post="projectStore.project"
-        :class="windowSizeStore.lg ? 'col-span-full' : 'col-span-2'"
+        :class="windowSizeStore.lte_xl ? 'col-span-full' : 'col-span-2'"
       />
-      <AsideBlock v-if="!windowSizeStore.lg" />
+      <AsideBlock v-if="!windowSizeStore.lte_xl" />
     </div>
   </div>
 </template>

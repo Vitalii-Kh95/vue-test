@@ -11,7 +11,6 @@ import { useRoute } from 'vue-router';
 import { useWindowSizeStore } from '@/stores/WindowSizeStore';
 
 const windowSizeStore = useWindowSizeStore();
-defineProps(['xs']);
 
 const route = useRoute();
 const displaySearch = computed(() => {
@@ -25,7 +24,7 @@ const displaySearch = computed(() => {
   <div class="navbar sticky top-0 z-10 bg-neutral px-0 text-neutral-content">
     <div class="navbar-start ps-1">
       <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
           <IconHamburger />
         </div>
         <ul
@@ -36,7 +35,7 @@ const displaySearch = computed(() => {
           <DropdownMenu />
         </ul>
       </div>
-      <div class="hidden lg:flex">
+      <div class="hidden sm:flex">
         <MenuItems />
       </div>
     </div>
@@ -45,7 +44,7 @@ const displaySearch = computed(() => {
       <!-- I need to get into nested routs or routers.
       So if I get blog or projects at the root
       I display search component -->
-      <component v-if="displaySearch" :is="windowSizeStore.xs ? SearchButton : SearchBox" />
+      <component v-if="displaySearch" :is="windowSizeStore.lte_md ? SearchButton : SearchBox" />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
     </div>

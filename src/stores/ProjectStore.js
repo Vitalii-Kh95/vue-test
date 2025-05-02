@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getPosts, getPost, parseUrlParams } from '@/functionsAPIRelated';
+import { getPosts, getPost, parseUrlParams } from '@/utils/functionsAPIRelated';
 
 export const useProjectStore = defineStore('projectStore', {
   state: () => {

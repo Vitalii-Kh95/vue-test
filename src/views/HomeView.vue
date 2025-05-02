@@ -14,10 +14,9 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
   >
     <!-- Left Panel -->
     <aside class="flex min-w-[350px] flex-col gap-4 p-6 md:flex-row lg:flex-col xl:w-1/4">
-      <Contact />
-      <Photo class="self-center" />
-
-      <Languages />
+      <Photo class="order-1 self-center md:order-2 lg:order-1" />
+      <Contact class="order-2 md:order-1 lg:order-2" />
+      <Languages class="order-3" />
     </aside>
 
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->

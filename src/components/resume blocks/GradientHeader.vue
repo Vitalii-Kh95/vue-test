@@ -7,6 +7,6 @@ defineProps(['title']);
     <h1 class="text-2xl font-bold">{{ title }}</h1>
   </div>
   <div
-    class="h-1 rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
+    class="h-1 rounded-lg bg-gradient-to-r from-base-300 via-neutral to-base-300 p-0.5 text-center"
   ></div>
 </template>
