@@ -2,21 +2,20 @@
 import { RouterView } from 'vue-router';
 import TheNavigation from '@/components/navigation/TheNavigation.vue';
 import PopupManager from '@/components/PopupManager.vue';
-// import { useHealthStore } from '@/stores/HealthStore';
-// import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useHealthStore } from '@/stores/HealthStore';
+import { onMounted, onBeforeUnmount } from 'vue';
 
-// const healthStore = useHealthStore();
+const healthStore = useHealthStore();
 
-// const popupRef = ref(null);
-// onMounted(() => {
-//   // Perform health check on app load
-//   healthStore.fetchHealthStatus(popupRef.value);
-// });
+onMounted(() => {
+  // Perform health check on app load
+  healthStore.fetchHealthStatus();
+});
 
-// onBeforeUnmount(() => {
-//   // Ensure retry interval is cleared when the app is unmounted
-//   healthStore.stopRetry();
-// });
+onBeforeUnmount(() => {
+  // Ensure retry interval is cleared when the app is unmounted
+  healthStore.stopRetry();
+});
 </script>
 
 <template>

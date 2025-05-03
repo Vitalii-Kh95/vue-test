@@ -1,24 +1,8 @@
 <script setup>
-// import About from '@/components/resume blocks/TheAbout.vue';
 import Contact from '@/components/resume blocks/TheContact.vue';
-// import Skills from '@/components/resume blocks/TheSkills.vue';
 import TechStack from '@/components/resume blocks/techStack/TheTechStack.vue';
 import Languages from '@/components/resume blocks/TheLanguages.vue';
-// import Practices from '@/components/resume blocks/ThePractices.vue';
 import Photo from '@/components/resume blocks/ThePhoto.vue';
-
-///
-import { usePopupStore } from '@/stores/usePopupStore';
-
-const { show } = usePopupStore();
-
-const triggerPopup = () => {
-  show({
-    message:
-      'This is a dynamic popup! Now with more long message to chack how words wrapped depending on screen width',
-    type: 'alert-success'
-  });
-};
 </script>
 
 <template>
@@ -50,12 +34,11 @@ const triggerPopup = () => {
           <div
             class="col-span-18 col-start-2 row-span-7 row-start-1 grid grid-cols-subgrid grid-rows-subgrid gap-y-5 text-center"
           >
-            <div class="">
-              <h1 class="col-span-18 row-span-1 mx-auto font-serif text-6xl font-bold 2xl:text-8xl">
-                Hi, I am a developer!
-              </h1>
-              <button class="btn" @click="triggerPopup">test</button>
-            </div>
+            <h1
+              class="col-span-18 row-span-1 mx-auto font-serif text-6xl font-bold text-base-content 2xl:text-8xl"
+            >
+              Hi, I am a developer!
+            </h1>
             <div
               class="col-span-18 row-span-1 mx-auto mb-2 text-center font-mono text-2xl font-bold text-base-content/60 2xl:text-3xl"
             >

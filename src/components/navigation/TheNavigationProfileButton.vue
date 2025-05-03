@@ -18,24 +18,15 @@ async function handleLogout() {
   }
 }
 
-// async function showModal(modalId) {
-//   userStore.errorMessage = '';
-//   document.getElementById(modalId).showModal();
-// }
-
 function showModal(modalRef) {
   userStore.errorMessage = '';
   modalRef?.showModal();
-}
-
-function closeModal(modalRef) {
-  modalRef?.close();
 }
 </script>
 
 <template>
   <div class="dropdown dropdown-end dropdown-hover">
-    <div tabindex="0" role="button" class="btn btn-primary rounded-2xl">
+    <div tabindex="0" role="button" class="btn btn-primary rounded-2xl text-base-content">
       {{ userStore.loggedIn ? `${userStore.user}` : 'Sign In' }}
     </div>
     <ul

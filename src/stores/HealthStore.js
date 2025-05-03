@@ -1,69 +1,62 @@
 import { defineStore } from 'pinia';
 import { baseURL } from '@/constants';
+import { usePopupStore } from './usePopupStore';
+
+const RetryTimeInterval = 60000 * 3;
 
 export const useHealthStore = defineStore('healthStore', {
   state: () => ({
     dbStatus: 'Healthy',
     lastHealthCheck: null,
-    retryInterval: null // Holds the interval ID for retries
+    retryIntervalId: null // Holds the interval ID for retries
   }),
 
   actions: {
     // Fetch backend health status
-    async fetchHealthStatus(popupInstance, force = false) {
-      const now = new Date().getTime();
-      const oneHour = 60 * 60 * 1000;
-
-      if (!force && this.lastHealthCheck && now - this.lastHealthCheck < oneHour) {
-        return;
-      }
-
+    async fetchHealthStatus() {
+      const popupStore = usePopupStore();
       const previousStatus = this.dbStatus; // Store previous status to detect transitions
-
+      const now = new Date().getTime();
+      this.lastHealthCheck = now;
       try {
         const url = new URL('health/', baseURL);
         const response = await fetch(url);
         const data = await response.json();
         this.dbStatus = data.db_status;
-        this.lastHealthCheck = now;
 
         if (this.dbStatus === 'Unhealthy') {
-          popupInstance.show(); // Show popup if backend is unhealthy
-          popupInstance.setMessage('Backend is currently unavailable. Retrying health check...');
-          this.startRetry(popupInstance); // Start retry mechanism
+          throw new Error('Backend is unhealthy');
         } else if (previousStatus === 'Unhealthy' && this.dbStatus === 'Healthy') {
-          popupInstance.show(); // Show popup if backend recovers
-          popupInstance.setMessage('Backend is back online. All systems operational.');
-          this.stopRetry(); // Stop retries if backend becomes healthy
+          popupStore.show({
+            message: 'Backend is back online. All systems operational.',
+            type: 'alert-success'
+          });
+          this.stopRetry();
         } else {
-          console.log('Backend responded');
+          // Here, means healthCheck is alright
         }
-      } catch (error) {
+      } catch {
         this.dbStatus = 'Unhealthy';
-        this.lastHealthCheck = now;
-        popupInstance.show(); // Show popup on error
-        popupInstance.setMessage(
-          'Backend is currently unavailable. Authentication and posts are not accessible.'
-        );
-        this.startRetry(popupInstance); // Start retry mechanism
+        popupStore.show({
+          message: 'Backend is currently unavailable. Authentication and posts are not accessible.',
+          type: 'alert-error'
+        });
+        this.startRetry();
       }
     },
 
     // Start retry mechanism
-    startRetry(popupInstance) {
-      if (!this.retryInterval) {
-        this.retryInterval = setInterval(
-          () => this.fetchHealthStatus(popupInstance, true),
-          60000 * 3
-        ); // Retry every 3 minutes
+    startRetry() {
+      if (!this.retryIntervalId) {
+        this.retryIntervalId = setInterval(() => this.fetchHealthStatus(), RetryTimeInterval); // Retry every 3 minutes
       }
     },
 
     // Stop retry mechanism
     stopRetry() {
-      if (this.retryInterval) {
-        clearInterval(this.retryInterval);
-        this.retryInterval = null;
+      if (this.retryIntervalId) {
+        clearInterval(this.retryIntervalId);
+        this.retryIntervalId = null;
       }
     }
   }
