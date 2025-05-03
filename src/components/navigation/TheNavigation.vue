@@ -21,7 +21,7 @@ const displaySearch = computed(() => {
 });
 </script>
 <template>
-  <div class="navbar sticky top-0 z-10 bg-neutral px-0 text-neutral-content">
+  <div class="navbar fixed top-0 z-10 bg-neutral px-0 py-0 text-neutral-content">
     <div class="navbar-start ps-1">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">

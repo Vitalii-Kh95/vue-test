@@ -7,7 +7,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 
 <template>
   <main
-    class="flex flex-col overflow-auto bg-base-200 md:bg-base-300 lg:flex-row lg:overflow-hidden"
+    class="flex flex-col overflow-visible bg-base-200 md:bg-base-300 lg:flex-row lg:overflow-hidden"
   >
     <!-- Left Panel -->
     <aside class="flex min-w-[350px] flex-col gap-4 p-6 md:flex-row lg:flex-col xl:w-1/4">
