@@ -13,9 +13,10 @@ postStore.getPost(route.params.slug);
 </script>
 <template>
   <div class="flex w-full flex-col items-center">
-    <Header :title="postStore.post.title" />
+    <Header v-if="postStore.post" :title="postStore.post.title" />
     <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
       <PostDetail
+        v-if="postStore.post"
         :post="postStore.post"
         :class="breakpoints.smallerOrEqual('xl').value ? 'col-span-full' : 'col-span-2'"
       />
