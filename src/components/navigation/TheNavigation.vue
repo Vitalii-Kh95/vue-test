@@ -14,10 +14,7 @@ const breakpoints = useBreakpoints(breakpointsTailwind);
 
 const route = useRoute();
 const displaySearch = computed(() => {
-  return (
-    (route.path.includes('blog') || route.path.includes('projects')) &&
-    !route.path.includes('search')
-  );
+  return route.path.includes('blog') && !route.path.includes('search');
 });
 </script>
 <template>
@@ -41,9 +38,6 @@ const displaySearch = computed(() => {
     </div>
 
     <div class="navbar-end flex-grow gap-2">
-      <!-- I need to get into nested routs or routers.
-      So if I get blog or projects at the root
-      I display search component -->
       <component
         v-if="displaySearch"
         :is="breakpoints.smallerOrEqual('md').value ? SearchButton : SearchBox"

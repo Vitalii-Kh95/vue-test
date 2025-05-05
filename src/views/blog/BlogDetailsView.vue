@@ -1,5 +1,5 @@
 <script setup>
-import PostDetail from '@/components/PostDetail.vue';
+import PostDetails from '@/components/PostDetails.vue';
 import AsideBlock from '@/components/TheAsideBlock.vue';
 import Header from '@/components/ThePostHeader.vue';
 import { useRoute } from 'vue-router';
@@ -15,7 +15,7 @@ postStore.getPost(route.params.slug);
   <div class="flex w-full flex-col items-center">
     <Header v-if="postStore.post" :title="postStore.post.title" />
     <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
-      <PostDetail
+      <PostDetails
         v-if="postStore.post"
         :post="postStore.post"
         :class="breakpoints.smallerOrEqual('xl').value ? 'col-span-full' : 'col-span-2'"

@@ -1,9 +1,7 @@
 <script setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 import TagBadge from './TagBadge.vue';
 const props = defineProps(['post']);
-const route = useRoute();
 const datePostWasCreated = computed(() => new Date(props.post.created_at).toLocaleString());
 </script>
 
@@ -31,7 +29,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="flex items-center justify-between overflow-hidden px-6 py-3 text-center">
       <router-link
         :to="{
-          name: route.path.includes('projects') ? 'projects-detail' : 'blog-detail',
+          name: 'blog-details',
           params: { slug: post.slug }
         }"
         class="btn btn-primary"

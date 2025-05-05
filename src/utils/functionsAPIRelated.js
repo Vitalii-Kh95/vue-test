@@ -17,11 +17,12 @@ export function getCookie(name) {
   return null;
 }
 
-///////////////// blog and project related functions ///////////////////////////
-// These functions utilize similar structure of blog and project API endpoints
-// That's why I decided to take them out of stores
+///////////////// posts related functions ///////////////////////////
+// It's sorta appendix from when I had Projects view.
+// That was the reason I had these functions untied to stores
+// I think it's alright to keep it that way
 export async function getPost({ slug = undefined, type = 'blog' }) {
-  const basePath = type === 'projects' ? 'projects/' : 'posts/';
+  const basePath = type === 'blog' ? 'posts/' : null;
   const url = new URL(`${basePath}${slug ? `${slug}/` : ''}`, baseURL);
   try {
     const response = await fetch(url);
@@ -41,7 +42,7 @@ export async function getPosts({
   tag = undefined,
   type = 'blog'
 }) {
-  const url = type === 'projects' ? new URL('projects/', baseURL) : new URL('posts/', baseURL);
+  const url = type === 'blog' ? new URL('posts/', baseURL) : null;
   if (limit) {
     url.searchParams.set('limit', limit);
   }

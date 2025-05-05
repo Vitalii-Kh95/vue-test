@@ -5,7 +5,7 @@ const route = useRoute();
 
 <template>
   <router-link
-    :to="{ name: route.path.includes('projects') ? 'projects-search' : 'blog-search' }"
+    :to="{ name: route.path.includes('blog') ? 'blog-search' : null }"
     class="btn btn-circle btn-ghost"
   >
     <svg

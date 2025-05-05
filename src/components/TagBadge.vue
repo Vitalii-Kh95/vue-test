@@ -9,7 +9,7 @@
 <script setup>
 import { useRoute } from 'vue-router';
 const route = useRoute();
-const type = route.path.includes('projects') ? 'projects' : 'blog';
+const type = route.path.includes('blog') ? 'blog' : null;
 
 defineProps(['tag']);
 </script>

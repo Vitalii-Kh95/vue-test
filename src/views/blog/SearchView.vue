@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
 import SearchViewHeader from '@/components/TheSearchViewHeader.vue';
@@ -17,25 +17,15 @@ watch(
   },
   { immediate: true }
 );
-const enterFromClass = ref('opacity-0 transform -translate-x-1/2');
-const leaveToClass = ref('opacity-0 transform translate-x-1/2');
 </script>
 
 <template>
-  <div class="container mx-auto flex flex-col items-center pt-5">
+  <div class="container mx-auto flex flex-col items-center">
     <SearchViewHeader
       class="mx-3"
       @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
     />
-    <transition
-      mode="out-in"
-      enter-active-class="transition-all ease-in-out duration-200"
-      leave-active-class="transition-all ease-in-out duration-200"
-      :enter-from-class="enterFromClass"
-      :leave-to-class="leaveToClass"
-    >
-      <PostCards v-if="route.query.q" :posts="postStore.posts" />
-    </transition>
+    <PostCards v-if="route.query.q" :posts="postStore.posts" />
     <Pagination v-if="route.query.q" class="my-5" />
   </div>
 </template>

@@ -21,7 +21,6 @@ export function useTheme() {
   const route = useRoute();
   const prefix = computed(() => {
     if (route.path.startsWith('/blog')) return 'blog';
-    if (route.path.startsWith('/projects')) return 'projects';
     // Add more route checks if needed...
     return 'home';
   });

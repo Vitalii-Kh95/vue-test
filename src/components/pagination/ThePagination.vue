@@ -1,11 +1,12 @@
 <script setup>
 import PaginationButton from './paginationButton.vue';
 import { usePostStore } from '@/stores/PostStore';
-import { useProjectStore } from '@/stores/ProjectStore';
 import { useRoute } from 'vue-router';
 const route = useRoute();
-const type = route.path.includes('projects') ? 'projects' : 'blog';
-const store = type === 'projects' ? useProjectStore() : usePostStore();
+// it's an appendix from times I had projects view,
+// but I decided to keep it that way
+const type = route.path.includes('blog') ? 'blog' : null;
+const store = type === 'blog' ? usePostStore() : null;
 </script>
 
 <template>

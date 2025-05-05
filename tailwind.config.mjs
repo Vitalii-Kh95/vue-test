@@ -77,18 +77,6 @@ export default {
           'secondary-content': 'oklch(98% 0.01 95)' // Near-White
           // accent: 'oklch(70% 0.15 40)', // Muted Deep Orange
           // 'accent-content': 'oklch(95% 0.005 95)' // Soft White
-        },
-        'projects-light': {
-          ...themes['light'],
-          secondary: 'oklch(65% 0.05 185.08)',
-          '--muted': '98.3% 0.0123 317.74',
-          'secondary-content': 'oklch(100% 0.0144 185.08)'
-        },
-        'projects-dark': {
-          ...themes['dark'],
-          secondary: 'oklch(66.82% 0.0544 185.08)',
-          '--muted': '98.3% 0.0123 317.74',
-          'secondary-content': 'oklch(6.6% 0.05 185.08)'
         }
       }
     ]

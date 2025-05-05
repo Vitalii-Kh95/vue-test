@@ -5,7 +5,7 @@ const route = useRoute();
 const router = useRouter();
 function submit(form) {
   return router.push({
-    name: route.path.includes('projects') ? 'projects-search' : 'blog-search',
+    name: route.path.includes('blog') ? 'blog-search' : null,
     query: { q: form.target.elements.q.value }
   });
 }

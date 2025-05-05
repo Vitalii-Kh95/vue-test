@@ -36,7 +36,7 @@ const posts = computed(() => {
         <div v-html="post.description" class="h-[100px] overflow-hidden text-ellipsis"></div>
         <div class="card-actions">
           <router-link
-            :to="{ name: 'blog-detail', params: { slug: post.slug } }"
+            :to="{ name: 'blog-details', params: { slug: post.slug } }"
             class="link link-secondary"
             >Details</router-link
           >
