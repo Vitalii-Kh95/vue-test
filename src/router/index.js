@@ -36,6 +36,11 @@ const router = createRouter({
           component: () => import('../views/blog/TagView.vue')
         }
       ]
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('../views/NotFoundView.vue')
     }
   ]
 });
