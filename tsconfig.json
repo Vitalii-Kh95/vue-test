@@ -1,0 +1,20 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom",
+    "include": [
+        "src/**/*",
+        "src/**/*.vue"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true
+    }
+}

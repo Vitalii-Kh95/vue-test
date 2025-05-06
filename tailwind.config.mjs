@@ -30,7 +30,7 @@ export default {
       }
     }
   },
-  plugins: [daisyui, typography],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
