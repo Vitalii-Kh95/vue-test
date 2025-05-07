@@ -1,6 +1,6 @@
 <script setup>
-import { watch } from 'vue';
-import { useRoute } from 'vue-router';
+// import { watch } from 'vue';
+import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
 import Header from '@/components/blog/PostHeader.vue';
 import PostCards from '@/components/blog/PostCards.vue';
@@ -9,11 +9,17 @@ import Pagination from '@/components/pagination/ThePagination.vue';
 const route = useRoute();
 const postStore = usePostStore();
 
-watch(
-  () => route.params.slug,
-  async (slug) => postStore.getPosts({ tag: slug }),
-  { immediate: true }
-);
+onBeforeRouteUpdate(async (to, from) => {
+  if (to.params.slug !== from.params.slug) {
+    await postStore.getPosts({ tag: to.params.slug });
+    document.title = `#${to.params.slug}`;
+  }
+});
+// watch(
+//   () => route.params.slug,
+//   async (slug) => postStore.getPosts({ tag: slug }),
+//   { immediate: true }
+// );
 </script>
 
 <template>

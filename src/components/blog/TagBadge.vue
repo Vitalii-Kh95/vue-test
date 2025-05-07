@@ -1,7 +1,7 @@
 <template>
   <router-link
     class="badge badge-secondary font-medium"
-    :to="{ name: `${type}-tag-detail`, params: { slug: tag } }"
+    :to="{ name: `${type}-posts-by-tag`, params: { slug: tag } }"
     >#{{ tag }}
   </router-link>
 </template>

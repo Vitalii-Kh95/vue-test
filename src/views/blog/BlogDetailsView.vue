@@ -17,6 +17,7 @@ const postStore = usePostStore();
 onBeforeRouteUpdate(async (to, from) => {
   if (to.params.slug !== from.params.slug) {
     await postStore.getPost(to.params.slug);
+    document.title = postStore.post.title || 'Blog Example';
   }
 });
 

@@ -25,9 +25,6 @@ const router = createRouter({
           name: 'blog',
           component: () => import('../views/blog/BlogView.vue'),
           meta: { title: 'Blog Example' }
-          // route level code-splitting
-          // this generates a separate chunk (About.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
         },
         {
           path: 'search',
@@ -39,7 +36,7 @@ const router = createRouter({
           path: ':slug',
           name: 'blog-details',
           component: () => import('../views/blog/BlogDetailsView.vue'),
-          // meta: { title: (route) => `${route.params.slug}` },
+          meta: { skipAutoTitle: true },
           beforeEnter: async (to) => {
             const postStore = usePostStore();
             await postStore.getPost(to.params.slug);
@@ -48,28 +45,31 @@ const router = createRouter({
         },
         {
           path: 'tags/:slug',
-          name: 'blog-tag-detail',
+          name: 'blog-posts-by-tag',
           component: () => import('../views/blog/TagView.vue'),
-          meta: { title: (route) => `#${route.params.slug}` }
+          meta: { skipAutoTitle: true },
+          beforeEnter: async (to) => {
+            const postStore = usePostStore();
+            await postStore.getPosts({ tag: to.params.slug });
+            document.title = `#${to.params.slug}`;
+          }
         }
       ]
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: () => import('@/components/NotFound.vue')
+      component: () => import('@/components/NotFound.vue'),
+      meta: { title: 'Not Found' }
     }
   ]
 });
 
-// router.beforeEach((to, _from, next) => {
-//   const defaultTitle = 'Vitalii Kholmukhamedov';
-//   if (typeof to.meta.title === 'function') {
-//     document.title = to.meta.title(to);
-//   } else {
-//     document.title = to.meta.title || defaultTitle;
-//   }
-//   next();
-// });
+router.afterEach((to) => {
+  if (!to.meta.skipAutoTitle) {
+    const defaultTitle = 'My App';
+    document.title = to.meta.title || defaultTitle;
+  }
+});
 
 export default router;
