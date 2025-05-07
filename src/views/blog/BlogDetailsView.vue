@@ -5,27 +5,35 @@ import Header from '@/components/PostHeader.vue';
 import NotFound from '@/components/NotFound.vue';
 import { usePostStore } from '@/stores/PostStore';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
-import { useRoute } from 'vue-router';
-import { watch, onMounted } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
 
-const route = useRoute();
+// import { useRoute } from 'vue-router';
+// import { watch, onMounted } from 'vue';
+
+// const route = useRoute();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const postStore = usePostStore();
 
-const loadPost = async (slug) => {
-  await postStore.getPost(slug);
-};
-
-onMounted(() => {
-  loadPost(route.params.slug);
+onBeforeRouteUpdate(async (to, from) => {
+  if (to.params.slug !== from.params.slug) {
+    await postStore.getPost(to.params.slug);
+  }
 });
 
-watch(
-  () => route.params.slug,
-  (newSlug) => {
-    loadPost(newSlug);
-  }
-);
+// const loadPost = async (slug) => {
+//   await postStore.getPost(slug);
+// };
+
+// onMounted(() => {
+//   loadPost(route.params.slug);
+// });
+
+// watch(
+//   () => route.params.slug,
+//   (newSlug) => {
+//     loadPost(newSlug);
+//   }
+// );
 </script>
 <template>
   <div v-if="postStore.post" class="flex w-full flex-col items-center">

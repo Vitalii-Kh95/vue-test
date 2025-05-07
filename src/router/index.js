@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
+import { usePostStore } from '@/stores/PostStore';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +33,12 @@ const router = createRouter({
           path: ':slug',
           name: 'blog-details',
           component: () => import('../views/blog/BlogDetailsView.vue'),
-          meta: { title: (route) => `${route.params.slug}` }
+          // meta: { title: (route) => `${route.params.slug}` },
+          beforeEnter: async (to) => {
+            const postStore = usePostStore();
+            await postStore.getPost(to.params.slug);
+            document.title = postStore.post.title || 'Blog Example';
+          }
         },
         {
           path: 'tags/:slug',
@@ -50,14 +56,14 @@ const router = createRouter({
   ]
 });
 
-router.beforeEach((to, _from, next) => {
-  const defaultTitle = 'Vitalii Kholmukhamedov';
-  if (typeof to.meta.title === 'function') {
-    document.title = to.meta.title(to);
-  } else {
-    document.title = to.meta.title || defaultTitle;
-  }
-  next();
-});
+// router.beforeEach((to, _from, next) => {
+//   const defaultTitle = 'Vitalii Kholmukhamedov';
+//   if (typeof to.meta.title === 'function') {
+//     document.title = to.meta.title(to);
+//   } else {
+//     document.title = to.meta.title || defaultTitle;
+//   }
+//   next();
+// });
 
 export default router;
