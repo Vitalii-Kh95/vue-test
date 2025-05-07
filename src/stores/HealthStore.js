@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { baseURL } from '@/constants';
-import { usePopupStore } from './usePopupStore';
+import { usePopupStore } from './PopupStore';
 
 const RetryTimeInterval = 60000 * 3;
 

@@ -1,6 +1,5 @@
 import daisyui from 'daisyui';
 import themes from 'daisyui/src/theming/themes';
-import typography from '@tailwindcss/typography';
 console.log(themes.light);
 console.log(themes.dark);
 export default {

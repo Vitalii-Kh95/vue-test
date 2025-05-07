@@ -16,7 +16,7 @@
 
 <script setup>
 import { onMounted, ref, watch } from 'vue';
-import { usePopupStore } from '@/stores/usePopupStore';
+import { usePopupStore } from '@/stores/PopupStore';
 import Popup from '@/components/Popup.vue';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 

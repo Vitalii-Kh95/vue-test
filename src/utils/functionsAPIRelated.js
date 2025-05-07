@@ -2,6 +2,11 @@ import { baseURL } from '@/constants';
 
 //////////////// CSRF and cookie /////////////////////////
 
+/**
+ * Fetches the CSRF token from the server.
+ *
+ * @returns {Promise<string>} The CSRF token
+ */
 export async function getCsrfToken() {
   const url = new URL('csrf_token/', baseURL);
   const response = await fetch(url, {
@@ -11,6 +16,12 @@ export async function getCsrfToken() {
   return data.csrftoken;
 }
 
+/**
+ * Retrieves a cookie by name.
+ *
+ * @param {string} name The name of the cookie
+ * @returns {string | null} The cookie value or `null` if not found
+ */
 export function getCookie(name) {
   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
   if (match) return match[2];
@@ -21,6 +32,14 @@ export function getCookie(name) {
 // It's sorta appendix from when I had Projects view.
 // That was the reason I had these functions untied to stores
 // I think it's alright to keep it that way
+/**
+ * Fetches a single post by slug.
+ *
+ * @param {Object} params The parameters for fetching a post
+ * @param {string} [params.slug] The slug of the post
+ * @param {string} [params.type='blog'] The type of post ('blog' or other types)
+ * @returns {Promise<Object | void>} The post data or `undefined` if an error occurs
+ */
 export async function getPost({ slug = undefined, type = 'blog' }) {
   const basePath = type === 'blog' ? 'posts/' : null;
   const url = new URL(`${basePath}${slug ? `${slug}/` : ''}`, baseURL);
@@ -31,10 +50,22 @@ export async function getPost({ slug = undefined, type = 'blog' }) {
     }
     return await response.json();
   } catch (error) {
+    // @ts-ignore: Ignore the type error for 'unknown' type
     console.error(error.message);
   }
 }
 
+/**
+ * Fetches a list of posts with pagination and filtering options.
+ *
+ * @param {Object} params The parameters for fetching posts
+ * @param {number} [params.limit=6] The maximum number of posts to return
+ * @param {number} [params.offset=0] The offset for pagination
+ * @param {string | undefined} [params.search] The search query
+ * @param {string | undefined} [params.tag] The tag filter
+ * @param {string} [params.type='blog'] The type of post ('blog' or other types)
+ * @returns {Promise<Object | undefined>} The posts data
+ */
 export async function getPosts({
   limit = 6,
   offset = 0,
@@ -43,11 +74,14 @@ export async function getPosts({
   type = 'blog'
 }) {
   const url = type === 'blog' ? new URL('posts/', baseURL) : null;
+  if (!url) {
+    throw new Error("URL couldn't be resolved!");
+  }
   if (limit) {
-    url.searchParams.set('limit', limit);
+    url.searchParams.set('limit', limit.toString());
   }
   if (offset) {
-    url.searchParams.append('offset', offset);
+    url.searchParams.append('offset', offset.toString());
   }
   if (search) {
     url.searchParams.append('search', search);
@@ -62,10 +96,17 @@ export async function getPosts({
     }
     return await response.json();
   } catch (error) {
+    // @ts-ignore: Ignore the type error for 'unknown' type
     console.error(error.message);
   }
 }
 
+/**
+ * Parses URL search parameters into an object.
+ *
+ * @param {string} url The URL to parse
+ * @returns {Promise<Object>} An object containing the parsed parameters
+ */
 export async function parseUrlParams(url) {
   const params = new URL(url).searchParams; // Extract search parameters from the URL
   const result = {

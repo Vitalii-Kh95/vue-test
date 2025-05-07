@@ -4,8 +4,12 @@
     <p class="mx-0 my-5 text-xl">Sorry, the page you are looking for does not exist.</p>
     <router-link
       class="font-bold text-secondary no-underline hover:underline"
-      :to="{ name: 'home' }"
+      :to="{ name: returnRouteName || 'home' }"
       >Go back to the homepage</router-link
     >
   </div>
 </template>
+
+<script setup>
+defineProps(['returnRouteName']);
+</script>

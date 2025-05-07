@@ -5,15 +5,18 @@
         "src/**/*.vue"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist"
     ],
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
             "@/*": [
-                "src/*"
+                "./src/*"
             ]
         },
+        "allowJs": true,
+        // "checkJs": true,
         "isolatedModules": true,
         "verbatimModuleSyntax": true
     }
