@@ -4,7 +4,6 @@ import PostCards from '@/components/blog/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
 const postStore = usePostStore();
-postStore.getPosts({});
 </script>
 
 <template>

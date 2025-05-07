@@ -18,6 +18,8 @@ export const usePostStore = defineStore('postStore', {
     pageCount: (state) => {
       if (state.count) {
         return Math.ceil(state.count / state.pageSize);
+      } else {
+        return null;
       }
     }
   },
@@ -46,6 +48,15 @@ export const usePostStore = defineStore('postStore', {
 
     async getPost(slug) {
       this.post = await getPost({ slug: slug });
+    },
+
+    emptyPosts() {
+      this.count = null;
+      this.pageSize = null;
+      this.currentPage = null;
+      this.nextPage = null;
+      this.previousPage = null;
+      this.posts = [];
     }
   }
 });

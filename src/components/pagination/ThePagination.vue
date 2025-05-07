@@ -26,7 +26,7 @@ const store = type === 'blog' ? usePostStore() : null;
               limit: 6,
               offset: (n - 1) * 6,
               search: route.query.q,
-              tag: route.name === `${type}-tag-detail` ? route.params.slug : undefined
+              tag: route.name === `${type}-posts-by-tag` ? route.params.slug : undefined
             })
           "
         >

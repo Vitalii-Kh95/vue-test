@@ -83,7 +83,6 @@ export const useUserStore = defineStore('userStore', {
       //   credentials: 'include',
       //   headers: { 'Content-Type': 'application/json' }
       // });
-      console.log('whoami result:', result);
       if (result.ok) {
         this.loggedIn = true;
         // const data = await result.json();

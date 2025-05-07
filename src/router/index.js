@@ -24,13 +24,25 @@ const router = createRouter({
           path: '',
           name: 'blog',
           component: () => import('../views/blog/BlogView.vue'),
-          meta: { title: 'Blog Example' }
+          meta: { title: 'Blog Example' },
+          beforeEnter: async () => {
+            const postStore = usePostStore();
+            await postStore.getPosts({});
+          }
         },
         {
           path: 'search',
           name: 'blog-search',
           component: () => import('../views/blog/SearchView.vue'),
-          meta: { title: 'Blog Search' }
+          meta: { title: 'Blog Search' },
+          beforeEnter: async (to) => {
+            const postStore = usePostStore();
+            if (to.query.q !== '') {
+              await postStore.getPosts({ search: to.query.q });
+            } else {
+              postStore.emptyPosts();
+            }
+          }
         },
         {
           path: ':slug',
