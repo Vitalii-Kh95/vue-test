@@ -2,6 +2,7 @@
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
+import Header from '@/components/PostHeader.vue';
 import PostCards from '@/components/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
@@ -17,9 +18,11 @@ watch(
 
 <template>
   <div class="flex w-full flex-col items-center">
-    <div class="container mx-auto flex flex-col items-center">
+    <Header :title="`#${route.params.slug}`" />
+    <div v-if="postStore.posts.length > 0" class="container mx-auto flex flex-col items-center">
       <PostCards :posts="postStore.posts" />
       <Pagination class="my-5" />
     </div>
+    <h1 v-else class="mx-auto pt-10 text-4xl text-error">No results</h1>
   </div>
 </template>

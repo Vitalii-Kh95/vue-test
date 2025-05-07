@@ -22,12 +22,14 @@ const posts = computed(() => {
 </script>
 <template>
   <div class="card h-fit overflow-hidden border bg-base-100 shadow-xl">
-    <div class="bg-neutral-content p-5 text-neutral">
+    <div class="bg-neutral/90 p-5 text-neutral-content">
       <h1 class="text-center text-3xl font-bold">Last posts</h1>
     </div>
     <div v-for="(post, index) in posts" :key="post.id">
       <div class="card-body">
-        <h3 class="card-title">{{ post.title }}</h3>
+        <router-link :to="{ name: 'blog-details', params: { slug: post.slug } }"
+          ><h3 class="card-title hover:underline">{{ post.title }}</h3></router-link
+        >
       </div>
       <figure class="">
         <img class="max-h-[200px] w-full object-cover" :src="post.image" alt="Shoes" />
