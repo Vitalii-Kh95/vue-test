@@ -7,7 +7,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { title: 'Vitalii Kholmukhamedov' }
     },
     {
       path: '/blog',
@@ -15,7 +16,8 @@ const router = createRouter({
         {
           path: '',
           name: 'blog',
-          component: () => import('../views/blog/BlogView.vue')
+          component: () => import('../views/blog/BlogView.vue'),
+          meta: { title: 'Blog Example' }
           // route level code-splitting
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
@@ -23,17 +25,20 @@ const router = createRouter({
         {
           path: 'search',
           name: 'blog-search',
-          component: () => import('../views/blog/SearchView.vue')
+          component: () => import('../views/blog/SearchView.vue'),
+          meta: { title: 'Blog Search' }
         },
         {
           path: ':slug',
           name: 'blog-details',
-          component: () => import('../views/blog/BlogDetailsView.vue')
+          component: () => import('../views/blog/BlogDetailsView.vue'),
+          meta: { title: (route) => `${route.params.slug}` }
         },
         {
           path: 'tags/:slug',
           name: 'blog-tag-detail',
-          component: () => import('../views/blog/TagView.vue')
+          component: () => import('../views/blog/TagView.vue'),
+          meta: { title: (route) => `#${route.params.slug}` }
         }
       ]
     },
@@ -43,6 +48,16 @@ const router = createRouter({
       component: () => import('@/components/NotFound.vue')
     }
   ]
+});
+
+router.beforeEach((to, _from, next) => {
+  const defaultTitle = 'Vitalii Kholmukhamedov';
+  if (typeof to.meta.title === 'function') {
+    document.title = to.meta.title(to);
+  } else {
+    document.title = to.meta.title || defaultTitle;
+  }
+  next();
 });
 
 export default router;
