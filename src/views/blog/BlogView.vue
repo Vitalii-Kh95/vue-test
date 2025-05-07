@@ -1,6 +1,6 @@
 <script setup>
 import { usePostStore } from '@/stores/PostStore';
-import PostCards from '@/components/PostCards.vue';
+import PostCards from '@/components/blog/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
 const postStore = usePostStore();

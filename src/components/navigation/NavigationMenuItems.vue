@@ -1,15 +1,20 @@
 <script setup>
-const menuItems = ['home', 'blog'];
+defineProps({
+  menuItems: {
+    type: Array,
+    required: true
+  }
+});
 </script>
 
 <template>
   <router-link
     v-for="item in menuItems"
-    :key="item"
-    :to="{ name: item }"
+    :key="item.routeName"
+    :to="{ name: item.routeName }"
     activeClass="underline"
     class="btn btn-ghost text-xl"
     :class="{ 'pointer-events-none': $route.name === item }"
-    >{{ item }}</router-link
+    >{{ item.displayedName }}</router-link
   >
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import IconSearch from './icons/IconSearch.vue';
+import IconSearch from '@/components/icons/IconSearch.vue';
 const emit = defineEmits(['submit-query']);
 
 function submit(form) {

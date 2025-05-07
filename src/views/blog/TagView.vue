@@ -2,8 +2,8 @@
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
-import Header from '@/components/PostHeader.vue';
-import PostCards from '@/components/PostCards.vue';
+import Header from '@/components/blog/PostHeader.vue';
+import PostCards from '@/components/blog/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
 const route = useRoute();

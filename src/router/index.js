@@ -12,6 +12,12 @@ const router = createRouter({
       meta: { title: 'Vitalii Kholmukhamedov' }
     },
     {
+      path: '/portfolio',
+      name: 'portfolio',
+      component: () => import('../views/PortfolioView.vue'),
+      meta: { title: 'Portfolio' }
+    },
+    {
       path: '/blog',
       children: [
         {

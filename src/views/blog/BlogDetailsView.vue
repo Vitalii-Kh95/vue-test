@@ -1,7 +1,7 @@
 <script setup>
-import PostDetails from '@/components/PostDetails.vue';
-import AsideBlock from '@/components/TheAsideBlock.vue';
-import Header from '@/components/PostHeader.vue';
+import PostDetails from '@/components/blog/PostDetails.vue';
+import AsideBlock from '@/components/blog/TheAsideBlock.vue';
+import Header from '@/components/blog/PostHeader.vue';
 import NotFound from '@/components/NotFound.vue';
 import { usePostStore } from '@/stores/PostStore';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
