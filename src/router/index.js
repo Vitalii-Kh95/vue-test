@@ -77,6 +77,12 @@ const router = createRouter({
   ]
 });
 
+// router.beforeEach((to, from) => {
+//   if (from.name?.startsWith('blog') && !to.name?.startsWith('blog')) {
+//     postStore.$reset();
+//   }
+// });
+
 router.afterEach((to) => {
   if (!to.meta.skipAutoTitle) {
     const defaultTitle = 'My App';
