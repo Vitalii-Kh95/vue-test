@@ -13,7 +13,7 @@ defineProps({
     :key="item.routeName"
     :to="{ name: item.routeName }"
     activeClass="underline"
-    class="btn btn-ghost text-xl"
+    class="btn btn-ghost text-xl text-neutral-content"
     :class="{ 'pointer-events-none': $route.name === item }"
     >{{ item.displayedName }}</router-link
   >

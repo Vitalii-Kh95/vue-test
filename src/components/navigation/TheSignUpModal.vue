@@ -10,13 +10,13 @@ const modal = ref(null);
 
 async function register(event) {
   const form = event.target.elements;
-  const success = await userStore.register(
+  const registered = await userStore.register(
     form.username.value,
     form.email.value,
     form.password.value,
     form.password_confirm.value
   );
-  if (success) close();
+  if (registered) close();
 }
 
 // Extract errors from the store

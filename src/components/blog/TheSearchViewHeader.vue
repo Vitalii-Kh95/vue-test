@@ -29,18 +29,24 @@ const headerTitle = computed(() => {
     class="hero flex h-[15rem] flex-col justify-center gap-0 bg-gradient-to-r from-base-100 via-base-200 to-base-100"
   >
     <div class="hero-content w-full flex-grow text-center">
-      <form @submit.prevent="submit" role="search" class="join">
-        <label class="input input-lg input-bordered flex w-4/5 items-center gap-2">
+      <form @submit.prevent="submit" role="search" class="group join">
+        <label
+          class="input input-lg join-item input-bordered flex items-center gap-2 rounded-full focus-within:border group-focus-within:outline-1 group-focus-within:outline-offset-0"
+        >
           <input
             v-model="searchInputText"
             type="search"
             name="q"
-            class="w-full"
-            placeholder="Search"
+            class="grow"
+            placeholder="Search "
           />
-          <IconSearch />
+          <IconSearch class="opacity-60" />
         </label>
-        <button type="submit" class="btn btn-info btn-lg" :disabled="searchInputText.trim() === ''">
+        <button
+          type="submit"
+          class="btn btn-info join-item btn-lg rounded-r-full outline-base-content/20"
+          :disabled="searchInputText.trim() === ''"
+        >
           Search
         </button>
       </form>

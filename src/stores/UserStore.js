@@ -110,11 +110,10 @@ export const useUserStore = defineStore('userStore', {
       });
 
       if (result.ok) {
-        console.log('Registration successful');
         this.loggedIn = await this.login(username, password);
         return true;
       } else {
-        console.warn('Login failed:', result.error);
+        console.error('Login failed:', result.error);
         this.errorMessage = result.error || {};
         return false;
       }

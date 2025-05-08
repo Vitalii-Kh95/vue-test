@@ -9,8 +9,8 @@ const modal = ref(null);
 
 async function login(event) {
   const form = event.target.elements;
-  const success = await userStore.login(form.username.value, form.password.value);
-  if (success) close();
+  const logined = await userStore.login(form.username.value, form.password.value);
+  if (logined) close();
 }
 // Extract errors from the store
 const errors = computed(() =>

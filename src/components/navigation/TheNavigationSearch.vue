@@ -11,17 +11,15 @@ function submit(form) {
 }
 </script>
 <template>
-  <form @submit.prevent="(form) => submit(form)" role="search" class="join">
-    <label class="input input-bordered flex items-center gap-2 overflow-hidden rounded-full pe-0">
-      <input
-        type="search"
-        name="q"
-        class="join-item grow text-base-content focus:outline-2 focus:outline-transparent"
-        placeholder="Search"
-      />
-      <button class="btn btn-info join-item me-0">
-        <IconSearch />
-      </button>
-    </label>
+  <form @submit.prevent="(form) => submit(form)" role="search" class="join rounded-full">
+    <input
+      type="search"
+      name="q"
+      class="input join-item input-bordered grow text-base-content focus:outline-2 focus:outline-transparent dark:bg-inherit"
+      placeholder="Search"
+    />
+    <button class="btn btn-info join-item">
+      <IconSearch />
+    </button>
   </form>
 </template>
