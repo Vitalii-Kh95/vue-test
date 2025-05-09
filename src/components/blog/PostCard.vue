@@ -9,9 +9,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
   <div
     class="card mx-3 mt-6 flex flex-col rounded-lg shadow-2xl duration-150 hover:scale-105 sm:shrink-0 sm:grow sm:basis-0"
   >
-    <a href="#!">
-      <img class="h-[15vw] w-full rounded-t-lg object-cover" :src="post.image" alt="" />
-    </a>
+    <img class="h-[15vw] w-full rounded-t-lg object-cover" :src="post.image" alt="" />
     <div class="card-body justify-between px-6 pb-1 pt-6 text-base-content">
       <h5 class="card-title">{{ post.title }}</h5>
       <div class="flex-grow">
@@ -29,7 +27,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="flex items-center justify-between overflow-hidden px-6 py-3 text-center">
       <router-link
         :to="{
-          name: 'blog-postdetails',
+          name: 'blog-post-details',
           params: { slug: post.slug }
         }"
         class="btn btn-primary"

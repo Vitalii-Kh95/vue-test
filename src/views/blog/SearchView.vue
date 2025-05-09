@@ -1,12 +1,10 @@
 <script setup>
-// import { watch } from 'vue';
-import { useRoute, onBeforeRouteUpdate } from 'vue-router';
+import { onBeforeRouteUpdate } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
 import SearchViewHeader from '@/components/blog/TheSearchViewHeader.vue';
 import PostCards from '@/components/blog/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
-const route = useRoute();
 const postStore = usePostStore();
 
 onBeforeRouteUpdate(async (to, from) => {
