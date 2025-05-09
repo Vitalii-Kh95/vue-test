@@ -19,7 +19,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     </div>
     <div class="divider mb-3"></div>
 
-    <div class="flex items-end justify-between pb-4">
+    <div class="flex items-center justify-between pb-4">
       <div class="p-2">Published: {{ datePostWasCreated }}</div>
       <router-link class="btn btn-primary rounded-xl" :to="{ name: 'blog' }">Go Back</router-link>
     </div>
