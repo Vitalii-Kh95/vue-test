@@ -6,7 +6,7 @@ const RetryTimeInterval = 60000 * 3;
 
 export const useHealthStore = defineStore('healthStore', {
   state: () => ({
-    dbStatus: 'Healthy',
+    blogAPIStatus: 'ok', // Django returns 'ok' or 'error' in the data object
     lastHealthCheck: null,
     retryIntervalId: null // Holds the interval ID for retries
   }),
@@ -15,18 +15,19 @@ export const useHealthStore = defineStore('healthStore', {
     // Fetch backend health status
     async fetchHealthStatus() {
       const popupStore = usePopupStore();
-      const previousStatus = this.dbStatus; // Store previous status to detect transitions
+      const previousStatus = this.blogAPIStatus; // Store previous status to detect transitions
       const now = new Date().getTime();
       this.lastHealthCheck = now;
       try {
         const url = new URL('health/', baseURL);
         const response = await fetch(url);
         const data = await response.json();
-        this.dbStatus = data.db_status;
+        //LOLLOLOLOLOL
+        this.blogAPIStatus = data.db_status;
 
-        if (this.dbStatus === 'Unhealthy') {
-          throw new Error('Backend is unhealthy');
-        } else if (previousStatus === 'Unhealthy' && this.dbStatus === 'Healthy') {
+        if (this.blogAPIStatus === 'error') {
+          throw new Error('Backend is error');
+        } else if (previousStatus === 'error' && this.blogAPIStatus === 'ok') {
           popupStore.show({
             message: 'Backend is back online. All systems operational.',
             type: 'alert-success'
@@ -36,7 +37,7 @@ export const useHealthStore = defineStore('healthStore', {
           // Here, means healthCheck is alright
         }
       } catch {
-        this.dbStatus = 'Unhealthy';
+        this.blogAPIStatus = 'error';
         popupStore.show({
           message: 'Backend is currently unavailable. Authentication and posts are not accessible.',
           type: 'alert-error'

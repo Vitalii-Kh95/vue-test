@@ -1,4 +1,5 @@
 <script setup>
+import { useHealthStore } from '@/stores/HealthStore';
 import MenuItems from './NavigationMenuItems.vue';
 import DropdownMenu from './TheNavigationDropdownMenu.vue';
 import IconHamburger from '@/components/icons/IconHamburger.vue';
@@ -8,11 +9,12 @@ const menuItems = [
   { displayedName: 'home', routeName: 'home' },
   { displayedName: 'portfolio', routeName: 'portfolio' }
 ];
+const healthStore = useHealthStore();
 </script>
 <template>
   <div class="navbar fixed top-0 z-10 bg-neutral px-0 py-0 text-neutral-content">
     <div class="navbar-start ps-1">
-      <div class="dropdown">
+      <div class="dropdown" v-if="healthStore.blogAPIStatus === 'ok'">
         <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
           <IconHamburger />
         </div>
@@ -24,7 +26,7 @@ const menuItems = [
           <DropdownMenu :menu-items="menuItems" />
         </ul>
       </div>
-      <div class="hidden sm:flex">
+      <div class="hidden sm:flex" v-if="healthStore.blogAPIStatus === 'ok'">
         <MenuItems :menu-items="menuItems" />
       </div>
     </div>
