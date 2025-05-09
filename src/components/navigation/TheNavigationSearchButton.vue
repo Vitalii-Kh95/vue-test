@@ -6,11 +6,11 @@ const route = useRoute();
 <template>
   <router-link
     :to="{ name: route.path.includes('blog') ? 'blog-search' : null }"
-    class="btn btn-circle btn-ghost"
+    class="group btn btn-circle btn-ghost hover:bg-inherit"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5"
+      class="h-5 w-5 group-hover:h-6 group-hover:w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
