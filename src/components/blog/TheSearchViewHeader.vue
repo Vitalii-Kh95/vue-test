@@ -29,9 +29,13 @@ const headerTitle = computed(() => {
     class="hero flex h-[15rem] flex-col justify-center gap-0 bg-gradient-to-r from-base-100 via-base-200 to-base-100"
   >
     <div class="hero-content w-full flex-grow text-center">
-      <form @submit.prevent="submit" role="search" class="group join">
+      <form
+        @submit.prevent="submit"
+        role="search"
+        class="group join rounded-full border-[var(--s)] has-[input:focus]:border-8"
+      >
         <label
-          class="input input-lg join-item input-bordered flex items-center gap-2 rounded-full focus-within:border group-focus-within:outline-1 group-focus-within:outline-offset-0"
+          class="input input-lg join-item input-bordered flex items-center gap-2 rounded-full group-focus-within:outline-0 group-focus-within:outline-offset-0"
         >
           <input
             v-model="searchInputText"
@@ -52,7 +56,7 @@ const headerTitle = computed(() => {
       </form>
     </div>
 
-    <div class="hero-content flex-1 text-center">
+    <div class="hero-content flex-1 text-center text-[oklch(var(--p))]">
       <h1 class="text-5xl font-bold">{{ headerTitle }}</h1>
     </div>
   </div>

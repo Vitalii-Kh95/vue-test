@@ -40,7 +40,8 @@ export default {
           secondary: 'oklch(65% 0.05 185.08)',
           'secondary-content': 'oklch(100% 0.0144 185.08)',
           '--muted': '98.3% 0.0123 317.74',
-          '--background': '62.22% 0.0791 303.93'
+          '--background': '62.22% 0.0791 303.93',
+          '--menu-height': '4rem'
         },
         'blog-dark': {
           ...themes['dark'],
@@ -48,7 +49,8 @@ export default {
           accent: 'oklch(65.69% 0.196 275.75)',
           secondary: 'oklch(66.82% 0.0544 185.08)',
           'secondary-content': 'oklch(6.6% 0.05 185.08)',
-          '--muted': '98.3% 0.0123 317.74'
+          '--muted': '98.3% 0.0123 317.74',
+          '--menu-height': '4rem'
         },
         'home-light': {
           ...themes['light'], // Retains default DaisyUI "neutral"
@@ -61,7 +63,8 @@ export default {
           'secondary-content': 'oklch(25% 0.02 185.08)',
           // muted: 'oklch(98.19% 0.0145 322.34)'
           '--muted': '98.3% 0.0123 317.74',
-          '--background': '94.93% 0.0594 181.85'
+          '--background': '94.93% 0.0594 181.85',
+          '--menu-height': '4rem'
           // accent: 'oklch(80% 0.12 40)', // Warm Golden Orange (Soft Contrast)
           // 'accent-content': 'oklch(10% 0.01 95)' // Near-Black for readability
         },
@@ -73,7 +76,8 @@ export default {
           'primary-content': 'oklch(90% 0.01 95)', // Light Gray
           '--muted': '98.3% 0.0123 317.74',
           secondary: 'oklch(66% 0.06 185.08)', // Slightly Darker Cyan (Aligned with Blog)
-          'secondary-content': 'oklch(98% 0.01 95)' // Near-White
+          'secondary-content': 'oklch(98% 0.01 95)', // Near-White
+          '--menu-height': '4rem'
           // accent: 'oklch(70% 0.15 40)', // Muted Deep Orange
           // 'accent-content': 'oklch(95% 0.005 95)' // Soft White
         }

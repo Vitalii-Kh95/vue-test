@@ -26,7 +26,11 @@ function showModal(modalRef) {
 
 <template>
   <div class="dropdown dropdown-end dropdown-hover">
-    <div tabindex="0" role="button" class="btn btn-primary rounded-2xl text-primary-content">
+    <div
+      tabindex="0"
+      role="button"
+      class="btn btn-primary whitespace-nowrap rounded-2xl text-primary-content"
+    >
       {{ userStore.loggedIn ? `${userStore.user}` : 'Sign In' }}
     </div>
     <ul

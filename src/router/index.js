@@ -40,14 +40,14 @@ const router = createRouter({
             if (to.query.q !== '') {
               await postStore.getPosts({ search: to.query.q });
             } else {
-              postStore.emptyPosts();
+              postStore.$reset();
             }
           }
         },
         {
           path: ':slug',
-          name: 'blog-details',
-          component: () => import('../views/blog/BlogDetailsView.vue'),
+          name: 'blog-post-details',
+          component: () => import('../views/blog/PostDetailsView.vue'),
           meta: { skipAutoTitle: true },
           beforeEnter: async (to) => {
             const postStore = usePostStore();

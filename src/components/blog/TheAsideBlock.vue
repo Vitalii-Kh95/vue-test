@@ -27,7 +27,7 @@ const posts = computed(() => {
     </div>
     <div v-for="(post, index) in posts" :key="post.id">
       <div class="card-body">
-        <router-link :to="{ name: 'blog-details', params: { slug: post.slug } }"
+        <router-link :to="{ name: 'blog-post-details', params: { slug: post.slug } }"
           ><h3 class="card-title hover:underline">{{ post.title }}</h3></router-link
         >
       </div>
@@ -38,7 +38,7 @@ const posts = computed(() => {
         <div class="h-[100px] overflow-hidden text-ellipsis">{{ post.description }}</div>
         <div class="card-actions">
           <router-link
-            :to="{ name: 'blog-details', params: { slug: post.slug } }"
+            :to="{ name: 'blog-post-details', params: { slug: post.slug } }"
             class="link link-secondary"
             >Details</router-link
           >

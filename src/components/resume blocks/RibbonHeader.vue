@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute left-0 z-10 flex w-[calc(100%+10px)] items-center bg-neutral/85 px-4 py-2 text-lg font-bold text-white"
+    class="z-9 absolute left-0 flex w-[calc(100%+10px)] items-center bg-neutral/85 px-4 py-2 text-lg font-bold text-white"
   >
     {{ title }}
     <!-- Fold Effect (Triangle Cut) -->

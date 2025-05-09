@@ -48,15 +48,6 @@ export const usePostStore = defineStore('postStore', {
 
     async getPost(slug) {
       this.post = await getPost({ slug: slug });
-    },
-
-    emptyPosts() {
-      this.count = null;
-      this.pageSize = null;
-      this.currentPage = null;
-      this.nextPage = null;
-      this.previousPage = null;
-      this.posts = [];
     }
   }
 });

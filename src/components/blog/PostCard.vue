@@ -29,7 +29,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="flex items-center justify-between overflow-hidden px-6 py-3 text-center">
       <router-link
         :to="{
-          name: 'blog-details',
+          name: 'blog-postdetails',
           params: { slug: post.slug }
         }"
         class="btn btn-primary"
