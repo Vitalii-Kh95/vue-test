@@ -28,7 +28,6 @@ onBeforeRouteUpdate(async (to, from) => {
 <template>
   <div class="container mx-auto flex flex-col items-center">
     <SearchViewHeader
-      class="mx-3"
       @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
     />
 

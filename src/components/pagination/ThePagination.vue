@@ -20,7 +20,7 @@ const store = type === 'blog' ? usePostStore() : null;
       <li v-for="n in store.pageCount" :key="n">
         <button
           v-if="n !== store.currentPage"
-          class="relative block rounded px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-primary"
+          class="relative block rounded-lg px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-primary"
           @click="
             store.getPosts({
               limit: 6,

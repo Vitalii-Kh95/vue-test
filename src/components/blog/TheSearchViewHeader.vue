@@ -20,22 +20,22 @@ const headerTitle = computed(() => {
   else {
     resultString = route.query.q;
   }
-  if (resultString.length > 30) return resultString.slice(0, 29) + '...';
+  if (resultString.length > 29) return resultString.slice(0, 28) + '...';
   return resultString;
 });
 </script>
 <template>
-  <div
-    class="hero flex h-[15rem] flex-col justify-center gap-0 bg-gradient-to-r from-base-100 via-base-200 to-base-100"
-  >
-    <div class="hero-content w-full flex-grow text-center">
+  <div class="relative h-48 w-full bg-gradient-to-r from-base-100 via-base-200 to-base-100 md:h-60">
+    <div
+      class="md:pb- absolute left-1/2 flex h-full max-w-80 -translate-x-1/2 flex-col items-center justify-start gap-y-5 pt-16 text-center md:w-full md:max-w-none md:gap-y-8"
+    >
       <form
         @submit.prevent="submit"
         role="search"
-        class="group join rounded-full border-[var(--s)] has-[input:focus]:border-8"
+        class="join rounded-full border-base-content/20 has-[input:focus]:border"
       >
         <label
-          class="input input-lg join-item input-bordered flex items-center gap-2 rounded-full group-focus-within:outline-0 group-focus-within:outline-offset-0"
+          class="input join-item input-bordered flex max-w-72 items-center gap-2 rounded-full md:input-lg focus-within:outline-0 focus-within:outline-offset-0 md:w-96 md:max-w-none"
         >
           <input
             v-model="searchInputText"
@@ -48,16 +48,16 @@ const headerTitle = computed(() => {
         </label>
         <button
           type="submit"
-          class="btn btn-info join-item btn-lg rounded-r-full outline-base-content/20"
+          class="btn btn-info join-item rounded-r-full md:btn-lg"
           :disabled="searchInputText.trim() === ''"
         >
           Search
         </button>
       </form>
-    </div>
 
-    <div class="hero-content flex-1 text-center text-[oklch(var(--p))]">
-      <h1 class="text-5xl font-bold">{{ headerTitle }}</h1>
+      <div class="whitespace-nowrap">
+        <h1 class="text-2xl font-bold md:text-4xl lg:text-5xl">{{ headerTitle }}</h1>
+      </div>
     </div>
   </div>
 </template>

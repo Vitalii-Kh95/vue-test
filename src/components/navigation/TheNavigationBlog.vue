@@ -48,7 +48,7 @@ const displaySearch = computed(() => {
     <div class="navbar-end flex-grow gap-2">
       <component
         v-if="displaySearch"
-        :is="breakpoints.smallerOrEqual('md').value ? SearchButton : SearchBox"
+        :is="breakpoints.smallerOrEqual('lg').value ? SearchButton : SearchBox"
       />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
