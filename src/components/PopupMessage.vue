@@ -1,22 +1,18 @@
 <template>
   <div
-    class="w-full transform transition-opacity duration-5000 ease-in"
-    :class="faded ? 'opacity-0' : 'opacity-100'"
+    class="alert relative flex transform justify-between rounded-full p-4 shadow-lg transition-opacity duration-5000 ease-in"
+    :class="[faded ? 'opacity-0' : 'opacity-100', props.type]"
   >
-    <div
-      class="alert relative flex items-center justify-between overflow-visible rounded-full p-4 shadow-lg"
-      :class="type"
+    <span class="pl-4 text-center">
+      <slot>{{ message }}</slot>
+    </span>
+    <!-- text-error overriden by dark:btn-neutral unless !important -->
+    <button
+      @click="closePopup(id)"
+      class="btn btn-circle btn-sm border-none text-xl !text-error shadow-md dark:btn-neutral"
     >
-      <div class="min-w-0 flex-1 whitespace-normal text-center">
-        <slot>{{ message }}</slot>
-      </div>
-      <button
-        @click="closePopup(id)"
-        class="flex h-8 w-8 items-center justify-center rounded-full bg-white text-lg text-red-600 shadow-md hover:bg-gray-200"
-      >
-        &times;
-      </button>
-    </div>
+      &times;
+    </button>
   </div>
 </template>
 

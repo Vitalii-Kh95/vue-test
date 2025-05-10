@@ -17,7 +17,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue';
 import { usePopupStore } from '@/stores/PopupStore';
-import Popup from '@/components/Popup.vue';
+import Popup from '@/components/PopupMessage.vue';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
@@ -28,16 +28,14 @@ const handleClose = (id) => {
 };
 const popupMaxWidth = ref(400);
 const adjustPopupWidth = () => {
-  if (breakpoints.active().value === '2xl') {
-    popupMaxWidth.value = 800;
-  } else if (breakpoints.active().value === 'xl') {
+  if (breakpoints.greaterOrEqual('xl').value) {
     popupMaxWidth.value = 700;
   } else if (breakpoints.active().value === 'lg') {
     popupMaxWidth.value = 600;
   } else if (breakpoints.active().value === 'md') {
     popupMaxWidth.value = 500;
   } else {
-    popupMaxWidth.value = 400;
+    popupMaxWidth.value = 340;
   }
 };
 onMounted(() => {
