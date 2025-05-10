@@ -1,16 +1,14 @@
 <script setup>
 import { RouterView } from 'vue-router';
 import TheNavigation from '@/components/navigation/TheNavigation.vue';
-import PopupManager from '@/components/PopupManager.vue';
 import { useHealthStore } from '@/stores/HealthStore';
-import { defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue';
+import { defineAsyncComponent, onBeforeUnmount } from 'vue';
 
 const healthStore = useHealthStore();
 
-onMounted(() => {
-  // Perform health check on app load
-  healthStore.fetchHealthStatus();
-});
+healthStore.fetchHealthStatus();
+
+const PopupManager = defineAsyncComponent(() => import('@/components/PopupManager.vue'));
 
 onBeforeUnmount(() => {
   // Ensure retry interval is cleared when the app is unmounted
@@ -31,6 +29,6 @@ onBeforeUnmount(() => {
      but I also wrapped this number with theme dependent variable
      which adds some flexibility -->
     <RouterView class="flex-1 pt-[--menu-height]" />
-    <PopupManager />
+    <component v-if="healthStore.usePopups" :is="PopupManager" />
   </div>
 </template>
