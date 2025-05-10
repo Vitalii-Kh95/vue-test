@@ -3,7 +3,7 @@ import { RouterView } from 'vue-router';
 import TheNavigation from '@/components/navigation/TheNavigation.vue';
 import PopupManager from '@/components/PopupManager.vue';
 import { useHealthStore } from '@/stores/HealthStore';
-import { onMounted, onBeforeUnmount } from 'vue';
+import { defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue';
 
 const healthStore = useHealthStore();
 
