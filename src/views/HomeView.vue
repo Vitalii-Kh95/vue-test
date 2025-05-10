@@ -17,8 +17,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
     </aside>
 
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->
-
-    <section class="flex-1 lg:overflow-auto">
+    <section class="flex-1 pb-3 lg:overflow-auto">
       <div
         class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb15.png')]"
       >
@@ -28,33 +27,30 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
           class="absolute inset-0 -z-10 h-full w-full max-w-none object-cover opacity-10 bg-blend-exclusion"
         /> -->
         <div
-          class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(20px,1fr))_minmax(20px,1fr)] grid-rows-[auto_auto_auto_auto_auto_auto_1fr] items-center pb-1 pt-8"
+          class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(15px,1fr))_minmax(20px,1fr)] grid-rows-[auto_auto_auto_auto_auto_auto_1fr] items-center pb-1 pt-5 md:pt-8"
         >
-          <div class="col-span-1 shrink-[2] basis-0"></div>
+          <div class="col-span-1 row-span-7 h-full shrink-[2] basis-0"></div>
           <div
-            class="col-span-18 col-start-2 row-span-7 row-start-1 grid grid-cols-subgrid grid-rows-subgrid gap-y-5 text-center"
+            class="col-span-18 col-start-2 row-span-7 row-start-1 grid grid-cols-subgrid grid-rows-subgrid gap-y-3 text-center md:gap-y-5"
           >
             <h1
-              class="col-span-18 row-span-1 mx-auto font-serif text-6xl font-bold text-base-content 2xl:text-8xl"
+              class="col-span-18 row-span-1 mx-auto font-serif text-4xl font-bold text-base-content md:text-6xl 2xl:text-8xl"
             >
               Hi, I am a developer!
             </h1>
-            <div
-              class="col-span-18 row-span-1 mx-auto mb-2 text-center font-mono text-2xl font-bold text-base-content/60 2xl:text-3xl"
+            <h2
+              class="col-span-18 row-span-1 mx-auto mb-2 font-mono text-xl font-bold text-base-content/60 md:text-2xl 2xl:text-3xl"
             >
-              <article class="">
-                I design scalable web applications and APIs with modern tools, blending clean design
-                with reliable performance.
-              </article>
-            </div>
+              I design scalable web applications and APIs with modern tools, blending clean design
+              with reliable performance.
+            </h2>
             <TechStack
               class="col-span-18 row-span-5 grid grid-cols-subgrid grid-rows-subgrid gap-y-3"
             />
           </div>
-          <div class="col-span-1 shrink-[2] basis-0"></div>
+          <div class="col-span-1 col-start-20 row-span-7 h-full shrink-[2] basis-0"></div>
         </div>
       </div>
     </section>
-    <!-- </div> -->
   </main>
 </template>

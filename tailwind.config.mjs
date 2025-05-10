@@ -26,6 +26,9 @@ export default {
       },
       gridColumn: {
         'span-18': 'span 18 / span 18'
+      },
+      gridColumnStart: {
+        20: '20' // this adds col-start-20
       }
     }
   },

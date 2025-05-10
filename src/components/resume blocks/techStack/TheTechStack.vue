@@ -74,14 +74,16 @@ const frontendItems = [
 
 <template>
   <div class="">
-    <h2 class="col-span-18 row-span-1 mx-auto text-[2.2rem] font-bold 2xl:text-[2.6rem]">
+    <h2
+      class="col-span-18 row-span-1 mx-auto text-3xl font-bold md:text-[2.2rem] 2xl:text-[2.6rem]"
+    >
       Tech Stack
     </h2>
     <!-- <div
       class="h-1 w-full rounded-lg bg-secondary bg-gradient-to-r from-muted via-neutral to-muted p-1 text-center"
     ></div> -->
     <div class="col-span-18 row-span-4 grid grid-cols-subgrid grid-rows-subgrid gap-6">
-      <div
+      <!-- <div
         class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5 text-start"
       >
         <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
@@ -91,8 +93,49 @@ const frontendItems = [
             <TechStackGrid :items="frontendItems" />
           </div>
         </div>
+      </div> -->
+
+      <div class="col-span-18 row-span-2 flex flex-col gap-1 px-1 text-start">
+        <h3 class="col-span-18 row-span-1 px-1 font-serif text-2xl font-bold md:text-3xl">
+          Front-end
+        </h3>
+        <div class="flex gap-x-1">
+          <IconTypeScript class="h-7 w-7 shrink-0" />
+          Build dynamic, scalable interfaces with clean, type-safe code that’s easy to maintain and
+          extend.
+        </div>
+        <div class="flex gap-x-1">
+          <IconVue class="mt-1 h-7 w-7 shrink-0" />
+          Craft reactive, component-based UIs with Vue that feel smooth, fast, and user-friendly.
+        </div>
+        <div class="mt-0.5 flex gap-x-1">
+          <IconTailwind class="h-7 w-7 shrink-0" />
+          Use Tailwind CSS for efficient and responsive styling.
+        </div>
       </div>
-      <div class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
+
+      <div class="col-span-18 row-span-2 flex flex-col gap-1 px-1 text-start">
+        <h3 class="col-span-18 row-span-1 px-1 text-end font-serif text-2xl font-bold md:text-3xl">
+          Back-end
+        </h3>
+        <div class="flex gap-x-1">
+          <IconDjango class="mt-1.5 h-7 w-7 shrink-0" />
+          Develop robust web apps with Django’s powerful features like ORM, authentication, and
+          admin panel—all with minimal boilerplate.
+        </div>
+        <div class="flex gap-x-1">
+          <IconSQL class="mt-1.5 h-7 w-7 shrink-0" />
+          Structure and query relational databases efficiently, with a focus on performance,
+          normalization, and real-world use cases.
+        </div>
+        <div class="flex gap-x-1">
+          <IconAPI class="mt-1 h-7 w-7 shrink-0" />
+          Design clean, secure, and well-documented APIs that integrate seamlessly with frontend
+          clients and external services.
+        </div>
+      </div>
+
+      <!-- <div class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
         <div class="col-span-18 row-span-1 px-4 text-end">
           <h3 class="font-serif text-3xl font-bold">Back-end</h3>
         </div>
@@ -102,7 +145,7 @@ const frontendItems = [
           </div>
           <BackEndSkills class="col-span-12 col-start-7 text-start xl:col-span-9 xl:col-start-10" />
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- <button @click="toggleColumns" class="btn btn-primary mb-4">Toggle Grid</button> -->
   </div>
