@@ -1,8 +1,12 @@
 <script setup>
-import IconJavaScript from '@/components/icons/IconJavaScript.vue';
-import IconTypeScript from '@/components/icons/IconTypeScript.vue';
-import IconVue from '@/components/icons/IconVue.vue';
-import IconTailwind from '@/components/icons/IconTailwind.vue';
+// import IconJavaScript from '@/components/icons/IconJavaScript.vue';
+// import IconTypeScript from '@/components/icons/IconTypeScript.vue';
+// import IconVue from '@/components/icons/IconVue.vue';
+// import IconTailwind from '@/components/icons/IconTailwind.vue';
+import IconJavaScript from '@/assets/icons/IconJavaScript.min.svg?raw';
+import IconTypeScript from '@/assets/icons/IconTypeScript.min.svg?raw';
+import IconVue from '@/assets/icons/IconVue.min.svg?raw';
+import IconTailwind from '@/assets/icons/IconTailwind.min.svg?raw';
 import TechStackGrid from './TechStackGrid.vue';
 import FrontEndSkills from './FrontEndSkills.vue';
 

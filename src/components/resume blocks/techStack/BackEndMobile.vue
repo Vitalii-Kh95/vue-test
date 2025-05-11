@@ -1,7 +1,10 @@
 <script setup>
-import IconDjango from '@/components/icons/IconDjango.vue';
-import IconSQL from '@/components/icons/IconSQL.vue';
-import IconAPI from '@/components/icons/IconAPI.vue';
+// import IconDjango from '@/components/icons/IconDjango.vue';
+// import IconSQL from '@/components/icons/IconSQL.vue';
+// import IconAPI from '@/components/icons/IconAPI.vue';
+import IconAPI from '@/assets/icons/IconAPI.min.svg?raw';
+import IconSQL from '@/assets/icons/IconSQL.min.svg?raw';
+import IconDjango from '@/assets/icons/IconDjango.min.svg?raw';
 </script>
 
 <template>
@@ -10,17 +13,17 @@ import IconAPI from '@/components/icons/IconAPI.vue';
       Back-end
     </h3>
     <div class="flex gap-x-1">
-      <IconDjango class="mt-1.5 h-7 w-7 shrink-0" />
+      <div v-html="IconDjango" class="mt-1.5 h-7 w-7 shrink-0" />
       Develop robust web apps with Django’s powerful features like ORM, authentication, and admin
       panel—all with minimal boilerplate.
     </div>
     <div class="flex gap-x-1">
-      <IconSQL class="mt-1.5 h-7 w-7 shrink-0" />
+      <div v-html="IconSQL" class="mt-1.5 h-7 w-7 shrink-0" />
       Structure and query relational databases efficiently, with a focus on performance,
       normalization, and real-world use cases.
     </div>
     <div class="flex gap-x-1">
-      <IconAPI class="mt-1 h-7 w-7 shrink-0" />
+      <div v-html="IconAPI" class="mt-1 h-7 w-7 shrink-0" />
       Design clean, secure, and well-documented APIs that integrate seamlessly with frontend clients
       and external services.
     </div>

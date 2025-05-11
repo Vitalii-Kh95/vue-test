@@ -1,5 +1,6 @@
 <script setup>
-import IconSearch from '@/components/icons/IconSearch.vue';
+// import IconSearch from '@/components/icons/IconSearch.vue';
+import IconSearch from '@/assets/icons/IconSearch.min.svg?raw';
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
@@ -44,7 +45,7 @@ const headerTitle = computed(() => {
             class="grow"
             placeholder="Search "
           />
-          <IconSearch class="opacity-60" />
+          <div v-html="IconSearch" class="mt-1" />
         </label>
         <button
           type="submit"

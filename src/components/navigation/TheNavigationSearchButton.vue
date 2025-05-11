@@ -2,10 +2,15 @@
 import { useRoute } from 'vue-router';
 const route = useRoute();
 </script>
+router.push({ name: route.path.includes('blog') ? 'blog-search' : null, query: { q:
+form.target.elements.q.value } });
 
 <template>
   <router-link
-    :to="{ name: route.path.includes('blog') ? 'blog-search' : null }"
+    :to="{
+      name: route.path.includes('blog') ? 'blog-search' : null,
+      query: { q: '' }
+    }"
     class="group btn btn-circle btn-ghost hover:bg-inherit"
   >
     <svg

@@ -1,8 +1,12 @@
 <script setup>
-import IconPython from '@/components/icons/IconPython.vue';
-import IconDjango from '@/components/icons/IconDjango.vue';
-import IconSQL from '@/components/icons/IconSQL.vue';
-import IconAPI from '@/components/icons/IconAPI.vue';
+// import IconPython from '@/components/icons/IconPython.vue';
+// import IconDjango from '@/components/icons/IconDjango.vue';
+// import IconSQL from '@/components/icons/IconSQL.vue';
+// import IconAPI from '@/components/icons/IconAPI.vue';
+import IconPython from '@/assets/icons/IconPython.min.svg?raw';
+import IconAPI from '@/assets/icons/IconAPI.min.svg?raw';
+import IconSQL from '@/assets/icons/IconSQL.min.svg?raw';
+import IconDjango from '@/assets/icons/IconDjango.min.svg?raw';
 import TechStackGrid from './TechStackGrid.vue';
 import BackEndSkills from './BackEndSkills.vue';
 

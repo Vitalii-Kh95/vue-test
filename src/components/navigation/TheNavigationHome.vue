@@ -2,7 +2,8 @@
 import { useHealthStore } from '@/stores/HealthStore';
 import MenuItems from './NavigationMenuItems.vue';
 import DropdownMenu from './TheNavigationDropdownMenu.vue';
-import IconHamburger from '@/components/icons/IconHamburger.vue';
+// import IconHamburger from '@/components/icons/IconHamburger.vue';
+import IconHamburger from '@/assets/icons/IconHamburger.min.svg?raw';
 import ThemeSwitcher from './TheThemeSwitcher.vue';
 
 const menuItems = [
@@ -16,7 +17,7 @@ const healthStore = useHealthStore();
     <div class="navbar-start ps-1">
       <div class="dropdown" v-if="healthStore.blogAPIStatus === 'ok'">
         <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
-          <IconHamburger />
+          <div v-html="IconHamburger" class="h-5 w-5" />
         </div>
         <ul
           tabindex="0"

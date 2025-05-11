@@ -1,7 +1,10 @@
 <script setup>
-import IconPasswordKey from '@/components/icons/IconPasswordKey.vue';
-import IconUsername from '@/components/icons/IconUsername.vue';
-import IconEmail from '@/components/icons/IconEmail.vue';
+// import IconPasswordKey from '@/components/icons/IconPasswordKey.vue';
+// import IconUsername from '@/components/icons/IconUsername.vue';
+// import IconEmail from '@/components/icons/IconEmail.vue';
+import IconPasswordKey from '@/assets/icons/IconPasswordKey.min.svg?raw';
+import IconUsername from '@/assets/icons/IconUsername.min.svg?raw';
+import IconEmail from '@/assets/icons/IconEmail.min.svg?raw';
 import { useUserStore } from '@/stores/UserStore';
 import { ref, computed } from 'vue';
 
@@ -43,7 +46,7 @@ defineExpose({ showModal, close });
 
 <template>
   <dialog ref="modal" class="modal">
-    <div class="modal-box w-1/6 min-w-max max-w-xl">
+    <div class="modal-box w-1/6 min-w-max max-w-xl overflow-hidden">
       <form action="" class="flex flex-col gap-4" @submit.prevent="register">
         <h3 class="self-center text-lg font-bold">Sign Up!</h3>
 
@@ -55,7 +58,7 @@ defineExpose({ showModal, close });
             <span class="label-text">Username:</span>
           </div>
           <label class="input input-bordered flex items-center gap-2">
-            <IconUsername class="shrink-0" />
+            <div v-html="IconUsername" class="h-4 w-4 shrink-0" />
             <input type="text" name="username" class="grow" />
           </label>
           <p v-if="usernameError" class="pt-1 text-sm text-red-500">
@@ -67,7 +70,7 @@ defineExpose({ showModal, close });
             <span class="label-text">Email:</span>
           </div>
           <label class="input input-bordered flex items-center gap-2">
-            <IconEmail class="shrink-0" />
+            <div v-html="IconEmail" class="h-4 w-4 shrink-0" />
             <input type="text" name="email" class="grow" />
           </label>
           <p v-if="emailError" class="pt-1 text-sm text-red-500">
@@ -79,7 +82,7 @@ defineExpose({ showModal, close });
             <span class="label-text">Password:</span>
           </div>
           <label class="input input-bordered flex items-center gap-2">
-            <IconPasswordKey class="shrink-0" />
+            <div v-html="IconPasswordKey" class="h-4 w-4 shrink-0" />
             <input type="password" name="password" class="grow" value="" />
           </label>
           <p v-if="passwordError" class="pt-1 text-sm text-red-500">
@@ -91,7 +94,7 @@ defineExpose({ showModal, close });
             <span class="label-text">Confirm password:</span>
           </div>
           <label class="input input-bordered flex items-center gap-2">
-            <IconPasswordKey class="shrink-0" />
+            <div v-html="IconPasswordKey" class="h-4 w-4 shrink-0" />
             <input type="password" name="password_confirm" class="grow" value="" />
           </label>
           <p v-if="passwordConfirmError" class="pt-1 text-sm text-red-500">

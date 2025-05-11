@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
-import IconSearch from '@/components/icons/IconSearch.vue';
+import IconSearch from '@/assets/icons/IconSearch.min.svg?raw';
 const route = useRoute();
 const router = useRouter();
 function submit(form) {
@@ -18,8 +18,6 @@ function submit(form) {
       class="input join-item input-bordered grow text-base-content focus:outline-2 focus:outline-transparent dark:bg-inherit"
       placeholder="Search"
     />
-    <button class="btn btn-info join-item">
-      <IconSearch />
-    </button>
+    <button v-html="IconSearch" class="btn btn-info join-item pt-1" />
   </form>
 </template>
