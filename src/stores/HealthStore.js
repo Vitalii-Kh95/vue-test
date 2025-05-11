@@ -26,11 +26,11 @@ export const useHealthStore = defineStore('healthStore', {
         const url = new URL('health/', baseURL);
         const response = await fetch(url);
         const data = await response.json();
-        //LOLLOLOLOLOL
+
         this.blogAPIStatus = data.db_status;
 
         if (this.blogAPIStatus === 'error') {
-          throw new Error('Backend is error');
+          throw new Error('Backend returned error');
         } else if (previousStatus === 'error' && this.blogAPIStatus === 'ok') {
           if (this.usePopups) {
             popupStore.show({

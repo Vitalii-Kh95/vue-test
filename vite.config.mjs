@@ -1,26 +1,41 @@
 import { fileURLToPath, URL } from 'node:url';
-
+import os from 'os';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
+function getLocalIPAddress() {
+  const interfaces = os.networkInterfaces();
+  for (const iface of Object.values(interfaces)) {
+    for (const alias of iface) {
+      if (alias.family === 'IPv4' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+  return 'localhost';
+}
+
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __HOST_IP__: JSON.stringify(getLocalIPAddress())
+  },
   plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  server: {
-    host: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        secure: false
-      }
-    }
   }
+  // server: {
+  //   host: true,
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://localhost:8000',
+  //       changeOrigin: true,
+  //       secure: false
+  //     }
+  //   }
+  // }
   // server: {
   //   proxy: {
   //     '/api': {
