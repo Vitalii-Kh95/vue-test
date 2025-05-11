@@ -21,11 +21,6 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
       <div
         class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb.png')]"
       >
-        <!-- <img
-          src="@/assets/cb01.svg"
-          alt="Background"
-          class="absolute inset-0 -z-10 h-full w-full max-w-none object-cover opacity-10 bg-blend-exclusion"
-        /> -->
         <div
           class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(15px,1fr))_minmax(20px,1fr)] grid-rows-[auto_auto_auto_auto_auto_auto_1fr] items-center pb-1 pt-5 md:pt-8"
         >

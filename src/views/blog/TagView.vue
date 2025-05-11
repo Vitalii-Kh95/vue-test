@@ -15,11 +15,6 @@ onBeforeRouteUpdate(async (to, from) => {
     document.title = `#${to.params.slug}`;
   }
 });
-// watch(
-//   () => route.params.slug,
-//   async (slug) => postStore.getPosts({ tag: slug }),
-//   { immediate: true }
-// );
 </script>
 
 <template>

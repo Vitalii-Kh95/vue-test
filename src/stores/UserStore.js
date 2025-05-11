@@ -77,16 +77,9 @@ export const useUserStore = defineStore('userStore', {
   }),
   actions: {
     async fetchUserState() {
-      // const url = new URL('whoami/', baseURL);
       const result = await apiCall('whoami/', { noCsrf: true });
-      // const result = await fetch(url, {
-      //   credentials: 'include',
-      //   headers: { 'Content-Type': 'application/json' }
-      // });
       if (result.ok) {
         this.loggedIn = true;
-        // const data = await result.json();
-        // this.user = data.username;
         this.user = result.data?.username || null;
         return true;
       } else {

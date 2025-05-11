@@ -13,16 +13,6 @@ onBeforeRouteUpdate(async (to, from) => {
     document.title = `#${to.params.slug}`;
   }
 });
-
-// watch(
-//   () => route.query.q,
-//   async (query) => {
-//     if (query) {
-//       postStore.getPosts({ search: query });
-//     }
-//   },
-//   { immediate: true }
-// );
 </script>
 
 <template>

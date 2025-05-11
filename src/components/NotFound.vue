@@ -1,5 +1,5 @@
 <template>
-  <div class="container m-24 mx-auto max-w-2xl p-0 text-center font-serif text-[#333]">
+  <div v-once class="container m-24 mx-auto max-w-2xl p-0 text-center font-serif text-[#333]">
     <h1 class="text-5xl text-error">404</h1>
     <p class="mx-0 my-5 text-xl">Sorry, the page you are looking for does not exist.</p>
     <router-link

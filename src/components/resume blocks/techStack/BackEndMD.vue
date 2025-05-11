@@ -31,7 +31,7 @@ const backendItems = [
 </script>
 
 <template>
-  <div class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
+  <div v-once class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
     <div class="col-span-18 row-span-1 px-4 text-end">
       <h3 class="font-serif text-3xl font-bold">Back-end</h3>
     </div>

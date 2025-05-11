@@ -6,7 +6,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
 </script>
 
 <template>
-  <div>
+  <div class="col-span-full xl:col-span-2">
     <img class="rounded" :src="post.image" alt="" />
 
     <div class="divider"></div>

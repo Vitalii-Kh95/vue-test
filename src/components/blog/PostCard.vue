@@ -33,7 +33,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
         class="btn btn-primary"
         >Details
       </router-link>
-      <p class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>
+      <p v-once class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>
     </div>
   </div>
 </template>

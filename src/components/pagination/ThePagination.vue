@@ -10,7 +10,7 @@ const store = type === 'blog' ? usePostStore() : null;
 </script>
 
 <template>
-  <nav v-if="store.pageCount > 1" aria-label="Paginate me">
+  <nav v-show="store.pageCount > 1" aria-label="Paginate me">
     <ul class="flex">
       <PaginationButton
         label="Previous"
@@ -19,7 +19,7 @@ const store = type === 'blog' ? usePostStore() : null;
       />
       <li v-for="n in store.pageCount" :key="n">
         <button
-          v-if="n !== store.currentPage"
+          v-show="n !== store.currentPage"
           class="relative block rounded-lg px-3 py-1.5 text-sm transition duration-300 hover:bg-base-200 hover:text-base-content focus:bg-secondary focus:text-secondary-content focus:outline-none active:bg-primary"
           @click="
             store.getPosts({
@@ -32,7 +32,10 @@ const store = type === 'blog' ? usePostStore() : null;
         >
           {{ n }}
         </button>
-        <span v-else class="relative block rounded bg-base-300 px-3 py-1.5 text-sm font-medium">
+        <span
+          v-show="n === store.currentPage"
+          class="relative block rounded bg-base-300 px-3 py-1.5 text-sm font-medium"
+        >
           {{ n }}
         </span>
       </li>

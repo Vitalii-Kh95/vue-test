@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="md:rounded-3xыl h-56 w-56 flex-shrink-0 overflow-hidden rounded-full lg:rounded-full">
     <img

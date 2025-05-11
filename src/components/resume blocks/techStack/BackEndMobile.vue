@@ -8,7 +8,7 @@ import IconDjango from '@/assets/icons/IconDjango.min.svg?raw';
 </script>
 
 <template>
-  <div class="col-span-18 row-span-2 flex flex-col gap-1 px-1 text-start">
+  <div v-once class="col-span-18 row-span-2 flex flex-col gap-1 px-1 text-start">
     <h3 class="col-span-18 row-span-1 px-1 text-end font-serif text-2xl font-bold md:text-3xl">
       Back-end
     </h3>

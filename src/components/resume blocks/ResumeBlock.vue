@@ -1,7 +1,11 @@
 <template>
   <div class="relative m-1 flex w-full flex-col text-base-content">
-    <RibbonHeader v-if="breakpoints.active().value !== 'md'" :title="title" />
-    <GradientHeader v-else :title="title" />
+    <keep-alive>
+      <component
+        :is="breakpoints.active().value === 'md' ? GradientHeader : RibbonHeader"
+        :title="title"
+      />
+    </keep-alive>
     <div
       class="ml-[1px] p-4"
       :class="breakpoints.active().value !== 'md' ? 'mt-11 rounded-b-lg bg-base-100 shadow-md' : ''"

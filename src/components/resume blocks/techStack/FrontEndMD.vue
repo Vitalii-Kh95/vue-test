@@ -32,6 +32,7 @@ const frontendItems = [
 
 <template>
   <div
+    v-once
     class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5 text-start"
   >
     <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
