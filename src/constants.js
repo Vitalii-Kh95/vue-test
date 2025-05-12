@@ -3,7 +3,7 @@
 // dev level environment variable. Defined in vite.config file
 // eslint-disable-next-line
 export const baseURL = `http://${__HOST_IP__}:8000/api/`;
-console.warn(`baseURL: ${baseURL}`);
+
 // To not bother with path resolution I put image to public dir instead of src/assets
 export const projects = [
   {

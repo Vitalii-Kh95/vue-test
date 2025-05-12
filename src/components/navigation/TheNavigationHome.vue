@@ -1,5 +1,6 @@
 <script setup>
 import { useHealthStore } from '@/stores/HealthStore';
+import { onMounted, ref } from 'vue';
 import MenuItems from './NavigationMenuItems.vue';
 import DropdownMenu from './TheNavigationDropdownMenu.vue';
 // import IconHamburger from '@/components/icons/IconHamburger.vue';
@@ -10,6 +11,14 @@ const menuItems = [
   { displayedName: 'home', routeName: 'home' },
   { displayedName: 'portfolio', routeName: 'portfolio' }
 ];
+
+const closeDaisyUIDropdown = () => {
+  const elem = document.activeElement;
+  if (elem) {
+    elem?.blur();
+  }
+};
+
 const healthStore = useHealthStore();
 </script>
 <template>
@@ -24,7 +33,15 @@ const healthStore = useHealthStore();
           role="menu"
           class="menu dropdown-content menu-md z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 text-base-content shadow"
         >
-          <DropdownMenu :menu-items="menuItems" />
+          <li v-for="item in menuItems" :key="item.routeName" @click="closeDaisyUIDropdown">
+            <router-link
+              :to="{ name: item.routeName }"
+              class="text-lg"
+              :class="[$route.name === item ? 'pointer-events-none underline' : '']"
+              >{{ item.displayedName }}</router-link
+            >
+          </li>
+          <!-- <DropdownMenu :menu-items="menuItems" /> -->
         </ul>
       </div>
       <div class="hidden sm:flex" v-if="healthStore.blogAPIStatus === 'ok'">
