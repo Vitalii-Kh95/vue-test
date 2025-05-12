@@ -11,6 +11,10 @@ const signInModal = ref(null);
 const signUpModal = ref(null);
 
 async function handleLogout() {
+  const elem = document.activeElement;
+  if (elem) {
+    elem?.blur();
+  }
   try {
     await userStore.logout();
   } catch (error) {
@@ -25,7 +29,7 @@ function showModal(modalRef) {
 </script>
 
 <template>
-  <div class="dropdown dropdown-end dropdown-hover">
+  <div class="dropdown dropdown-end">
     <div
       tabindex="0"
       role="button"
@@ -37,16 +41,19 @@ function showModal(modalRef) {
       tabindex="0"
       class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 text-base-content shadow"
     >
-      <li v-if="!userStore.loggedIn">
+      <li v-show="!userStore.loggedIn">
         <button @click="showModal(signInModal)">Log In</button>
       </li>
-      <li v-if="!userStore.loggedIn">
+      <li v-show="!userStore.loggedIn">
         <button @click="showModal(signUpModal)">Sign Up</button>
       </li>
-      <li v-if="userStore.loggedIn"><button @click="handleLogout">Log Out</button></li>
-
-      <SignInModal ref="signInModal" />
-      <SignUpModal ref="signUpModal" />
+      <li v-show="userStore.loggedIn" @click="handleLogout">
+        <button>Log Out</button>
+      </li>
     </ul>
   </div>
+  <Teleport to="body">
+    <SignInModal ref="signInModal" />
+    <SignUpModal ref="signUpModal" />
+  </Teleport>
 </template>
