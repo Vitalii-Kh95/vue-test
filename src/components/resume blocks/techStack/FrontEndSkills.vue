@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-md bg-radial from-base-200 from-30% to-transparent font-serif text-xl">
+  <div class="rounded-md font-serif text-xl">
     <ul>
       <li>
         <strong class="font-sans">TypeScript</strong> – Build dynamic, scalable interfaces with

@@ -21,11 +21,11 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
         class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat pb-6 bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb.png')]"
       >
         <div
-          class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(15px,1fr))_minmax(20px,1fr)] grid-rows-[auto_auto_auto_auto_auto_auto_1fr] items-center pb-1 pt-5 md:pt-8"
+          class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(15px,1fr))_minmax(20px,1fr)] grid-rows-[repeat(7,auto)] items-center pb-1 pt-5 md:pt-8"
         >
           <div class="col-span-1 row-span-7 h-full shrink-[2] basis-0"></div>
           <div
-            class="col-span-18 col-start-2 row-span-7 row-start-1 grid grid-cols-subgrid grid-rows-subgrid gap-y-3 text-center md:gap-y-5"
+            class="subgrid col-span-18 col-start-2 row-span-7 row-start-1 gap-y-3 text-center md:gap-y-5"
           >
             <h1
               class="col-span-18 row-span-1 mx-auto font-serif text-4xl font-bold text-base-content md:text-6xl 2xl:text-8xl"
@@ -38,9 +38,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
               I design scalable web applications and APIs with modern tools, blending clean design
               with reliable performance.
             </h2>
-            <TechStack
-              class="col-span-18 row-span-5 grid grid-cols-subgrid grid-rows-subgrid gap-y-3"
-            />
+            <TechStack class="subgrid col-span-18 row-span-5 gap-y-3" />
           </div>
           <div class="col-span-1 col-start-20 row-span-7 h-full shrink-[2] basis-0"></div>
         </div>

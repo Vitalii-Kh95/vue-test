@@ -31,15 +31,15 @@ const backendItems = [
 </script>
 
 <template>
-  <div v-once class="col-span-18 row-span-2 grid grid-cols-subgrid grid-rows-subgrid gap-1 px-5">
-    <div class="col-span-18 row-span-1 px-4 text-end">
-      <h3 class="font-serif text-3xl font-bold">Back-end</h3>
-    </div>
-    <div class="col-span-18 row-span-1 grid grid-cols-subgrid grid-rows-subgrid gap-x-2 p-3">
+  <div v-once class="subgrid col-span-18 row-span-2 gap-1 px-5 text-start">
+    <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold xl:px-4 xl:text-end">
+      Back-end
+    </h3>
+    <div class="subgrid col-span-18 row-span-1 gap-x-2 p-3">
       <div class="col-span-5 xl:col-span-8">
         <TechStackGrid :items="backendItems" />
       </div>
-      <BackEndSkills class="col-span-12 col-start-7 text-start xl:col-span-9 xl:col-start-10" />
+      <BackEndSkills class="col-span-12 col-start-7 xl:col-span-9 xl:col-start-10" />
     </div>
   </div>
 </template>

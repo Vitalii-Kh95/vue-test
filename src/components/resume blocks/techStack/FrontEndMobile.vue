@@ -9,7 +9,7 @@ import IconTailwind from '@/assets/icons/IconTailwind.min.svg?raw';
 
 <template>
   <div v-once class="col-span-18 row-span-2 flex flex-col gap-1 px-1 text-start">
-    <h3 class="col-span-18 row-span-1 px-1 font-serif text-2xl font-bold md:text-3xl">Front-end</h3>
+    <h3 class="px-1 font-serif text-2xl font-bold md:text-3xl">Front-end</h3>
     <div class="flex gap-x-1">
       <div v-html="IconTypeScript" class="h-7 w-7 shrink-0" />
       Build dynamic, scalable interfaces with clean, type-safe code that’s easy to maintain and

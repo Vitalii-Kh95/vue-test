@@ -1,7 +1,6 @@
 import daisyui from 'daisyui';
 import themes from 'daisyui/src/theming/themes';
-console.log(themes.light);
-console.log(themes.dark);
+import plugin from 'tailwindcss/plugin';
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: ['class', '[data-theme$="-dark"]'],
@@ -32,7 +31,18 @@ export default {
       }
     }
   },
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.subgrid': {
+          display: 'grid',
+          gridTemplateColumns: 'subgrid',
+          gridTemplateRows: 'subgrid'
+        }
+      });
+    })
+  ],
   daisyui: {
     themes: [
       {

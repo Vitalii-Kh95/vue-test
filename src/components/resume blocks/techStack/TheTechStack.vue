@@ -15,7 +15,7 @@ const breakpoints = useBreakpoints(breakpointsTailwind);
     >
       Tech Stack
     </h2>
-    <div class="col-span-18 row-span-4 grid grid-cols-subgrid grid-rows-subgrid gap-6">
+    <div class="subgrid col-span-18 row-span-4 gap-6">
       <keep-alive>
         <component :is="breakpoints.greaterOrEqual('md').value ? FrontEndMD : FrontEndMobile" />
       </keep-alive>

@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-md bg-radial from-base-200 to-transparent pb-0 font-serif text-xl">
+  <div class="rounded-md pb-0 font-serif text-xl">
     <ul class="">
       <li>
         <strong class="font-sans">Django</strong> - Develop robust web apps with Django’s powerful
