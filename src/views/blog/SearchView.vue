@@ -16,14 +16,15 @@ onBeforeRouteUpdate(async (to, from) => {
 </script>
 
 <template>
-  <div class="container mx-auto flex flex-col items-center">
-    <SearchViewHeader
-      @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
-    />
-
+  <div class="">
     <div class="container mx-auto flex flex-col items-center">
-      <PostCards :posts="postStore.posts" />
-      <Pagination class="my-5" />
+      <SearchViewHeader
+        @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
+      />
+      <div class="container mx-auto flex flex-col items-center">
+        <PostCards :posts="postStore.posts" />
+        <Pagination class="my-5" />
+      </div>
     </div>
   </div>
 </template>

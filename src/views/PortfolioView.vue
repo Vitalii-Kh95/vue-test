@@ -4,7 +4,9 @@ import { projects } from '@/constants';
 </script>
 
 <template>
-  <div class="container mx-auto flex flex-col items-center">
-    <PortfolioCards :projects="projects" />
+  <div class="">
+    <div class="container mx-auto">
+      <PortfolioCards :projects="projects" />
+    </div>
   </div>
 </template>
