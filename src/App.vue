@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
      Scrolling happens inside this element not Navbar's parent
      -->
     <TheNavigation />
-    <div class="flex-1 overflow-hidden pb-1">
+    <div class="flex-1 overflow-hidden">
       <RouterView class="h-full overflow-auto" />
     </div>
     <!-- <RouterView class="flex-1 pt-[--menu-height]" /> -->
