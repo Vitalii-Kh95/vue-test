@@ -1,16 +1,20 @@
 <template>
-  <div class="relative m-1 flex w-full flex-col text-base-content">
+  <div class="relative m-1 flex w-full flex-col text-base-content md:pt-6">
     <keep-alive>
       <component
-        :is="breakpoints.active().value === 'md' ? GradientHeader : RibbonHeader"
+        :is="['sm', 'md'].includes(breakpoints.active().value) ? GradientHeader : RibbonHeader"
         :title="title"
       />
     </keep-alive>
     <div
       class="ml-[1px] p-4"
-      :class="breakpoints.active().value !== 'md' ? 'mt-11 rounded-b-lg bg-base-100 shadow-md' : ''"
+      :class="
+        ['sm', 'md'].includes(breakpoints.active().value)
+          ? ''
+          : 'mt-11 rounded-b-lg bg-base-100 shadow-md'
+      "
     >
-      <div class="w-full">
+      <div class="m-0 w-fit sm:mx-auto lg:mx-0">
         <slot />
       </div>
     </div>

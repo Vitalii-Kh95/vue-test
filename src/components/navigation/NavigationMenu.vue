@@ -45,7 +45,7 @@ const closeDropdown = () => {
         :key="item.routeName"
         :to="{ name: item.routeName }"
         activeClass="underline"
-        class="btn btn-ghost text-xl text-neutral-content"
+        class="btn btn-ghost px-2 text-xl text-neutral-content"
         :class="{ 'pointer-events-none': $route.name === item }"
         >{{ item.displayedName }}</router-link
       >

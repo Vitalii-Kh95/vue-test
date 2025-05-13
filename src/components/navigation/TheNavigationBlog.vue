@@ -16,9 +16,7 @@ const menuItems = [
   { displayedName: 'back to portfolio', routeName: 'portfolio' },
   { displayedName: 'home', routeName: 'blog' }
 ];
-// const displaySearch = computed(() => {
-//   return route.path.includes('blog') && !route.path.includes('search');
-// });
+
 const displaySearch = computed(() => {
   return !route.path.includes('search');
 });
@@ -30,7 +28,7 @@ const displaySearch = computed(() => {
     <div class="navbar-end flex-grow gap-2">
       <component
         v-if="displaySearch"
-        :is="breakpoints.smallerOrEqual('lg').value ? SearchButton : SearchBox"
+        :is="breakpoints.smallerOrEqual('md').value ? SearchButton : SearchBox"
       />
       <ProfileMenu />
       <ThemeSwitcher class="pr-5" />
