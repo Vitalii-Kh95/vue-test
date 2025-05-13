@@ -18,6 +18,13 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex h-screen flex-col">
+    <!--
+     sticky element (Navbar) is fixed only when it's in boundaries of initial parrent's height
+     that is 100vh (h-screen)
+     since some pages need to be scrollable, and go beyound 100vh,
+     I wrapped RouterView in a div with overflow-hidden and fixed height
+     Scrolling happens inside this element not Navbar's parent
+     -->
     <TheNavigation />
     <div class="flex-1 overflow-hidden pb-1">
       <RouterView class="h-full overflow-auto" />

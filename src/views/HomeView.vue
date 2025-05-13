@@ -6,6 +6,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
 <template>
+  <!-- I overrode overflow property cause I need only right side to be scrollable -->
   <main class="flex flex-col bg-base-200 lg:flex-row lg:overflow-hidden">
     <!-- Left Panel -->
     <aside class="flex min-w-[350px] flex-col gap-4 p-6 sm:flex-row sm:gap-0 lg:flex-col xl:w-1/4">
