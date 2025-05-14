@@ -18,6 +18,6 @@ function submit(form) {
       class="input join-item input-bordered grow text-base-content focus:outline-2 focus:outline-transparent dark:bg-inherit"
       placeholder="Search"
     />
-    <button v-html="IconSearch" class="btn btn-info join-item pt-1" />
+    <button v-html="IconSearch" class="btn btn-info join-item pt-1 *:h-5 *:w-5 *:opacity-50" />
   </form>
 </template>

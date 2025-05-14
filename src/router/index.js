@@ -36,7 +36,7 @@ const router = createRouter({
           meta: { title: 'Blog Search' },
           beforeEnter: async (to) => {
             const postStore = usePostStore();
-            if (to.query.q !== '') {
+            if (to.query.q && to.query.q !== '') {
               await postStore.getPosts({ search: to.query.q });
             } else {
               postStore.$reset();

@@ -21,7 +21,7 @@ onBeforeRouteUpdate(async (to, from) => {
       <SearchViewHeader
         @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
       />
-      <div class="container mx-auto flex flex-col items-center">
+      <div class="container mx-auto flex flex-col items-center px-6">
         <PostCards :posts="postStore.posts" />
         <Pagination class="my-5" />
       </div>
