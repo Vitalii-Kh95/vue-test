@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="border- flex h-[3.5rem] w-full bg-base-300/70 shadow-lg">
+  <div class="flex h-[3.5rem] w-full rounded-sm bg-base-content/5 shadow-lg">
     <!-- Left spacer -->
     <div class="flex-shrink grow basis-0" />
 

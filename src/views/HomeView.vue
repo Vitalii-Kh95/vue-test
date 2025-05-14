@@ -25,7 +25,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
         >
           <div class="col-span-1 row-span-7 h-full shrink-[2] basis-0"></div>
           <div
-            class="subgrid col-span-18 col-start-2 row-span-7 row-start-1 gap-y-3 text-center md:gap-y-5"
+            class="col-span-18 col-start-2 row-span-7 row-start-1 gap-y-3 text-center subgrid md:gap-y-5"
           >
             <h1
               class="col-span-18 row-span-1 mx-auto font-serif text-4xl font-bold text-base-content md:text-6xl 2xl:text-8xl"
@@ -38,7 +38,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
               I design scalable web applications and APIs with modern tools, blending clean design
               with reliable performance.
             </h2>
-            <TechStack class="subgrid col-span-18 row-span-5 gap-y-3" />
+            <TechStack class="col-span-18 row-span-5 gap-y-3 subgrid" />
           </div>
           <div class="col-span-1 col-start-20 row-span-7 h-full shrink-[2] basis-0"></div>
         </div>
