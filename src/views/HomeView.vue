@@ -21,7 +21,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
         class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat pb-6 bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb.png')]"
       >
         <div
-          class="grid grid-cols-[minmax(20px,1fr)_repeat(18,minmax(15px,1fr))_minmax(20px,1fr)] grid-rows-[repeat(7,auto)] items-center pb-1 pt-5 md:pt-8"
+          class="grid grid-cols-[1fr_repeat(5,1fr)_0.5fr_1fr_0.5fr_1fr_1fr_0.5fr_1fr_0.5fr_repeat(5,1fr)_1fr] grid-rows-[repeat(7,auto)] items-center pb-1 pt-5 md:pt-8"
         >
           <div class="col-span-1 row-span-7 h-full shrink-[2] basis-0"></div>
           <div
