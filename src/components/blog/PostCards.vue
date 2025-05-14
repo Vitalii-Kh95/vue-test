@@ -9,7 +9,7 @@ defineProps(['posts']);
 <template>
   <TransitionGroup
     tag="div"
-    class="my-8 grid grid-cols-1 gap-5 gap-y-10 lg:grid-cols-2 xl:grid-cols-3"
+    class="my-8 grid grid-cols-1 gap-10 lg:grid-cols-2 xl:grid-cols-3"
     enter-active-class="transition-opacity duration-300 ease-out"
     leave-active-class="transition-opacity duration-300 ease-out"
     enter-from-class="opacity-0"

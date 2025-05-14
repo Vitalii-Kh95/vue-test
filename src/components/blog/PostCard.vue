@@ -7,9 +7,9 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
 
 <template>
   <div
-    class="card mx-3 flex flex-col rounded-lg shadow-2xl duration-150 hover:scale-105 sm:shrink-0 sm:grow sm:basis-0"
+    class="card flex flex-col rounded-lg shadow-2xl duration-150 hover:scale-105 sm:shrink-0 sm:grow sm:basis-0"
   >
-    <img class="h-[25vh] w-auto rounded-t-lg object-cover" :src="post.image" alt="" />
+    <img class="h-[30vh] rounded-t-lg object-cover" :src="post.image" alt="" />
     <div class="card-body justify-between px-6 pb-1 pt-6 text-base-content">
       <h5 class="card-title">{{ post.title }}</h5>
       <div class="flex-grow">
