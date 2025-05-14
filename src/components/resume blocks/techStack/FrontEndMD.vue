@@ -31,11 +31,11 @@ const frontendItems = [
 </script>
 
 <template>
-  <div v-once class="subgrid col-span-18 row-span-2 gap-1 px-5 text-start">
+  <div v-once class="col-span-18 row-span-2 gap-1 px-5 text-start subgrid">
     <h3 class="col-span-18 row-span-1 px-1 font-serif text-3xl font-bold">Front-end</h3>
-    <div class="subgrid col-span-18 row-span-1 gap-x-2 p-3">
-      <FrontEndSkills class="col-span-12 xl:col-span-9" />
-      <div class="col-span-5 col-start-[14] xl:col-span-8 xl:col-start-11">
+    <div class="col-span-18 row-span-1 gap-x-2 p-3 subgrid">
+      <FrontEndSkills class="col-span-11 xl:col-span-10" />
+      <div class="col-span-6 col-start-[13] xl:col-span-7 xl:col-start-12">
         <TechStackGrid :items="frontendItems" />
       </div>
     </div>

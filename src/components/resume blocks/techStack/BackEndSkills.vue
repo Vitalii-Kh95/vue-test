@@ -2,8 +2,8 @@
   <div class="rounded-md pb-0 font-serif text-xl">
     <ul class="*:py-0.5 *:xl:py-0 *:2xl:py-0.5">
       <li>
-        <strong class="pt-0 font-sans">Django</strong> – Develop robust web apps with Django’s
-        powerful features like ORM, authentication, and admin panel—all with minimal boilerplate.
+        <strong class="font-sans">Django</strong> – Develop robust web apps with Django’s powerful
+        features like ORM, authentication, and admin panel—all with minimal boilerplate.
       </li>
       <li>
         <strong class="font-sans">SQL</strong> – Structure and query relational databases

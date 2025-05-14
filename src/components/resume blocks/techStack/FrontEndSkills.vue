@@ -2,7 +2,7 @@
   <div class="rounded-md font-serif text-xl">
     <ul class="*:py-0.5 *:xl:py-0 *:2xl:py-0.5">
       <li>
-        <strong class="pt-0 font-sans">TypeScript</strong> – Build dynamic, scalable interfaces with
+        <strong class="font-sans">TypeScript</strong> – Build dynamic, scalable interfaces with
         clean, type-safe code that’s easy to maintain and extend.
       </li>
       <li>
