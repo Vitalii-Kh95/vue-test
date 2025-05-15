@@ -19,8 +19,9 @@ const closeDropdown = () => {
   <div>
     <!-- mobile window size. Show menu as dropdown -->
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
-        <div v-html="IconHamburger" class="h-5 w-5" />
+      <div tabindex="0" role="button" class="btn btn-ghost rounded-2xl sm:hidden">
+        <span v-html="IconHamburger" class="*:mt-[3px] *:h-5 *:w-5" />
+        <span class="text-xl font-medium text-neutral-content/80 sm:hidden">menu</span>
       </div>
       <ul
         tabindex="0"
@@ -31,7 +32,7 @@ const closeDropdown = () => {
           <router-link
             :to="{ name: item.routeName }"
             class="text-lg"
-            :class="[$route.name === item ? 'pointer-events-none underline' : '']"
+            :class="[$route.name === item.routeName ? 'pointer-events-none underline' : '']"
             >{{ item.displayedName }}</router-link
           >
         </li>
