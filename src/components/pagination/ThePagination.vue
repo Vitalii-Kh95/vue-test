@@ -20,7 +20,7 @@ const store = type === 'blog' ? usePostStore() : null;
       <li v-for="n in store.pageCount" :key="n">
         <button
           v-show="n !== store.currentPage"
-          class="btn btn-square btn-ghost btn-sm text-sm active:bg-primary"
+          class="btn btn-square btn-ghost btn-sm text-sm active:bg-secondary"
           @click="
             store.getPosts({
               limit: 6,
@@ -32,9 +32,10 @@ const store = type === 'blog' ? usePostStore() : null;
         >
           {{ n }}
         </button>
+        <!-- keep bg-secondary. Somehow button happen to become muted faster than active status works on not disabled button (above). That's strange -->
         <button
           v-show="n === store.currentPage"
-          class="btn btn-disabled btn-ghost btn-sm text-sm active:bg-primary"
+          class="btn btn-disabled btn-ghost btn-sm text-sm active:bg-secondary"
         >
           {{ n }}
         </button>
