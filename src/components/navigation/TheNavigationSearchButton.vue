@@ -6,7 +6,7 @@ const route = useRoute();
 <template>
   <router-link
     :to="{
-      name: route.path.includes('blog') ? 'blog-search' : null,
+      name: 'blog-search',
       query: { q: '' }
     }"
     class="group btn btn-circle btn-ghost hover:bg-inherit"

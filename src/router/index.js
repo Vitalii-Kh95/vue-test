@@ -12,12 +12,29 @@ const router = createRouter({
     },
     {
       path: '/portfolio',
-      name: 'portfolio',
-      component: () => import('../views/PortfolioView.vue'),
-      meta: { title: 'Portfolio' }
+      component: () => import('../views/portfolio/PortfolioView.vue'),
+      meta: { title: 'Portfolio' },
+      children: [
+        {
+          path: '',
+          name: 'portfolio',
+          redirect: { name: 'portfolio-blog-project' }
+        },
+        {
+          path: 'blog',
+          name: 'portfolio-blog-project',
+          component: () => import('../views/portfolio/BlogProjectView.vue')
+        },
+        {
+          path: 'more-soon',
+          name: 'portfolio-more-soon',
+          component: () => import('../views/portfolio/MoreSoonView.vue')
+        }
+      ]
     },
     {
       path: '/blog',
+      meta: { blog: true },
       children: [
         {
           path: '',

@@ -5,8 +5,11 @@ import BlogNavigation from './TheNavigationBlog.vue';
 import HomeNavigation from './TheNavigationHome.vue';
 
 const route = useRoute();
+// const parentRoute = computed(() => route.matched[route.matched.length - 2]);
+
+// const parentRouteName = computed(() => parentRoute.value?.name);
 const navigationComponent = computed(() => {
-  if (route.path.includes('blog')) {
+  if (route.matched.some((r) => r.meta.blog)) {
     return BlogNavigation;
   }
   return HomeNavigation;

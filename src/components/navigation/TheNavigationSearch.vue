@@ -1,11 +1,10 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
 import IconSearch from '@/assets/icons/IconSearch.min.svg?raw';
-const route = useRoute();
 const router = useRouter();
 function submit(form) {
   return router.push({
-    name: route.path.includes('blog') ? 'blog-search' : null,
+    name: 'blog-search',
     query: { q: form.target.elements.q.value }
   });
 }

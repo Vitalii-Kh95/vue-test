@@ -22,8 +22,8 @@ const colorMode = ref(getInitialColorMode());
 
 // 2. Function to apply theme (used in multiple places)
 function applyCurrentTheme() {
-  const path = router.currentRoute.value?.path || window.location.pathname;
-  const prefix = path.includes('/blog') ? 'blog' : 'home';
+  const isBlog = router.currentRoute.value?.matched.some((r) => r.meta.blog);
+  const prefix = isBlog ? 'blog' : 'home';
   const theme = `${prefix}-${colorMode.value}`;
   document.documentElement.setAttribute('data-theme', theme);
 }
