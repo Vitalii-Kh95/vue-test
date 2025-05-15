@@ -1,6 +1,7 @@
 import daisyui from 'daisyui';
 import themes from 'daisyui/src/theming/themes';
 import plugin from 'tailwindcss/plugin';
+// import tailwindcssForms from '@tailwindcss/forms';
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: ['class', '[data-theme$="-dark"]'],
@@ -33,6 +34,7 @@ export default {
   },
   plugins: [
     daisyui,
+    // tailwindcssForms,
     plugin(function ({ addUtilities }) {
       addUtilities({
         '.subgrid': {

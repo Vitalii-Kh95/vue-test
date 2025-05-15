@@ -25,17 +25,45 @@ const headerTitle = computed(() => {
 });
 </script>
 <template>
-  <div class="relative h-48 w-full bg-gradient-to-r from-base-100 via-base-200 to-base-100 md:h-60">
+  <div class="h-40 w-full bg-gradient-to-r from-base-100 via-base-200 to-base-100 md:h-60">
     <div
-      class="absolute left-1/2 flex h-full max-w-80 -translate-x-1/2 flex-col items-center justify-start gap-y-5 pt-16 text-center md:w-full md:max-w-none md:gap-y-8"
+      class="m-auto flex h-full flex-col items-center justify-start gap-y-5 pt-12 text-center md:w-full md:max-w-none md:gap-y-8 md:pt-16"
     >
       <form
         @submit.prevent="submit"
         role="search"
         class="join rounded-full border-base-content/20 has-[input:focus]:border"
       >
+        <!-- sprettier-ignore -->
+        <label class="join-item relative flex items-center sm:max-w-none">
+          <input
+            v-model="searchInputText"
+            type="search"
+            name="q"
+            placeholder="Search"
+            class="input w-56 rounded-s-full border border-base-content/20 pe-8 ps-4 text-lg md:input-lg focus:outline-none focus:ring-0 sm:w-64 md:w-80 md:pe-12 lg:w-96"
+          />
+          <div
+            v-html="IconSearch"
+            class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50 *:top-1/2 *:h-4 *:w-4 md:*:h-5 md:*:w-5"
+          />
+        </label>
+
+        <button
+          type="submit"
+          class="btn btn-info join-item btn-sm min-h-12 rounded-r-full sm:btn-md md:btn-lg"
+          :disabled="searchInputText.trim() === ''"
+        >
+          Search
+        </button>
+      </form>
+      <!-- <form
+        @submit.prevent="submit"
+        role="search"
+        class="join rounded-full border-base-content/20 has-[input:focus]:border"
+      >
         <label
-          class="input input-sm join-item input-bordered flex min-h-12 max-w-xs items-center justify-between rounded-full sm:input-md md:input-lg focus-within:outline-0 focus-within:outline-offset-0 sm:max-w-none sm:pe-2"
+          class="field-sizing-fixed input input-sm join-item input-bordered flex min-h-12 items-center justify-between rounded-full sm:input-md md:input-lg focus-within:outline-0 focus-within:outline-offset-0 sm:max-w-none sm:pe-2"
         >
           <input
             v-model="searchInputText"
@@ -53,10 +81,12 @@ const headerTitle = computed(() => {
         >
           Search
         </button>
-      </form>
+      </form> -->
 
       <div class="whitespace-nowrap">
-        <h1 class="text-2xl font-bold md:text-4xl lg:text-5xl">{{ headerTitle }}</h1>
+        <h1 class="text-2xl font-bold text-base-content/90 md:text-4xl">
+          {{ headerTitle }}
+        </h1>
       </div>
     </div>
   </div>

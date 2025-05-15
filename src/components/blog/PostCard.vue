@@ -24,7 +24,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
       </span>
     </div>
     <div class="divider my-0"></div>
-    <div class="flex items-center justify-between overflow-hidden px-6 py-3 text-center">
+    <div class="flex items-center justify-between gap-x-1 overflow-hidden px-6 py-3 text-center">
       <router-link
         :to="{
           name: 'blog-post-details',
