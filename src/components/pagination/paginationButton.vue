@@ -10,8 +10,7 @@ defineProps({
   <li>
     <button
       :disabled="disabled"
-      class="btn btn-ghost btn-xs text-sm sm:btn-sm active:bg-primary"
-      :class="disabled ? 'pointer-events-none' : 'hover:bg-base-200 hover:text-base-content'"
+      class="btn btn-square btn-ghost btn-sm text-sm active:bg-primary"
       @click="callback"
     >
       {{ label }}
