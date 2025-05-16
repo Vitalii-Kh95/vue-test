@@ -69,11 +69,11 @@ defineExpose({ showModal, close });
           </p>
         </div>
         <div class="modal-action flex justify-between">
-          <button type="submit" class="btn btn-primary">Sign In</button>
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
             <button class="btn" @click="close">Close</button>
           </form>
+          <button type="submit" class="btn btn-primary">Sign In</button>
         </div>
       </form>
     </div>
