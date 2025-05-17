@@ -13,7 +13,7 @@ const router = createRouter({
     {
       path: '/portfolio',
       component: () => import('../views/portfolio/PortfolioView.vue'),
-      meta: { title: 'Portfolio' },
+      meta: { title: 'Portfolio - Vitalii Kholmukhamedov' },
       children: [
         {
           path: '',

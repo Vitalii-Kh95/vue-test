@@ -1,5 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>This is more soon component</div>
+  <div>
+    <h1 class="text-4xl font-bold">More soon...</h1>
+  </div>
 </template>
