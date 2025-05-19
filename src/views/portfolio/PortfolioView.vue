@@ -4,29 +4,25 @@ import { projects } from '@/constants';
 </script>
 
 <template>
-  <div class="overflow-hidden pt-6">
-    <!-- <div class="container mx-auto">
-      <PortfolioCards :projects="projects" />
-    </div> -->
-    <div class="mx-auto flex h-full flex-col items-center px-6">
-      <div role="tablist" class="tabs tabs-bordered">
-        <router-link
-          v-for="project in projects"
-          :key="project.routeByName"
-          role="tab"
-          class="tab"
-          :class="[$route.name === project.routeByName ? 'tab-active' : '']"
-          :to="{ name: project.routeByName }"
-          >{{ project.title }}</router-link
-        >
-        <!-- <router-link :to="{ name: 'portfolio-blog-project' }" role="tab" class="tab"
-          >Blog</router-link
-        >
-        <router-link :to="{ name: 'portfolio-more-soon' }" role="tab" class="tab"
-          >More soon</router-link
-        > -->
+  <!-- <div class="flex flex-col overflow-hidden"> -->
+  <div class="w-full flex-1 overflow-auto">
+    <div class="container mx-auto space-y-4 px-4 py-6">
+      <h1 class="text-center text-xl font-bold">My projects</h1>
+      <div class="sticky top-0 z-10 bg-base-100">
+        <div role="tablist" class="tabs tabs-bordered mx-auto max-w-2xl py-3">
+          <router-link
+            v-for="project in projects"
+            :key="project.routeByName"
+            role="tab"
+            class="tab"
+            :class="[$route.name === project.routeByName ? 'tab-active' : '']"
+            :to="{ name: project.routeByName }"
+          >
+            {{ project.title }}
+          </router-link>
+        </div>
       </div>
-      <RouterView class="container flex-1 overflow-auto py-6" />
+      <RouterView class="py-6" />
     </div>
   </div>
 </template>

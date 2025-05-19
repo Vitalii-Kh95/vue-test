@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+import { useHealthStore } from '@/stores/HealthStore';
+
+const healthStore = useHealthStore();
+</script>
 
 <template>
-  <div class="flex flex-col items-center gap-y-3">
+  <div class="container flex flex-col items-center gap-y-3">
     <div class="">
       <img src="/BlogScreenshot.png" alt="" />
     </div>
@@ -9,7 +13,7 @@
       A modern, responsive blog platform designed for publishing and showcasing content, with
       features typical of a real-world, secure web application.
     </h2>
-    <div class="flex w-full gap-x-1">
+    <div class="flex w-full flex-col gap-x-3 lg:flex-row">
       <div>
         <h3 class="my-2 text-xl">🔧 Backend Features (Django REST Framework)</h3>
         <ul class="list-inside list-disc ps-2">
@@ -17,7 +21,6 @@
           <li>Secure user authentication with session-based login and CSRF protection.</li>
           <li>Access permissions controlling visibility and available actions per user role.</li>
           <li>Built-in filtering and pagination for scalable content delivery.</li>
-          <li>Status endpoint for backend health checks (used by the frontend).</li>
         </ul>
       </div>
       <div class="">
@@ -37,10 +40,13 @@
         </ul>
       </div>
     </div>
-    <!-- <router-link class="btn btn-primary mx-auto block h-32 w-10/12 pt-6" :to="{ name: 'blog' }"
-      ><span class="text-xl text-primary-content"
-        >Нажми На эту большую уродливую кнопку что бы перейти на блог</span
-      ></router-link
-    > -->
+
+    <router-link
+      v-if="healthStore.blogAPIStatus === 'ok'"
+      class="btn btn-primary"
+      :to="{ name: 'blog' }"
+      >See it in action!</router-link
+    >
+    <p v-else class="px-4 text-lg text-error">Demonstration isn't available at the moment</p>
   </div>
 </template>
