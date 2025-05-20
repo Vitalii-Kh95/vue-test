@@ -45,9 +45,8 @@ const closeDropdown = () => {
         v-for="item in menuItems"
         :key="item.routeName"
         :to="{ name: item.routeName }"
-        activeClass="underline"
         class="btn btn-ghost px-2 text-xl text-neutral-content"
-        :class="{ 'pointer-events-none': $route.name === item }"
+        :class="{ 'pointer-events-none underline': $route.name === item.routeName }"
         >{{ item.displayedName }}</router-link
       >
     </div>

@@ -35,7 +35,7 @@ const healthStore = useHealthStore();
     <div class="pb-1">
       <img src="/BlogScreenshot.png" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
     </div>
-    <div class="flex w-full flex-col gap-x-3 gap-y-2 lg:flex-row">
+    <div class="flex w-full flex-col gap-x-3 gap-y-2 pb-2 lg:flex-row">
       <div>
         <h3 class="my-2 text-xl">🔧 Backend Features (Django REST Framework)</h3>
         <ul class="list-inside list-disc ps-2">

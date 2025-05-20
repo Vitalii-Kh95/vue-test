@@ -22,7 +22,7 @@ import { projects } from '@/constants';
           </router-link>
         </div>
       </div>
-      <RouterView class="md:py-4" />
+      <RouterView />
     </div>
   </div>
 </template>
