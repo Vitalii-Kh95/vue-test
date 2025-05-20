@@ -2,7 +2,7 @@
 // import { watch } from 'vue';
 import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
-import Header from '@/components/blog/PostHeader.vue';
+import Header from '@/components/blog/PostDetailsOrTagViewHeader.vue';
 import PostCards from '@/components/blog/PostCards.vue';
 import Pagination from '@/components/pagination/ThePagination.vue';
 
