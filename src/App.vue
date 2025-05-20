@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router';
 import TheNavigation from '@/components/navigation/TheNavigation.vue';
 import { useHealthStore } from '@/stores/HealthStore';
-import { defineAsyncComponent, onBeforeUnmount } from 'vue';
+import { defineAsyncComponent, onBeforeUnmount, onMounted } from 'vue';
 
 const healthStore = useHealthStore();
 
@@ -10,14 +10,33 @@ healthStore.fetchHealthStatus();
 
 const PopupManager = defineAsyncComponent(() => import('@/components/PopupManager.vue'));
 
+// Mobile viewport height fix
+function setMobileHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+onMounted(() => {
+  // Set the initial height
+  setMobileHeight();
+
+  // Update on resize and orientation change
+  window.addEventListener('resize', setMobileHeight);
+  window.addEventListener('orientationchange', setMobileHeight);
+});
+
 onBeforeUnmount(() => {
   // Ensure retry interval is cleared when the app is unmounted
   healthStore.stopRetry();
+
+  // Clean up event listeners
+  window.removeEventListener('resize', setMobileHeight);
+  window.removeEventListener('orientationchange', setMobileHeight);
 });
 </script>
 
 <template>
-  <div class="flex h-screen flex-col">
+  <div class="flex flex-col" :style="{ height: 'calc(var(--vh, 1vh) * 100)' }">
     <!--
      sticky element (Navbar) is fixed only when it's in boundaries of initial parrent's height
      that is 100vh (h-screen)
@@ -33,3 +52,10 @@ onBeforeUnmount(() => {
     <component v-if="healthStore.usePopups" :is="PopupManager" />
   </div>
 </template>
+
+<style>
+/* Add this to your global CSS or keep it here if this component loads first */
+:root {
+  --vh: 1vh;
+}
+</style>
