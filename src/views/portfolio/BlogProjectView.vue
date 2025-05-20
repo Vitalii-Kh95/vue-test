@@ -6,7 +6,7 @@ const healthStore = useHealthStore();
 
 <template>
   <div class="container flex flex-col items-center gap-y-3">
-    <h1 class="text-center md:text-lg md:font-semibold">
+    <h1 class="text-center text-base-content/90 sm:font-semibold md:text-lg">
       A personal blog site with a clean design and responsive layout that looks good on any screen —
       from phones to desktops. It includes essential features like user authentication, secure data
       access, and dynamic content management. Powered by Django and Vue.
@@ -15,15 +15,19 @@ const healthStore = useHealthStore();
       >See it in action!</router-link
     >
 
-    <div class="flex w-full gap-x-3 pt-1">
-      <div class="basis-[74.2%]">
+    <div class="flex w-full gap-x-6 pb-4 pt-1 lg:gap-x-12 xl:pb-10">
+      <div
+        class="basis-[74.2%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+      >
         <img
           src="/Screenshot_table_1080x667.png"
           alt=""
           class="aspect-[1080/667] w-full rounded-sm object-contain md:rounded-xl"
         />
       </div>
-      <div class="basis-[25.8%]">
+      <div
+        class="basis-[25.8%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+      >
         <img
           src="/Screenshot_mobile_375x667.png"
           alt=""
@@ -32,7 +36,9 @@ const healthStore = useHealthStore();
       </div>
     </div>
 
-    <div class="pb-1">
+    <div
+      class="rounded-sm pb-1 outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+    >
       <img src="/BlogScreenshot.png" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
     </div>
     <div class="flex w-full flex-col gap-x-3 gap-y-2 pb-2 lg:flex-row">
@@ -41,7 +47,7 @@ const healthStore = useHealthStore();
         <ul class="list-inside list-disc ps-2">
           <li>RESTful API serving structured data to the frontend.</li>
           <li>Secure user authentication with session-based login and CSRF protection.</li>
-          <li>Access permissions controlling visibility and available actions per user role.</li>
+          <li>Relational database integration with Django ORM.</li>
           <li>Built-in filtering and pagination for scalable content delivery.</li>
         </ul>
       </div>
@@ -51,7 +57,7 @@ const healthStore = useHealthStore();
           <li>Interactive interface powered by Vue and connected to the backend via API.</li>
           <li>Dynamic page routing with on-demand component loading (Vue Router).</li>
           <li>Centralized state management (Pinia) handling user sessions and data flow.</li>
-          <li>Route protection for pages requiring login.</li>
+          <!-- <li>Route protection for pages requiring login.</li> -->
         </ul>
       </div>
       <div>
