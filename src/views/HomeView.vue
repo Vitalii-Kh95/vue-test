@@ -1,7 +1,7 @@
 <script setup>
 import Contact from '@/components/resume blocks/TheContact.vue';
 import TechStack from '@/components/resume blocks/techStack/TheTechStack.vue';
-import Languages from '@/components/resume blocks/TheLanguages.vue';
+import PersonalDetails from '@/components/resume blocks/PersonalDetails.vue';
 import Photo from '@/components/resume blocks/ThePhoto.vue';
 </script>
 
@@ -12,7 +12,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
     <aside class="flex min-w-[350px] flex-col gap-4 p-6 sm:flex-row sm:gap-0 lg:flex-col xl:w-1/4">
       <Photo class="shrink-2 order-1 self-center sm:order-2 lg:order-1" />
       <Contact class="order-2 sm:order-1 lg:order-2" />
-      <Languages class="shrink-2 order-3" />
+      <PersonalDetails class="shrink-2 order-3" />
     </aside>
 
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->
