@@ -6,14 +6,36 @@ const healthStore = useHealthStore();
 
 <template>
   <div class="container flex flex-col items-center gap-y-3">
-    <div class="">
-      <img src="/BlogScreenshot.png" alt="" />
+    <h1 class="text-center md:text-lg md:font-semibold">
+      A personal blog site with a clean design and responsive layout that looks good on any screen —
+      from phones to desktops. It includes essential features like user authentication, secure data
+      access, and dynamic content management. Powered by Django and Vue.
+    </h1>
+    <router-link class="link-primary underline" :to="{ name: 'blog' }"
+      >See it in action!</router-link
+    >
+
+    <div class="flex w-full gap-x-3 pt-1">
+      <div class="basis-[74.2%]">
+        <img
+          src="/Screenshot_table_1080x667.png"
+          alt=""
+          class="aspect-[1080/667] w-full rounded-sm object-contain md:rounded-xl"
+        />
+      </div>
+      <div class="basis-[25.8%]">
+        <img
+          src="/Screenshot_mobile_375x667.png"
+          alt=""
+          class="aspect-[375/667] w-full rounded-sm object-contain md:rounded-xl"
+        />
+      </div>
     </div>
-    <h2>
-      A modern, responsive blog platform designed for publishing and showcasing content, with
-      features typical of a real-world, secure web application.
-    </h2>
-    <div class="flex w-full flex-col gap-x-3 lg:flex-row">
+
+    <div class="pb-1">
+      <img src="/BlogScreenshot.png" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
+    </div>
+    <div class="flex w-full flex-col gap-x-3 gap-y-2 lg:flex-row">
       <div>
         <h3 class="my-2 text-xl">🔧 Backend Features (Django REST Framework)</h3>
         <ul class="list-inside list-disc ps-2">
