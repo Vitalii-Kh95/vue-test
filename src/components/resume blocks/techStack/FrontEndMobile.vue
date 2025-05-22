@@ -5,6 +5,7 @@
 import IconTypeScript from '@/assets/icons/IconTypeScript.min.svg?raw';
 import IconVue from '@/assets/icons/IconVue.min.svg?raw';
 import IconTailwind from '@/assets/icons/IconTailwind.min.svg?raw';
+import { SkillsDescription } from '@/constants';
 </script>
 
 <template>
@@ -12,16 +13,15 @@ import IconTailwind from '@/assets/icons/IconTailwind.min.svg?raw';
     <h3 class="px-1 font-serif text-2xl font-bold md:text-3xl">Front-end</h3>
     <div class="flex gap-x-1">
       <div v-html="IconTypeScript" class="h-7 w-7 shrink-0" />
-      Build dynamic, scalable interfaces with clean, type-safe code that’s easy to maintain and
-      extend.
+      {{ SkillsDescription.frontend.typescript }}
     </div>
     <div class="flex gap-x-1">
       <div v-html="IconVue" class="mt-1 h-7 w-7 shrink-0" />
-      Craft reactive, component-based UIs with Vue that feel smooth, fast, and user-friendly.
+      {{ SkillsDescription.frontend.vue }}
     </div>
     <div class="flex gap-x-1">
       <div v-html="IconTailwind" class="mt-0.5 h-7 w-7 shrink-0" />
-      Use Tailwind CSS for efficient and responsive styling.
+      {{ SkillsDescription.frontend.tailwind }}
     </div>
   </div>
 </template>

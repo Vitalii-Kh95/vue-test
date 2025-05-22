@@ -16,3 +16,16 @@ export const projects = [
     routeByName: 'portfolio-more-soon'
   }
 ];
+
+export const SkillsDescription = {
+  frontend: {
+    typescript: 'Develop type-safe, maintainable user interfaces using TypeScript.',
+    vue: 'Build responsive, component-based UIs with Vue for intuitive user experiences.',
+    tailwind: 'Apply Tailwind CSS to create modern, mobile-first layouts.'
+  },
+  backend: {
+    django: 'Create robust web applications with Django, leveraging ORM and authentication.',
+    sql: 'Design and query relational databases using SQL for efficient data management.',
+    restfulAPI: 'Implement RESTful APIs to enable seamless data integration.'
+  }
+};
