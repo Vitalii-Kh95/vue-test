@@ -15,9 +15,9 @@ const healthStore = useHealthStore();
       >See it in action!</router-link
     >
 
-    <div class="flex w-full gap-x-6 pb-4 pt-1 lg:gap-x-12 xl:pb-10">
+    <div class="flex w-full gap-x-6 pb-4 pt-1 lg:gap-x-12 lg:pb-8 xl:pb-9">
       <div
-        class="basis-[74.2%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+        class="basis-[74.2%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
       >
         <img
           src="/Screenshot_table_1080x667.png"
@@ -26,7 +26,7 @@ const healthStore = useHealthStore();
         />
       </div>
       <div
-        class="basis-[25.8%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+        class="basis-[25.8%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
       >
         <img
           src="/Screenshot_mobile_375x667.png"
@@ -37,7 +37,7 @@ const healthStore = useHealthStore();
     </div>
 
     <div
-      class="rounded-sm pb-1 outline outline-1 outline-offset-8 outline-base-content/30 md:rounded-xl"
+      class="rounded-sm pb-1 outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
     >
       <img src="/BlogScreenshot.png" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
     </div>

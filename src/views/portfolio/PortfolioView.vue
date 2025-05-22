@@ -4,8 +4,7 @@ import { projects } from '@/constants';
 </script>
 
 <template>
-  <!-- <div class="flex flex-col overflow-hidden"> -->
-  <div class="w-full flex-1 overflow-auto">
+  <div v-once class="w-full flex-1 overflow-auto">
     <div class="container mx-auto space-y-4 px-4 py-6">
       <h1 class="text-center text-xl font-bold sm:text-2xl xl:text-4xl">My projects</h1>
       <div class="sticky top-0 z-10 bg-base-100">
