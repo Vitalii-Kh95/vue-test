@@ -2,9 +2,9 @@
 // import { watch } from 'vue';
 import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
-import Header from '@/components/blog/PostDetailsOrTagViewHeader.vue';
+import Header from '@/components/blog/BlogHeader.vue';
 import PostCards from '@/components/blog/PostCards.vue';
-import Pagination from '@/components/pagination/ThePagination.vue';
+import Pagination from '@/components/blog/pagination/ThePagination.vue';
 
 const route = useRoute();
 const postStore = usePostStore();
@@ -18,15 +18,14 @@ onBeforeRouteUpdate(async (to, from) => {
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center">
-    <Header :title="`#${route.params.slug}`" />
-    <div
-      v-if="postStore.posts.length > 0"
-      class="container mx-auto flex flex-col items-center px-6"
-    >
-      <PostCards :posts="postStore.posts" />
-      <Pagination class="my-5" />
+  <div class="">
+    <div class="container mx-auto flex w-full flex-col items-center">
+      <Header :title="`#${route.params.slug}`" />
+      <div v-if="postStore.posts.length > 0" class="flex flex-col items-center px-6">
+        <PostCards class="my-5" :posts="postStore.posts" />
+        <Pagination class="mb-4 mt-1" />
+      </div>
+      <h1 v-else class="mx-auto pt-10 text-4xl text-error">No results</h1>
     </div>
-    <h1 v-else class="mx-auto pt-10 text-4xl text-error">No results</h1>
   </div>
 </template>

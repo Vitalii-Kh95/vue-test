@@ -12,7 +12,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
     <div class="divider"></div>
 
     <p class="font-serif text-xl">{{ post.content }}</p>
-    <div class="mt-7 flex justify-end gap-1">
+    <div class="mt-7 flex flex-wrap-reverse justify-end gap-1">
       <span v-for="tag in post.tags" :key="tag.name">
         <TagBadge :tag="tag" />
       </span>
@@ -21,7 +21,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
 
     <div class="flex items-center justify-between pb-4">
       <router-link class="btn btn-primary rounded-xl" :to="{ name: 'blog' }">Go Back</router-link>
-      <div class="p-2">Published: {{ datePostWasCreated }}</div>
+      <span class="ps-2">Published: {{ datePostWasCreated }}</span>
     </div>
   </div>
 </template>

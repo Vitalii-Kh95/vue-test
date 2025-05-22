@@ -1,7 +1,7 @@
 <script setup>
 import PostDetails from '@/components/blog/PostDetails.vue';
 // import AsideBlock from '@/components/blog/TheAsideBlock.vue';
-import Header from '@/components/blog/PostDetailsOrTagViewHeader.vue';
+import Header from '@/components/blog/BlogHeader.vue';
 import NotFound from '@/components/NotFound.vue';
 import { usePostStore } from '@/stores/PostStore';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
@@ -25,14 +25,16 @@ onBeforeRouteUpdate(async (to, from) => {
 });
 </script>
 <template>
-  <div v-if="postStore.post" class="flex w-full flex-col items-center">
-    <Header v-once :title="postStore.post.title" />
-    <div class="container mx-auto mt-6 grid w-[90%] grid-cols-3 gap-20">
-      <PostDetails :post="postStore.post" />
-
-      <keep-alive>
-        <AsideBlock v-if="!breakpoints.smallerOrEqual('xl').value" />
-      </keep-alive>
+  <!-- div for scroll bar to be far right. I probably need to fix it -->
+  <div v-if="postStore.post">
+    <div class="container mx-auto flex flex-col items-center px-6">
+      <Header v-once :title="postStore.post.title" />
+      <div class="mt-6 grid flex-1 grid-cols-3 gap-20">
+        <PostDetails :post="postStore.post" />
+        <keep-alive>
+          <AsideBlock v-if="!breakpoints.smallerOrEqual('xl').value" />
+        </keep-alive>
+      </div>
     </div>
   </div>
   <NotFound v-else return-route-name="blog" />

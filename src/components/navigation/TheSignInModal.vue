@@ -50,7 +50,7 @@ defineExpose({ showModal, close });
           </div>
           <label class="input input-bordered flex items-center gap-2">
             <div v-html="IconUsername" class="h-4 w-4 shrink-0" />
-            <input type="text" name="username" class="grow" />
+            <input type="text" name="username" class="grow" autocomplete="on" />
           </label>
           <p v-if="usernameError" class="pt-1 text-sm text-red-500">
             {{ usernameError }}

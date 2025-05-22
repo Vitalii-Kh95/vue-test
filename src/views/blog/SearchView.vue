@@ -3,7 +3,7 @@ import { onBeforeRouteUpdate } from 'vue-router';
 import { usePostStore } from '@/stores/PostStore';
 import SearchViewHeader from '@/components/blog/TheSearchViewHeader.vue';
 import PostCards from '@/components/blog/PostCards.vue';
-import Pagination from '@/components/pagination/ThePagination.vue';
+import Pagination from '@/components/blog/pagination/ThePagination.vue';
 
 const postStore = usePostStore();
 
