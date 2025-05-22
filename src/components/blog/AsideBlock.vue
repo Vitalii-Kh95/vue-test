@@ -35,7 +35,7 @@ const posts = computed(() => {
         <img class="max-h-[200px] w-full object-cover" :src="post.image" alt="Shoes" />
       </figure>
       <div class="card-body">
-        <div class="h-[100px] overflow-hidden text-ellipsis">{{ post.description }}</div>
+        <div class="line-clamp-4 h-[100px] text-ellipsis">{{ post.description }}</div>
         <div class="card-actions">
           <router-link
             :to="{ name: 'blog-post-details', params: { slug: post.slug } }"

@@ -15,7 +15,7 @@ import { defineAsyncComponent } from 'vue';
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const postStore = usePostStore();
 
-const AsideBlock = defineAsyncComponent(() => import('@/components/blog/TheAsideBlock.vue'));
+const AsideBlock = defineAsyncComponent(() => import('@/components/blog/AsideBlock.vue'));
 
 onBeforeRouteUpdate(async (to, from) => {
   if (to.params.slug !== from.params.slug) {
