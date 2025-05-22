@@ -4,11 +4,9 @@ defineProps(['title']);
 </script>
 
 <template>
-  <div
-    class="flex min-h-24 flex-col justify-center bg-gradient-to-r from-base-100 via-base-200 to-base-100"
-  >
-    <div class="text-center">
-      <h1 class="text-3xl font-bold md:text-5xl">{{ title }}</h1>
+  <div class="flex flex-col justify-center bg-gradient-to-r from-base-100 via-base-200 to-base-100">
+    <div class="py-8 text-center sm:py-10 lg:py-14">
+      <h1 class="text-2xl font-bold sm:text-3xl md:text-4xl">{{ title }}</h1>
     </div>
   </div>
 </template>

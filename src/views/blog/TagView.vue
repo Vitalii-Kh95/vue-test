@@ -20,7 +20,7 @@ onBeforeRouteUpdate(async (to, from) => {
 <template>
   <div class="">
     <div class="container mx-auto flex w-full flex-col items-center">
-      <Header :title="`#${route.params.slug}`" />
+      <Header class="md:py-5" :title="`#${route.params.slug}`" />
       <div v-if="postStore.posts.length > 0" class="flex flex-col items-center px-6">
         <PostCards class="my-5" :posts="postStore.posts" />
         <Pagination class="mb-4 mt-1" />

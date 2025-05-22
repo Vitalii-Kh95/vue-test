@@ -28,7 +28,8 @@ onBeforeRouteUpdate(async (to, from) => {
   <!-- div for scroll bar to be far right. I probably need to fix it -->
   <div v-if="postStore.post">
     <div class="container mx-auto flex flex-col items-center px-6">
-      <Header v-once :title="postStore.post.title" />
+      <!-- no v-once as it can be changed via aside block -->
+      <Header :title="postStore.post.title" />
       <div class="mt-6 grid flex-1 grid-cols-3 gap-20">
         <PostDetails :post="postStore.post" />
         <keep-alive>
