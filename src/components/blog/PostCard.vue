@@ -6,9 +6,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
 </script>
 
 <template>
-  <div
-    class="card flex flex-col rounded-lg shadow-2xl duration-150 hover:scale-105 sm:shrink-0 sm:grow sm:basis-0"
-  >
+  <div class="group card flex flex-col rounded-lg shadow-2xl sm:shrink-0 sm:grow sm:basis-0">
     <img class="h-[30vh] rounded-t-lg object-cover" :src="post.image" alt="" />
     <div class="card-body justify-between px-6 pb-1 pt-6 text-base-content">
       <h5 class="card-title">{{ post.title }}</h5>
@@ -30,10 +28,10 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
           name: 'blog-post-details',
           params: { slug: post.slug }
         }"
-        class="btn btn-primary"
+        class="btn btn-primary duration-150 group-hover:scale-105"
         >Read More
       </router-link>
-      <p v-once class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>
+      <p v-once class="ps-2 text-end text-base-content">Published: {{ datePostWasCreated }}</p>
     </div>
   </div>
 </template>
