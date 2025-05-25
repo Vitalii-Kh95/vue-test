@@ -40,7 +40,7 @@ const posts = computed(() => {
           <router-link
             :to="{ name: 'blog-post-details', params: { slug: post.slug } }"
             class="link link-secondary"
-            >Details</router-link
+            >Read More</router-link
           >
         </div>
         <div class="divider my-0" v-if="index !== posts.length - 1"></div>

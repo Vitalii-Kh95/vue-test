@@ -31,7 +31,7 @@ const datePostWasCreated = computed(() => new Date(props.post.created_at).toLoca
           params: { slug: post.slug }
         }"
         class="btn btn-primary"
-        >Details
+        >Read More
       </router-link>
       <p v-once class="text-end text-base-content">Published: {{ datePostWasCreated }}</p>
     </div>

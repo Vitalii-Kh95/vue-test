@@ -3,7 +3,7 @@ import ThemeSwitcher from './TheThemeSwitcher.vue';
 import Menu from './NavigationMenu.vue';
 
 const menuItems = [
-  { displayedName: 'home', routeName: 'home' },
+  { displayedName: 'resume', routeName: 'home' },
   { displayedName: 'portfolio', routeName: 'portfolio' }
 ];
 </script>

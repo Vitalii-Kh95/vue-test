@@ -11,8 +11,11 @@ const healthStore = useHealthStore();
       from phones to desktops. It includes essential features like user authentication, secure data
       access, and dynamic content management. Powered by Django and Vue.
     </h1>
-    <router-link class="link-primary underline" :to="{ name: 'blog' }"
-      >See it in action!</router-link
+    <span
+      ><router-link class="link-info text-lg font-semibold underline" :to="{ name: 'blog' }"
+        >Click here to see it in action!</router-link
+      >
+      or check out screenshots below.</span
     >
 
     <div class="flex w-full gap-x-6 pb-4 pt-1 lg:gap-x-12 lg:pb-8 xl:pb-9">
