@@ -18,7 +18,7 @@ import Photo from '@/components/resume blocks/ThePhoto.vue';
     <!-- Right Panel: this is the SCROLL CONTAINER with the BG and the GRID -->
     <section class="flex-1 lg:overflow-auto">
       <div
-        class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat pb-6 bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb.png')]"
+        class="min-h-full bg-base-300 bg-cover bg-center bg-no-repeat pb-6 bg-blend-overlay dark:bg-blend-soft-light lg:bg-[url('@/assets/cb.webp')]"
       >
         <div
           class="grid grid-cols-[1fr_repeat(5,1fr)_0.5fr_1fr_0.5fr_1fr_1fr_0.5fr_1fr_0.5fr_repeat(5,1fr)_1fr] grid-rows-[repeat(7,auto)] items-center pb-1 pt-5 md:pt-8"

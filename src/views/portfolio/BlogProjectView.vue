@@ -23,7 +23,7 @@ const healthStore = useHealthStore();
         class="basis-[74.2%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
       >
         <img
-          src="/Screenshot_table_1080x667.png"
+          src="/Screenshot_table_1080x667.webp"
           alt=""
           class="aspect-[1080/667] w-full rounded-sm object-contain md:rounded-xl"
         />
@@ -32,7 +32,7 @@ const healthStore = useHealthStore();
         class="basis-[25.8%] rounded-sm outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
       >
         <img
-          src="/Screenshot_mobile_375x667.png"
+          src="/Screenshot_mobile_375x667.webp"
           alt=""
           class="aspect-[375/667] w-full rounded-sm object-contain md:rounded-xl"
         />
@@ -42,7 +42,7 @@ const healthStore = useHealthStore();
     <div
       class="rounded-sm pb-1 outline outline-1 outline-offset-8 outline-base-content/20 md:rounded-xl"
     >
-      <img src="/BlogScreenshot.png" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
+      <img src="/BlogScreenshot.webp" alt="" class="h-auto w-full rounded-sm md:rounded-xl" />
     </div>
     <div class="flex w-full flex-col gap-x-3 gap-y-2 pb-2 lg:flex-row">
       <div>
