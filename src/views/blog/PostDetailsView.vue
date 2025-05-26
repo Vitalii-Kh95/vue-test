@@ -1,6 +1,5 @@
 <script setup>
-import PostDetails from '@/components/blog/PostDetails.vue';
-// import AsideBlock from '@/components/blog/TheAsideBlock.vue';
+import TagBadge from '@/components/blog/TagBadge.vue';
 import Header from '@/components/blog/BlogHeader.vue';
 import NotFound from '@/components/NotFound.vue';
 import { usePostStore } from '@/stores/PostStore';
@@ -30,8 +29,29 @@ onBeforeRouteUpdate(async (to, from) => {
     <div class="container mx-auto flex flex-col items-center px-6">
       <!-- no v-once as it can be changed via aside block -->
       <Header :title="postStore.post.title" />
-      <div class="mt-6 grid flex-1 grid-cols-3 gap-20">
-        <PostDetails :post="postStore.post" />
+      <div class="mt-6 grid flex-1 grid-cols-3 gap-14 2xl:gap-20">
+        <div class="col-span-full xl:col-span-2">
+          <img class="rounded" :src="postStore.post.image" alt="" />
+
+          <div class="divider"></div>
+
+          <p class="font-serif text-xl">{{ postStore.post.content }}</p>
+          <div class="mt-5 flex flex-wrap-reverse justify-end gap-1">
+            <span v-for="tag in postStore.post.tags" :key="tag.name">
+              <TagBadge :tag="tag" />
+            </span>
+          </div>
+          <div class="divider mb-3"></div>
+
+          <div class="flex items-center justify-between pb-4">
+            <router-link class="btn btn-primary rounded-xl" :to="{ name: 'blog' }"
+              >Go Back</router-link
+            >
+            <span class="ps-2"
+              >Published: {{ new Date(postStore.post.created_at).toLocaleString() }}</span
+            >
+          </div>
+        </div>
         <keep-alive>
           <AsideBlock v-if="!breakpoints.smallerOrEqual('xl').value" />
         </keep-alive>
