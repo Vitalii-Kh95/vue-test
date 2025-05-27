@@ -2,7 +2,9 @@
     "extends": "@vue/tsconfig/tsconfig.dom",
     "include": [
         "src/**/*",
-        "src/**/*.vue"
+        "src/**/*.vue",
+        "legacy/FlexibleBlock.vue",
+        "legacy_code/TheLanguages.vue"
     ],
     "exclude": [
         "node_modules",

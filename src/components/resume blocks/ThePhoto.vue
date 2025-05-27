@@ -1,5 +1,5 @@
 <template>
-  <div class="md:rounded-3xыl h-56 w-56 flex-shrink-0 overflow-hidden rounded-full lg:rounded-full">
+  <div class="h-56 w-56 flex-shrink-0 overflow-hidden rounded-full">
     <img
       src="@/assets/photo_portfolio.jpg"
       alt="My Resume Photo"
