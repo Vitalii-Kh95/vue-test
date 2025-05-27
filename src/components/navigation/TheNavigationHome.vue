@@ -1,5 +1,5 @@
 <script setup>
-import ThemeSwitcher from './TheThemeSwitcher.vue';
+import ThemeSwitcher from './ThemeSwitcher.vue';
 import Menu from './NavigationMenu.vue';
 
 const menuItems = [

@@ -1,9 +1,9 @@
 <script setup>
-import SearchBox from './TheNavigationSearch.vue';
-import ProfileMenu from './TheNavigationProfileButton.vue';
+import SearchBox from './NavigationSearch.vue';
+import ProfileMenu from './NavigationProfileMenu.vue';
 import Menu from './NavigationMenu.vue';
-import ThemeSwitcher from './TheThemeSwitcher.vue';
-import SearchButton from './TheNavigationSearchButton.vue';
+import ThemeSwitcher from './ThemeSwitcher.vue';
+import SearchButton from './NavigationSearchButton.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';

@@ -1,5 +1,5 @@
 <script setup>
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 import IconSearch from '@/assets/icons/IconSearch.min.svg?raw';
 const router = useRouter();
 function submit(form) {
