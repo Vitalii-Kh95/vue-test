@@ -30,5 +30,8 @@ coverage
 
 *.tsbuildinfo
 
+# local certificates
+certs
+
 # Legacy code I decided to keep
 legacy_code/
