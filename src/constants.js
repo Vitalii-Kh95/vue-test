@@ -3,7 +3,7 @@
 // dev level environment variable. Defined in vite.config file
 
 // export const baseURL = `http://${__HOST_IP__}:8000/api/`;
-export const baseURL = 'https://myapp.test/api/';
+export const baseURL = 'https://3.70.225.80/api/';
 // To not bother with path resolution I put image to public dir instead of src/assets
 export const projects = [
   {

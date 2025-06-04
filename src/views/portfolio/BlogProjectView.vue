@@ -11,7 +11,7 @@ const healthStore = useHealthStore();
       from phones to desktops. It includes essential features like user authentication, secure data
       access, and dynamic content management. Powered by Django and Vue.
     </h1>
-    <span
+    <span v-if="healthStore.blogAPIStatus === 'ok'"
       ><router-link class="link-info text-lg font-semibold underline" :to="{ name: 'blog' }"
         >Click here to see it in action!</router-link
       >

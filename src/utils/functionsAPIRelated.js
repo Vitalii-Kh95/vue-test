@@ -13,19 +13,8 @@ export async function getCsrfToken() {
     credentials: 'include'
   });
   const data = await response.json();
-  return data.csrftoken;
-}
 
-/**
- * Retrieves a cookie by name.
- *
- * @param {string} name The name of the cookie
- * @returns {string | null} The cookie value or `null` if not found
- */
-export function getCookie(name) {
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  if (match) return match[2];
-  return null;
+  return data.csrftoken;
 }
 
 ///////////////// posts related functions ///////////////////////////

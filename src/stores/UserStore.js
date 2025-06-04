@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia';
 import { baseURL } from '@/constants';
-import { getCookie, getCsrfToken } from '@/utils/functionsAPIRelated';
+import { getCsrfToken } from '@/utils/functionsAPIRelated';
 
 async function apiCall(endpoint, options = {}) {
   const url = new URL(endpoint, baseURL);
   const defaultHeaders = { 'Content-Type': 'application/json' };
-  const csrftoken = getCookie('csrftoken') || (await getCsrfToken());
+
+  const csrftoken = await getCsrfToken();
 
   options.headers = {
     ...defaultHeaders,
@@ -77,7 +78,7 @@ export const useUserStore = defineStore('userStore', {
   }),
   actions: {
     async fetchUserState() {
-      const result = await apiCall('whoami/', { noCsrf: true });
+      const result = await apiCall('whoami/');
       if (result.ok) {
         this.loggedIn = true;
         this.user = result.data?.username || null;
