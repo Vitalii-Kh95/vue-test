@@ -14,7 +14,7 @@ import { projects } from '@/constants';
             :key="project.routeByName"
             role="tab"
             class="tab font-semibold md:text-lg"
-            :class="[$route.name === project.routeByName ? 'tab-active' : '']"
+            active-class="tab-active"
             :to="{ name: project.routeByName }"
           >
             {{ project.title }}

@@ -78,6 +78,8 @@ const healthStore = useHealthStore();
       :to="{ name: 'blog' }"
       >See it in action!</router-link
     >
-    <p v-else class="px-4 text-lg text-error">Demonstration isn't available at the moment</p>
+    <p v-else class="px-4 text-lg text-error">
+      Sorry! Live demonstration isn't available at the moment.
+    </p>
   </div>
 </template>
