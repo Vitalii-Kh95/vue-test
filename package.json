@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "NODE_OPTIONS=--trace-warnings concurrently \"vite --host\" \"export POETRY_DOTENV_LOCATION=/home/vitalii/projects/in_progres/portfolio/django/.env && poetry --directory /home/vitalii/projects/in_progres/portfolio/django run python /home/vitalii/projects/in_progres/portfolio/django/src/manage.py runserver 0.0.0.0:8000\"",
+    "start": "NODE_OPTIONS=--trace-warnings concurrently \"vite --host\" \"bash -c 'source /home/vitalii/projects/in_progres/portfolio/django/.venv/bin/activate && set -a && source /home/vitalii/projects/in_progres/portfolio/django/.env && set +a && python /home/vitalii/projects/in_progres/portfolio/django/src/manage.py runserver_plus --cert-file /home/vitalii/projects/in_progres/portfolio/django/192.168.1.2.pem --key-file /home/vitalii/projects/in_progres/portfolio/django/192.168.1.2-key.pem 0.0.0.0:8000'\"",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
