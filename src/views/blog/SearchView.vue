@@ -22,8 +22,8 @@ onBeforeRouteUpdate(async (to, from) => {
         @submit-query="(query) => $router.push({ name: 'blog-search', query: { q: query } })"
       />
       <div class="container mx-auto flex flex-col items-center px-6">
-        <PostCards :posts="postStore.posts" />
-        <Pagination class="my-5" />
+        <PostCards class="my-5" :posts="postStore.posts" />
+        <Pagination class="mb-4 mt-1" />
       </div>
     </div>
   </div>
