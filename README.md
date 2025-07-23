@@ -1,35 +1,8 @@
-# portfolio
+**Personal blog site frontend app**
+It's a personal project. You can see how it works in conjunction with Vue here:
+https://kholmukhamedov-vitalii.com/blog
 
-This template should help get you started developing with Vue 3 in Vite.
+### Reminder for myself:
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+start dev server using http via "httpdev" script;
+with https via "start" script.

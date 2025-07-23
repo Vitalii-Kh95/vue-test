@@ -6,7 +6,10 @@
 export const baseURL =
   import.meta.env.MODE === 'production'
     ? 'https://kholmukhamedov-vitalii.com/api/'
-    : `https://${__HOST_IP__}:8000/api/`;
+    : __USE_HTTPS__
+      ? `https://${__HOST_IP__}:8000/api/`
+      : `http://${__HOST_IP__}:8000/api/`;
+// : `https://${__HOST_IP__}:8000/api/`;
 
 // export const baseURL = 'https://kholmukhamedov-vitalii.com/api/';
 // To not bother with path resolution I put image to public dir instead of src/assets
