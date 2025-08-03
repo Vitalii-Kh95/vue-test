@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  IMAGE_TAG: ghcr.io/${{ github.repository_owner }}/vue-test:latest
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,6 +21,11 @@ jobs:
 
       - name: Set up jq (for JSON parsing)
         run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Set lowercase image tag
+        run: |
+          echo "IMAGE_TAG_LOWER=$(echo $IMAGE_TAG | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
 
       - name: Extract Node version from package.json
         id: node_version
@@ -37,6 +45,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/vue-test:latest
+          tags: ${{ env.IMAGE_TAG_LOWER }}
           build-args: |
             NODE_VERSION=${{ steps.node_version.outputs.node_version }}
