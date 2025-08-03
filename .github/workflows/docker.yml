@@ -37,6 +37,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/${{ github.repository_owner }}/vue-test:latest
           build-args: |
             NODE_VERSION=${{ steps.node_version.outputs.node_version }}
