@@ -30,8 +30,8 @@ jobs:
       - name: Extract Node version from package.json
         id: node_version
         run: |
-          NODE_VERSION=$(jq -r '.engines.node' package.json | sed 's/x/.0/')
-          echo "node_version=$NODE_VERSION" >> "$GITHUB_OUTPUT"
+          NODE_VERSION=$(jq -r '.engines.node' package.json | sed 's/x$/0/')
+          echo "node_version=$NODE_VERSION" >> $GITHUB_OUTPUT
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
