@@ -3,7 +3,7 @@ FROM node:${NODE_VERSION} AS build
 WORKDIR /app
 
 COPY package.json ./
-COPY package-lock.json ./  # assuming npm; change if using yarn/pnpm
+COPY package-lock.json ./
 
 RUN npm ci
 
